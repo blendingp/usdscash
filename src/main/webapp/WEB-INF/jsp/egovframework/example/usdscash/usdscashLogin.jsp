@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <!--  This site was created in Webflow. http://www.webflow.com  -->
 <!--  Last Published: Mon Nov 08 2021 08:17:11 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="6344e745b7a4c982c8be6862" data-wf-site="6344e745b7a4c962c3be683c">
+<html data-wf-page="638d805ee804c465540a5356" data-wf-site="638d805ee804c444b60a5350">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
@@ -13,12 +13,6 @@
 <meta content="login" property="twitter:title">
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
-<style>
-.w-button{
-	margin-left:2px;
-	margin-right:2px;
-}
-</style>
 <script>
 var auto = "${autoLogout}";
 if(auto == "1"){
@@ -27,9 +21,62 @@ if(auto == "1"){
 	location.href="/usdscash/login.do";
 }
 </script>
-<body class="body1">
+<body class="body">
 	<div class="frame">
 		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
+
+		<%-- <div class="article">
+			<div class="banner"></div>
+			<div class="section">
+				<div class="form-block w-form">
+					<form action="javascript:login()" id="loginFrm">
+						<div class="login_section">
+							<div class="l_block">
+								<div class="login_block">
+									<a href="/usdscash/user/main.do" class="login_logo w-inline-block"> 
+										<img src="/usdscash/webflow/images2/usds_logo_2.svg" loading="lazy" alt="" class="l_logo_img">
+									</a>
+									<div class="login_title">
+										<spring:message code="menu.login" />
+									</div>
+									<div class="l_inputbox _1">
+										<div class="l_input_title">
+											<spring:message code="join.phone" />
+										</div>
+										<input type="hidden" name="joinKind" id="joinKind" value="setphone" /> 
+										<input type="text" class="input w-input" maxlength="256" placeholder='<spring:message code="join.phoneTxt"/>' name="phone" id="phone"> 
+									</div>
+									<a href="javascript:sendRequest()" class="l_btn w-button"> 
+										<spring:message code="join.request" />
+									</a>
+									<div class="l_inputbox _2">
+										<div class="l_input_title">
+											<spring:message code="join.pw" />
+										</div>
+										<input type="password" class="input w-input" maxlength="256" name="pw" id="pw" placeholder='<spring:message code="join.pWrong"/>' onkeypress="if(event.keyCode==13) {javascript:login(); return false;}">
+									</div>
+									<div class="l_inputbox _2">
+										<div class="l_input_title">
+											<spring:message code="join.code" />
+										</div>
+										<input type="text" class="input w-input" maxlength="256" id="code" name="code" placeholder='<spring:message code="pop.inputConfirmCode"/>' autocomplete="off" onkeypress="if(event.keyCode==13) {javascript:login(); return false;}">
+									</div>
+									<input type="submit" value="<spring:message code="menu.login" />" data-wait="Please wait..." class="l_btn w-button">
+									<a href="#" class="l_btn w-button" onclick="document.getElementById('loginFrm').submit();">
+										<spring:message code="menu.login" />
+									</a>
+									<div class="l_txtbtn_area">
+										<a href="#" class="l_txtbtn"><spring:message code="menu.regist" /><span class="l_arrow">&gt;</span></a>
+										<a href="" onclick="$('#pwPop').css('display','flex')" class="l_txtbtn">비밀번호찾기<span class="l_arrow">&gt;</span></a><br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div> --%>
+
 		<div class="frame4">
 			<div class="login_block">
 				<div class="loginblock"><img src="/usdscash/webflow/images2/wesell_logo.svg" loading="lazy" data-w-id="ea9f9d47-59cb-1533-1095-666329c4628b" alt="" class="login_logo">
@@ -40,7 +87,7 @@ if(auto == "1"){
 								<input type="hidden" name="joinKind" id="joinKind" value="setphone"/>
 								<a href="javascript:setAuth('setphone')" class="button-65 w-button click setphonebtn"><spring:message code="login.phoneauth" /></a> 
 								<a href="javascript:setAuth('setemail')" class="button-65 w-button setemailbtn"><spring:message code="login.emailauth" /></a>
-<%-- 								<a href="javascript:setAuth('settelegram')" class="button-65 w-button settelegrambtn"><spring:message code="affiliate.cb.3"/> <spring:message code="join.request"/></a> --%>
+								<a href="javascript:setAuth('settelegram')" class="button-65 w-button settelegrambtn"><spring:message code="affiliate.cb.3"/> <spring:message code="join.request"/></a>
 							</div>
 							
 							<label for="name" class="title5 setphone"><spring:message code="join.phone" /></label>
@@ -62,12 +109,10 @@ if(auto == "1"){
 							</label> 
 							<input type="password"	class="text-field-10 w-input" name="pw" id="pw" placeholder="<spring:message code="join.pWrong"/>" onkeypress="if(event.keyCode==13) {javascript:login(); return false;}">
 							<div class="login_pwtxt">
-								<span onclick="$('#pwPop').css('display','flex')"
-									class="login_pwbtn" style="cursor: pointer;"><spring:message
-										code="join.forgotPW" /></span>" / " <span
-									onclick="location.href='/usdscash/join.do'" class="login_pwbtn"
-									style="cursor: pointer;"><spring:message
-										code="menu.register2" /></span>
+								<span onclick="$('#pwPop').css('display','flex')" class="login_pwbtn" style="cursor: pointer;">
+									<spring:message code="join.forgotPW" /></span>" / " 
+									<span onclick="location.href='/usdscash/join.do'" class="login_pwbtn" style="cursor: pointer;">
+									<spring:message code="menu.register2" /></span>
 							</div>
 							<input type="submit" value="<spring:message code="menu.login" />" data-wait="Please wait..." class="submit-button-2 w-button">
 						</form>
@@ -130,7 +175,8 @@ if(auto == "1"){
       
 	</div>
 	<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
-	<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b1125ac4d4d60ab9c62f81" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=638d805ee804c444b60a5350" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="/usdscash/webflow/js/webflow.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		function SetNum(obj) {
 			/* val = obj.value;

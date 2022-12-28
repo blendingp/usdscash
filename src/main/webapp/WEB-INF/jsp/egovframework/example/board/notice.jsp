@@ -6,31 +6,63 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <!--  Last Published: Tue Jun 29 2021 05:48:49 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="62b17ff46a9af400cd700ed4" data-wf-site="62b1125ac4d4d60ab9c62f81">
+<html data-wf-page="638d805ee804c48ea60a5358" data-wf-site="638d805ee804c444b60a5350">
 <head>
 <meta charset="utf-8">
 <title>Notice</title>
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
-<body class="body1">
+<body class="body">
 	<div class="frame">
 		<div class="form-block w-form">
 			<form name="listForm" id="listForm" action="/usdscash/notice.do">
 				<input type="hidden" name="pageIndex" />
 				<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
-				<div class="frame5">
+
+				<div class="article">
+					<div class="banner">
+						<div class="b_img custermer">
+							<div class="b_box">
+								<h1 class="heading">공지 · 뉴스</h1>
+								<div>공지사항과 새로운 소식을 확인하실 수 있는 공간입니다.</div>
+							</div>
+						</div>
+					</div>
+					<div class="custermer_container">
+						<div class="c_section1">
+							<div class="c_list_area">
+								<c:set var="number" value="${pi.totalRecordCount -pi.recordCountPerPage*(pi.currentPageNo-1) }" />
+								<c:forEach var="result" items="${noticeList}">
+									<div class="n_list _2" style="cursor: pointer;" onClick="checkdetail(${result.bidx})">
+										<div class="list_category">Notice</div>
+										<div class="list_txt" style="word-break: break-word;">
+											<c:choose>
+												<c:when test="${fn:length(result.btitle) > 25}">
+													${fn:substring(result.btitle,0,20)}...
+												</c:when>
+												<c:otherwise>${result.btitle }</c:otherwise>
+											</c:choose>
+										</div>
+										<div class="list_txt date">${result.bdate}</div> 
+									</div>
+								</c:forEach>
+							</div>
+							<div class="page_area">
+								<a href="#" class="page_btn w-button"> 
+								<ui:pagination paginationInfo="${pi}" type="customPageUser" jsFunction="fn_egov_link_page" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%-- <div class="frame5">
 					<jsp:include page="../userFrame/customerBanner.jsp"></jsp:include>
 					<div class="custermer_listblock">
 						<div class="custermer_titlewarp" style="padding:0;">
 							<div class="title6"><spring:message code="pop.withdrawRequest_7" /></div>
 						</div>
-						<div class="custermer_listblocktop">
-							<div class="custermer_listtxt1"><spring:message code="detail.idx" /></div>
-							<div class="custermer_listtxt4"><spring:message code="support.subject" /></div>
-							<div class="custermer_listtxt3"><spring:message code="detail.writer" /></div>
-							<div class="custermer_listtxt2"><spring:message code="detail.date" /></div>
-							<!-- <div class="custermer_listtxt3">조회수</div> -->
-						</div>
+						
+						
 						<div class="custermer_warp1">
 							<c:set var="number" value="${pi.totalRecordCount -pi.recordCountPerPage*(pi.currentPageNo-1) }" />
 							<c:forEach var="result" items="${noticeList}">
@@ -59,7 +91,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 			</form>
 			<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 		</div>
