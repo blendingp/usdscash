@@ -16,207 +16,157 @@
     margin-right: 20px;
 }
 </style>
-	<div class="top">
-		<div class="topblock">
-			<div class="mob_sidebtn" onclick="mobMenu()"><img src="/usdscash/webflow/images2/menu_square_white.svg" loading="lazy" alt="" class="image-44"></div>
-			<div class="logoblock" onclick="location.href='/usdscash/user/main.do'">
-				<img src="/usdscash/webflow/images2/wesell_logo.svg" class="logo">
+<div class="top">
+	<div class="top_block _2">
+		<div class="top_info">
+			<div class="top_info_txt">
+				코인:<span class="rate up">13231</span>
 			</div>
-			<div class="top_menubtnlist">
-				<div class="topmenubtn">
-					<a href="/usdscash/tradeSpot.do" class="topbtn <c:if test="${currentP eq 'trade'}">click</c:if> w-button"><spring:message code="trade.trade"/></a>
+			<div class="top_info_txt">
+				거래소: <span class="rate down">606</span>
+			</div>
+			<div class="top_info_txt">
+				<div class="top_info_txt">
+					시가총액: <span class="rate up">US$893,187,161,950</span>
 				</div>
-				<div class="topmenubtn">
-					<img src="/usdscash/webflow/images2/more_icon3.svg" loading="lazy" alt="" class="top_arrow">
- 					<a onclick="dropToggle(this)" href="#" class="topbtn <c:if test="${currentP eq 'wallet'}">click</c:if> w-button"><spring:message code="menu.depandwith"/></a> 
-					<div class="topbtn_drop">
-						<a href="/usdscash/user/wallet.do" class="button-14-copy w-button"><spring:message code="wallet.deposit"/></a> 
-						<a href="/usdscash/user/walletWithdraw.do" class="button-14-copy w-button"><spring:message code="wallet.withdrawal"/></a>
-						<a href="/usdscash/user/transactions.do" class="button-14-copy w-button"><spring:message code="wallet.DeandWithHistory_m"/></a> 
-						<a href="/usdscash/user/exchange.do" class="button-14-copy w-button"><spring:message code="wallet.menu.exchange"/></a> 
-						<a href="/usdscash/user/transfer.do" class="button-14-copy w-button"><spring:message code="wallet.futuresExchange"/></a> 
-						<a href="/usdscash/user/requestList.do" class="button-14-copy w-button"><spring:message code="wallet.withdrawallist"/></a> > 
-					</div>
-				</div>
-				<div class="topmenubtn tall">
-					<img src="/usdscash/webflow/images2/more_icon3.svg" loading="lazy" alt="" class="top_arrow">
- 					<a onclick="dropToggle(this)" href="#" class="topbtn <c:if test="${currentP eq 'customer'}">click</c:if> w-button"><spring:message code="menu.support"/></a> 
-					<div class="topbtn_drop tall">
-						<a href="/usdscash/customerService.do" class="button-14-copy w-button"><spring:message code="menu.support" /></a> 
-						<a href="/usdscash/notice.do" class="button-14-copy w-button"><spring:message code="menu.notice" /></a> 
-						<a href="/usdscash/faq.do" class="button-14-copy w-button"><spring:message code="newwave.menu.faq"/></a> 
-						<a href="/usdscash/user/helpCenter.do" class="button-14-copy w-button"><spring:message code="submitRequest" /></a> 
-					</div>
-					<%-- <a href="#" class="button-3 w-button servicep"><spring:message code="menu.support"/></a> --%>
-				</div>
-				<div class="topmenubtn tall">
-					<img src="/usdscash/webflow/images2/more_icon3.svg" loading="lazy" alt="" class="top_arrow">
-					<a href="#" onclick="dropToggle(this)" class="topbtn <c:if test="${currentP eq 'mypage'}">click</c:if> w-button"><spring:message code="menu.mypage"/></a> 
-					<div class="topbtn_drop tall">
-<%-- 						<a href="/usdscash/user/tradeHistory.do" class="button-14-copy w-button"><spring:message code="trade.tradeHistory"/></a> --%>
-<%-- <%-- 						<c:if test="${userLevel eq 'chong'}">  --%> --%>
-<%-- 							<a href="/usdscash/user/referells.do" class="button-14-copy w-button"><spring:message code="menu.referrals"/></a> --%>
-<%-- 						</c:if>  --%>
-						<a href="/usdscash/user/tradeSpotHistory.do" class="button-14-copy w-button"><spring:message code="pop.show.SpotHistory"/></a>
-<%-- 						<a href="/usdscash/user/refe.do" class="button-14-copy w-button"><spring:message code="menu.referrals"/></a> --%>
-						<a href="/usdscash/user/fundingHistory.do" class="button-14-copy w-button"><spring:message code="menu.fundingHistory"/></a>
-					</div>
-				<%-- <a href="javascript:menuShow('mypageMenu')" class="button-3 w-button"><spring:message code="menu.mypage"/></a> --%> 
+				<div class="top_info_txt">
+					<span class="rate up">0.3% ↑</span>
 				</div>
 			</div>
-			<div class="top_leftblock">
-             	<c:if test="${userIdx eq null}">
-					<a href="/usdscash/login.do" class="loginbtn <c:if test="${currentP eq 'login'}">click</c:if> w-button"><spring:message code="menu.login"/></a>
-					<a href="/usdscash/join.do" class="registbtn <c:if test="${currentP eq 'join'}">click</c:if> w-button"><spring:message code="menu.register"/></a>
-				</c:if>
-           		<c:if test="${userIdx ne null}">
-           			<a href="/usdscash/user/myInfo.do" class="registbtn <c:if test="${currentP eq 'myInfo'}">click</c:if> w-button"><spring:message code="join.info"/></a> 
-           			<a href="javascript:logout()" class="registbtn w-button"><spring:message code="menu.logout"/></a>
-           		</c:if>
-				<div class="topmenubtn2">
-                	<a href="#" class="languagebtn w-button">
-                		<c:if test="${lang eq null}">English</c:if>
-                		<c:if test="${lang eq 'EN'}">English</c:if>
-                		<c:if test="${lang eq 'KO'}">한국어</c:if>
-                		<c:if test="${lang eq 'JP'}">日本語</c:if>
-                		<c:if test="${lang eq 'CH'}">简体中文</c:if>
-                		<c:if test="${lang eq 'FC'}">Français</c:if>
-                	</a><img src="/usdscash/webflow/images2/more_icon3.svg" loading="lazy" alt="" class="top_arrow">
-	                <div class="topbtn_drop">
-	                  <a href="javascript:changeLang2('EN')" class="button-14-copy w-button">English</a>
-	                  <c:if test="${userIdx ne null and isKrCode eq true}">
-		                  <a href="javascript:changeLang2('KO')" class="button-14-copy w-button">한국어</a>
-	                  </c:if>
-	                  <a href="javascript:changeLang2('JP')" class="button-14-copy w-button">日本語</a>
-	                  <a href="javascript:changeLang2('CH')" class="button-14-copy w-button">简体中文</a>
-	                  <a href="javascript:changeLang2('FC')" class="button-14-copy w-button"><strong>Français</strong></a>
-	                </div>
-	             </div> 
+			<div class="top_info_txt">
+				24시간 거래량: <span class="rate down">US$149,650,053,487</span>
+			</div>
+			<div class="top_info_txt">
+				점유율:<span class="rate up">BTC 30%</span>
 			</div>
 		</div>
-	</div>
-	<div class="mob_asidepop" id="mobMenu" onclick="mobMenu()" style="z-index:99; display:none;">
-		<div class="mob_asidepop_block">
-			<div class="aside_profile">
-				<div class="asidewarp">
-					<c:if test="${userIdx ne null}">
-						<img src="/usdscash/webflow/images2/account_1white.svg" loading="lazy" alt="" class="image-44">
-						<div class="text-block-17">
-							<span class="profilename">${userName } </span><spring:message code="menu.nim"/>
-						</div>
-					</c:if>
-					<c:if test="${userIdx eq null}">
-						<div class="text-block-17" onclick="location.href='/usdscash/login.do'">
-							<span><spring:message code="menu.login"/></span>
-						</div>
-					</c:if>
+
+		<div class="top_box login">
+			<c:if test="${userIdx eq null}">
+				<div class="top_btn_warp">
+					<a href="/usdscash/login.do" class="top_btn _2 w-button">
+						<spring:message code="menu.login" />
+					</a>
 				</div>
-				<c:if test="${userIdx ne null}">
-					<div class="text-block-21" onclick="location.href='/usdscash/user/myInfo.do'"><spring:message code="join.info"/></div>
-				</c:if>
-			</div>
-			<div class="asideblock">
-				<div class="asidelist" onclick="location.href='/usdscash/user/main.do'">
-					<div><spring:message code="menu.main"/></div>
+				<div class="top_btn_warp">
+					<a href="/usdscash/join.do" class="top_btn _2 w-button">
+						<spring:message code="menu.register" />
+					</a>
 				</div>
-				<div class="asidelist additionalbtn">
-					<div><spring:message code="menu.deal"/></div>
-					<img src="/usdscash/webflow/images2/arrow_up.svg" loading="lazy" alt="" class="image-45 menuarrow" style="transform: rotate(0deg);">
+			</c:if>
+			<c:if test="${userIdx ne null}">
+				<div class="top_btn_warp">
+					<a href="javascript:logout()" class="top_btn _2 w-button">
+						<spring:message code="menu.logout" />
+					</a>
 				</div>
-				<div class="asidelist" onclick="location.href='/usdscash/trade.do?betMode=usdt'">
-					<div><spring:message code="trade.trade"/></div>
-				</div>
-<!-- 				<div class="aasidedrop" style="display:none;"> -->
-<!-- 					<div class="asidelist" onclick="location.href='/usdscash/trade.do?betMode=usdt'"> -->
-<%-- 						<div><spring:message code="menu.futuresCoin"/></div> --%>
-<!-- 					</div> -->
-<!-- 					<div class="asidelist" onclick="location.href='/usdscash/trade.do?betMode=inverse'"> -->
-<%-- 						<div><spring:message code="menu.spotCoin"/></div> --%>
-<!-- 					</div> -->
-<!-- 				</div> -->
-				 <div class="asidelist additionalbtn">
-					<div><spring:message code="detail.copy"/></div>
-					<img src="/usdscash/webflow/images2/arrow_up.svg" loading="lazy" alt="" class="image-45 menuarrow" style="transform: rotate(0deg);">
-				</div>
-				<div class="aasidedrop" style="display:none;">
-					<div class="asidelist" onclick="location.href='/usdscash/user/traderList.do'">
-						<div><spring:message code="trader.follow1"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/user/traderFollowerOrder.do'">
-						<div><spring:message code="trader.myTrading"/></div>
-					</div>
-				</div>
-				<div class="asidelist additionalbtn">
-					<div><spring:message code="menu.depandwith"/></div>
-					<img src="/usdscash/webflow/images2/arrow_up.svg" loading="lazy" alt="" class="image-45 menuarrow" style="transform: rotate(0deg);">
-				</div>
-				<div class="aasidedrop" style="display:none;">
-					<div class="asidelist" onclick="location.href='/usdscash/user/myasset.do'">
-						<div><spring:message code="menu.depandwith"/></div>
-					</div>
-					<%-- <div class="asidelist" class="krw_menu" onclick="location.href='/usdscash/user/kmyasset.do'">
-						<div>KRW <spring:message code="menu.depandwith"/></div>
-					</div> --%>
-					<%-- <div class="asidelist" onclick="location.href='/usdscash/user/transactions.do'">
-						<div><spring:message code="wallet.DeandWithHistory_m"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/user/exchange.do'">
-						<div><spring:message code="wallet.menu.exchange"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/user/transfer.do'">
-						<div><spring:message code="wallet.futuresExchange"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/user/requestList.do'">
-						<div><spring:message code="wallet.withdrawallist"/></div>
-					</div> --%>
- 					<div class="asidelist" onclick="location.href='/usdscash/user/p2pbuy.do'">
- 						<div><spring:message code="wallet.p2p.trade_1"/></div> 
- 					</div>
-				</div>
-				<div class="asidelist additionalbtn">
-					<div><spring:message code="menu.support"/></div>
-					<img src="/usdscash/webflow/images2/arrow_up.svg" loading="lazy" alt="" class="image-45 menuarrow" style="transform: rotate(0deg);">
-				</div>
-				<div class="aasidedrop" style="display:none;">
-					<div class="asidelist" onclick="location.href='/usdscash/customerService.do'">
-						<div><spring:message code="menu.support"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/notice.do'">
-						<div><spring:message code="menu.notice"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/faq.do'">
-						<div><spring:message code="menu.faq"/></div>
-					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/user/helpCenter.do'">
-						<div><spring:message code="submitRequest"/></div>
-					</div>
-				</div>
-				<div class="asidelist additionalbtn">
-					<div><spring:message code="menu.mypage"/></div>
-					<img src="/usdscash/webflow/images2/arrow_up.svg" loading="lazy" alt="" class="image-45 menuarrow" style="transform: rotate(0deg);">
-				</div>
-				<div class="aasidedrop" style="display:none;">
-					<div class="asidelist" onclick="location.href='/usdscash/user/tradeHistory.do'">
-						<div><spring:message code="trade.tradeHistory"/></div>
-					</div>
-<%-- 						<c:if test="${userLevel eq 'chong'}"> --%>
-<!-- 							<div class="asidelist" onclick="location.href='/usdscash/user/referells.do'"> -->
-<%-- 								<div><spring:message code="menu.referrals"/></div> --%>
-<!-- 							</div> -->
-<%-- 						</c:if> --%>
-					<div class="asidelist" onclick="location.href='/usdscash/user/fundingHistory.do'">
-						<div><spring:message code="menu.fundingHistory"/></div>
-					</div>
+			</c:if>
+			<div class="top_btn_warp">
+				<a href="#" class="top_btn w-button"> 
+					<c:if test="${lang eq null}">EN ▼</c:if> 
+					<c:if test="${lang eq 'EN'}">EN ▼</c:if>
+					<c:if test="${lang eq 'KO'}">KR ▼</c:if>
+				</a>
+				<div class="top_toggle">
+					<a href="javascript:changeLang2('EN')" class="top_toggle_btn w-button">EN</a>
+					<a href="javascript:changeLang2('KO')" class="top_toggle_btn w-button">KR</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<div class="top_block">
+		<div class="logo" onclick="location.href='/usdscash/user/main.do'">
+			<img src="/usdscash/webflow/images2/usds_logo_1.svg" loading="lazy" alt="" class="logo_img">
+		</div>
+		<div class="top_box">
+			<div class="top_btn_warp">
+				<a href="/usdscash/tradeSpot.do" class="top_btn w-button"><spring:message code="trade.trade"/></a>
+				<div class="btn_deco"></div>
+			</div>
+			<div class="top_btn_warp">
+				<a href="#" class="top_btn w-button"><spring:message code="menu.support"/></a>
+				<div class="top_toggle">
+					<a href="/usdscash/notice.do" class="top_toggle_btn w-button"><spring:message code="menu.notice" /></a>
+					<a href="/usdscash/customerService.do" class="top_toggle_btn w-button"><spring:message code="menu.support" /></a> 
+					<a href="/usdscash/user/helpCenter.do" class="top_toggle_btn w-button"><spring:message code="submitRequest" /></a> 
+					<a href="/usdscash/faq.do" class="top_toggle_btn w-button"><spring:message code="newwave.menu.faq"/></a>
+				</div>
+				<div class="btn_deco"></div>
+			</div>
+			<div class="top_btn_warp">
+				<a href="#" class="top_btn w-button"><spring:message code="menu.mypage"/></a>
+				<div class="top_toggle">
+					<a href="/usdscash/user/tradeHistory.do" class="top_toggle_btn w-button"><spring:message code="trade.tradeHistory"/></a> 
+					<a href="javascript:menuShow('mypageMenu')" class="top_toggle_btn w-button"><spring:message code="menu.mypage"/></a> 
+				</div>
+				<div class="btn_deco"></div>
+			</div>
+		</div>
+		 <div class="top_search">
+			<div class="form-block w-form">
+				<!-- <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get">
+					<div class="top_search_box">
+						<div class="search_btn">
+							<img src="/usdscash/webflow/images2/search.svg" loading="lazy" alt="" class="icon">
+						</div>
+						<input type="text" class="search_input w-input" maxlength="256" name="field" data-name="" placeholder="검색" id="field-5" required="">
+					</div>
+				</form> -->
+			</div>
+		</div>
+		<div class="mobile_m_btn">
+			<img src="/usdscash/webflow/images2/menu2.svg" loading="lazy" alt=""
+				class="mobile_m_btnicon">
+			<div class="moblie_menu">
+				<div class="exsit_btn">
+					<img src="/usdscash/webflow/images2/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images2/wx_black-p-500.png 500w, /usdscash/webflow/images2/wx_black-p-800.png 800w, /usdscash/webflow/images2/wx_black-p-1080.png 1080w, /usdscash/webflow/images2/wx_black-p-1600.png 1600w, /usdscash/webflow/images2/wx_black.png 1600w" alt="" class="exsit_icon">
+				</div>
+				<div class="mobile_menu_btn" onclick="loaction.href='/usdscash/tradeSpot.do'">
+					<div><spring:message code="trade.trade"/></div>
+				</div>
+				<div class="mobile_toggle_warp">
+					<div class="mobile_menu_btn">
+						<div>고객센터</div>
+						<img src="/usdscash/webflow/images2/round_arrow_1.svg" loading="lazy" alt=""
+							class="ms_arrow">
+					</div>
+					<div class="mobile_menu_btn">
+						<div>마이페이지</div>
+						<img src="/usdscash/webflow/images2/round_arrow_1.svg" loading="lazy" alt=""
+							class="ms_arrow">
+					</div>
+					<div class="toggle_warp">
+						<div class="mobile_toggle_btn">
+							<div>공지사항</div>
+						</div>
+						<div class="mobile_toggle_btn">
+							<div>이벤트</div>
+						</div>
+						<div class="mobile_toggle_btn">
+							<div>문의하기</div>
+						</div>
+						<div class="mobile_toggle_btn">
+							<div>자주묻는 질문</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(".top_btn_warp").hover(function() {
+		$(this).children(".btn_deco").toggleClass("on")
+		$(this).children(".top_toggle").toggleClass("on")
+	});
+</script>
 <script type="text/javascript">
 	var lang = "${lang}";
-	
-	let exRate = 0;
+
+	let
+	exRate = 0;
 	function getExchangeRate() {
 		jQuery.ajax({
 			type : 'get',
@@ -227,10 +177,10 @@
 			}
 		})
 	}
-	
+
 	getExchangeRate();
 	setInterval(getExchangeRate, 30000);
-	
+
 	function logout() {
 		$.ajax({
 			type : 'post',
@@ -264,11 +214,11 @@
 			}
 		});
 	} */
-	
+
 	function changeLang2(lang) {
-		if(lang == "null")
+		if (lang == "null")
 			lang = "EN";
-		
+
 		$.ajax({
 			type : 'post',
 			url : '/usdscash/changeLanguage.do?lang=' + lang,
@@ -277,76 +227,80 @@
 			}
 		});
 	}
-	
 
 	function ready() {
 		alert("<spring:message code='pop.ServiceReady_1'/>");
 	}
-	
-	function menuShow(id){
-		if($("#"+id).css("display")=="flex"){
-			$("#"+id).css("display","none");
-		}else{
-			$("#"+id).css("display","flex");
+
+	function menuShow(id) {
+		if ($("#" + id).css("display") == "flex") {
+			$("#" + id).css("display", "none");
+		} else {
+			$("#" + id).css("display", "flex");
 		}
 	}
-	
-	function toFixedDown(val,fix){
-		if(isNaN(val)) return 0;
-		
+
+	function toFixedDown(val, fix) {
+		if (isNaN(val))
+			return 0;
+
 		var minus = false;
-		if(val < 0)
+		if (val < 0)
 			minus = true;
-		
+
 		var num = 1;
-		for(var i = 0; i < parseFloat(fix); i++){
+		for (var i = 0; i < parseFloat(fix); i++) {
 			num *= 10;
 		}
-		const temp1 = (Number(val) + Number.EPSILON) * num; 
-		const temp2 = Math.floor(Math.abs(temp1));
+		const
+		temp1 = (Number(val) + Number.EPSILON) * num;
+		const
+		temp2 = Math.floor(Math.abs(temp1));
 		var result = temp2 / num;
-		
-		if( result < 1 / num)
+
+		if (result < 1 / num)
 			result = 0;
-		if(minus)
+		if (minus)
 			result *= -1;
 		return result.toFixed(fix);
 	}
-	
-	function datePickerLangSet(){
-		if(lang == "KO"){
+
+	function datePickerLangSet() {
+		if (lang == "KO") {
 			$.datepicker.setDefaults({
-		        dateFormat: 'yymmdd',
-		        prevText: '이전 달',
-		        nextText: '다음 달',
-		        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-		        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-		        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		        showMonthAfterYear: true,
-		        yearSuffix: '년'
-		    });
+				dateFormat : 'yymmdd',
+				prevText : '이전 달',
+				nextText : '다음 달',
+				monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+						'9월', '10월', '11월', '12월' ],
+				monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+						'8월', '9월', '10월', '11월', '12월' ],
+				dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+				dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+				dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+				showMonthAfterYear : true,
+				yearSuffix : '년'
+			});
 		}
 		$(function() {
-		    $('.ui-datepicker').addClass('notranslate');
+			$('.ui-datepicker').addClass('notranslate');
 		});
 	}
-	
-	function mobMenu(){
-		if($("#mobMenu").css("display")=="none"){
-			$("#mobMenu").css("display","flex");
+
+	function mobMenu() {
+		if ($("#mobMenu").css("display") == "none") {
+			$("#mobMenu").css("display", "flex");
 			$("html, body").addClass("not_scroll");
-		}else{
-			$("#mobMenu").css("display","none");
+		} else {
+			$("#mobMenu").css("display", "none");
 			$("html, body").removeClass("not_scroll");
 		}
 	}
-	$(function(){
-		$(".topbtn").on("click",function(){
-			if($(this).next().css("display") == "none"){
+	$(function() {
+		$(".topbtn").on("click", function() {
+			if ($(this).next().css("display") == "none") {
 				$(".topbtn_drop").hide();
-			}				
+			}
 			$(this).next().slideToggle(200);
 		});
 		$(".topmenubtn2").click(function() {
