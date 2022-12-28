@@ -23,8 +23,8 @@
 					<div class="banner">
 						<div class="b_img custermer">
 							<div class="b_box">
-								<h1 class="heading">공지 · 뉴스</h1>
-								<div>공지사항과 새로운 소식을 확인하실 수 있는 공간입니다.</div>
+								<h1 class="heading"><spring:message code="menu.notice" /> </h1>
+								<div><spring:message code="main.cutomer_3" /></div>
 							</div>
 						</div>
 					</div>
@@ -49,49 +49,12 @@
 							</div>
 							<div class="page_area">
 								<a href="#" class="page_btn w-button"> 
-								<ui:pagination paginationInfo="${pi}" type="customPageUser" jsFunction="fn_egov_link_page" />
+									<ui:pagination paginationInfo="${pi}" type="customPageUser" jsFunction="fn_egov_link_page" />
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<%-- <div class="frame5">
-					<jsp:include page="../userFrame/customerBanner.jsp"></jsp:include>
-					<div class="custermer_listblock">
-						<div class="custermer_titlewarp" style="padding:0;">
-							<div class="title6"><spring:message code="pop.withdrawRequest_7" /></div>
-						</div>
-						
-						
-						<div class="custermer_warp1">
-							<c:set var="number" value="${pi.totalRecordCount -pi.recordCountPerPage*(pi.currentPageNo-1) }" />
-							<c:forEach var="result" items="${noticeList}">
-								<div class="custermer_liet" style="cursor: pointer;" onClick="checkdetail(${result.bidx})">
-									<div class="custermer_listtxt1">${number}<c:set var="number" value="${number-1}" /></div>
-									<div class="custermer_listtxt4" style="word-break: break-word;">
-										<c:choose>
-											<c:when test="${fn:length(result.btitle) > 25}">
-												${fn:substring(result.btitle,0,20)}...
-											</c:when>
-											<c:otherwise>${result.btitle }</c:otherwise>
-										</c:choose>
-									</div>
-									<div class="custermer_listtxt3"><spring:message code="root.project"/></div>
-									<div class="custermer_listtxt2">${result.bdate}</div>
-									<!-- <div class="custermer_listtxt3">1</div> -->
-								</div>
-							</c:forEach>
-							<div class="no_data" style=" <c:if test="${fn:length(noticeList) == 0}">display:flex;</c:if>">
-								<spring:message code="trader.nodata" />
-							</div>
-						</div>
-						<div class="custermer_warp2">
-							<div class="paging">
-								<ui:pagination paginationInfo="${pi}" type="customPageUser" jsFunction="fn_egov_link_page" />
-							</div>
-						</div>
-					</div>
-				</div> --%>
 			</form>
 			<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 		</div>
