@@ -169,7 +169,7 @@ public class CopyTradeController {
         
         text = text.replaceAll("(?i)<script", "&lt;script");
         
-		String filePath = "C:/upload/wesell/photo/";
+		String filePath = "C:/upload/usdscash/photo/";
 		EgovMap in = new EgovMap();
         File fileP = new File(filePath);
         if(!fileP.exists()) {

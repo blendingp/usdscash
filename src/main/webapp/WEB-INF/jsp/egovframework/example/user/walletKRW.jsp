@@ -10,7 +10,7 @@
 <!--  Last Published: Mon Mar 14 2022 08:21:34 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="621f09891b27a047c66f3f0c" data-wf-site="6180a71858466749aa0b95bc">
 <head>
-  <jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+  <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
  <style>
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -24,7 +24,7 @@ input[type="number"]::-webkit-inner-spin-button {
 </head>
 <body class="body2">
   <div class="frame">
-    <jsp:include page="../wesellFrame/top2.jsp" />
+    <jsp:include page="../usdscashFrame/top2.jsp" />
     <div class="frame2">
 		<jsp:include page="../userFrame/walletFrameKRW.jsp" />
 		<div class="asset_block">
@@ -77,7 +77,7 @@ input[type="number"]::-webkit-inner-spin-button {
                     </div>
                   </div>
                   <div class="btnwrap">
-                    <a href="/wesell/user/helpCenter.do?title=입금계좌문의" class="btn w-inline-block">
+                    <a href="/usdscash/user/helpCenter.do?title=입금계좌문의" class="btn w-inline-block">
                       <div class="btntxt"><spring:message code="newwave.wallet.acc_inq" /></div>
                     </a>
                     <a href="#" class="btn2 w-inline-block">
@@ -97,7 +97,7 @@ input[type="number"]::-webkit-inner-spin-button {
         </div>
       </div>
     </div>
-    <jsp:include page="../wesellFrame/footer2.jsp" />
+    <jsp:include page="../usdscashFrame/footer2.jsp" />
     <div class="popup" style="display:none;">
       <div class="deposit_pop">
         <div class="depositpop_box">
@@ -212,12 +212,12 @@ input[type="number"]::-webkit-inner-spin-button {
 			jQuery.ajax({
 				type : "POST",
 				data : allData,
-				url : "/wesell/user/depositProcess.do",
+				url : "/usdscash/user/depositProcess.do",
 				dataType : "json",
 				success : function(data) {
 					alert(data.msg);
 					if (data.result == "suc") {
-						location.href = "/wesell/user/kTransactions.do";
+						location.href = "/usdscash/user/kTransactions.do";
 					}
 					else{
 						location.reload();
@@ -338,7 +338,7 @@ input[type="number"]::-webkit-inner-spin-button {
 			$('.popup').css('display','none');
 			jQuery.ajax({
 				type : "POST",
-				url : "/wesell/epayProcess.do",
+				url : "/usdscash/epayProcess.do",
 				data : edata,
 				dataType : "json",
 				success : function(data) {

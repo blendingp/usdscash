@@ -11,7 +11,7 @@
 	data-wf-site="6180a71858466749aa0b95bc">
 <head>
 <meta charset="utf-8">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 <script>
 	var result = "${result}";
 	if (result == "fail")
@@ -20,7 +20,7 @@
 </head>
 <body class="body2">
 	<div class="frame">
-		<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="frame2">
 			<jsp:include page="../userFrame/walletFrame.jsp"></jsp:include>
 			<div class="asset_block">
@@ -87,7 +87,7 @@
 											<spring:message code="wallet.conversion" />
 										</div>
 										<div class="assetbox3">
-											<form action="/wesell/user/transferProcess.do" id="sendform" method="POST">
+											<form action="/usdscash/user/transferProcess.do" id="sendform" method="POST">
 												<input type="hidden" name="direction" id="direction" value="1" /> 
 											    <input type="hidden" name="max" id="max" value="0"/>
 												<input type="text" class="text-field-8 select w-input" maxlength="30" name="conversion" onInput="setDouble(this,5)" placeholder="0"
@@ -125,7 +125,7 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 	</div>
 	<script
 		src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6180a71858466749aa0b95bc"
@@ -234,7 +234,7 @@
 			$.ajax({
 				type : 'post',
 				dataType : 'json',
-				url : '/wesell/user/getWithdrawFutures.do',
+				url : '/usdscash/user/getWithdrawFutures.do',
 				success : function(data) {
 					realfUsdt = toFixedDown(data.withdrawWallet, 5);
 					realUsdt = toFixedDown(data.withdrawUSDT, 5);

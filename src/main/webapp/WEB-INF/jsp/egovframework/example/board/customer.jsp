@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta content="detail" property="og:title">
 <meta content="detail" property="twitter:title">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 <title>customer service</title>
 </head>
 <style>
@@ -26,22 +26,22 @@
 	<div class="frame">
 		<div class="form-block w-form">
 			<form id="email-form" name="email-form" data-name="Email Form" class="form">
-				<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+				<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 				<div class="frame5">
 					<jsp:include page="../userFrame/customerBanner.jsp"></jsp:include>
 					<div class="custermermain_warp">
 						<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef83830" class="custermermain_box">
 							<div class="custermermain_warp1">
-								<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef83832" class="custermer_iconbtn" onClick="location.href='/wesell/notice.do'">
-									<img src="/wesell/webflow/images2/telescope.png" loading="lazy" alt="" class="image-51">
+								<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef83832" class="custermer_iconbtn" onClick="location.href='/usdscash/notice.do'">
+									<img src="/usdscash/webflow/images2/telescope.png" loading="lazy" alt="" class="image-51">
 									<div><spring:message code="support.notice" /> </div>
 								</div>
-								<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef83836" class="custermer_iconbtn" onClick="location.href='/wesell/faq.do'">
-									<img src="/wesell/webflow/images2/magnifyingglass.png" loading="lazy" alt="" class="image-51">
+								<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef83836" class="custermer_iconbtn" onClick="location.href='/usdscash/faq.do'">
+									<img src="/usdscash/webflow/images2/magnifyingglass.png" loading="lazy" alt="" class="image-51">
 									<div><spring:message code="menu.faq"/></div>
 								</div>
-								<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef8383a" class="custermer_iconbtn" onClick="location.href='/wesell/user/helpCenter.do'">
-									<img src="/wesell/webflow/images2/bag.png" loading="lazy"alt="" class="image-51" >
+								<div data-w-id="bb40effc-63fb-5600-70b0-10de2ef8383a" class="custermer_iconbtn" onClick="location.href='/usdscash/user/helpCenter.do'">
+									<img src="/usdscash/webflow/images2/bag.png" loading="lazy"alt="" class="image-51" >
 									<div><spring:message code="submitRequest"/></div>
 								</div>
 							</div>
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+				<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 			</form>
 		</div>
 	</div>
@@ -93,10 +93,10 @@
 						type : type,
 					},
 					dataType : 'json',
-					url : '/wesell/checkdetail.do',
+					url : '/usdscash/checkdetail.do',
 					success : function(data) {
 						if (data.result == 'success') {
-							location.href = "/wesell/detail.do?bidx="+bidx+"&type="+type;
+							location.href = "/usdscash/detail.do?bidx="+bidx+"&type="+type;
 						} else {
 							console.log(data.msg);
 							alert(data.msg);

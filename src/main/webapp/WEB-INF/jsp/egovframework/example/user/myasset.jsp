@@ -10,7 +10,7 @@
 <html data-wf-page="62b16a1ad874f735cccc57cd" data-wf-site="62b1125ac4d4d60ab9c62f81">
 <head>
 <meta charset="utf-8">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 <style>
 .asset_coininfo_txt {
 	min-width: 150px;
@@ -116,7 +116,7 @@
 <body class="body2">
 	<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6073d35203881b197a7cdb93" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<div class="frame">
-		<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="frame2">
 			<jsp:include page="../userFrame/walletFrame.jsp"></jsp:include>
 			<div class="asset_block">
@@ -274,7 +274,7 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 	</div>
 	<script
 		src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6180a71858466749aa0b95bc"

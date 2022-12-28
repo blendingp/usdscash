@@ -12,7 +12,7 @@
 <title>Transactional information</title>
 <meta content="transactional information" property="og:title">
 <meta content="transactional information" property="twitter:title">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 <style>
 .settle-complete__box {
 	color:white
@@ -21,7 +21,7 @@
 </head>
 <body class="body2">
 	<div class="frame">
-		<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="frame2">
 			<div class="asset_block">
 				<div class="assetbox">
@@ -116,7 +116,7 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 		<div class="settle-complete" id="settlePop" style="display: none; z-index: 15; letter-spacing: -0.5px; font-family:'Nanumsquareotf ac', sans-serif;">
 			<div class="settle-complete__box">
 				<div class="div-block-84">

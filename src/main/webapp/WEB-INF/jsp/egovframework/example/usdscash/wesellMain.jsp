@@ -9,26 +9,26 @@
 <html data-wf-page="6344e745b7a4c973ecbe683f"
 	data-wf-site="6344e745b7a4c962c3be683c">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body class="body">
   <div class="frame">
-    <jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+    <jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
     <div class="main_warp">
       <div class="m_section1 wf-section">
         <div class="m_sc_block1">
           <div class="m_sc_box1">
-            <div class="m_sc_title"><spring:message code="wesell.main.ment1"/> <br><spring:message code="wesell.main.ment2"/></div>
-            <div class="m_sc_stitle"><spring:message code="wesell.main.ment3"/> <br><spring:message code="wesell.main.ment4"/></div>
+            <div class="m_sc_title"><spring:message code="usdscash.main.ment1"/> <br><spring:message code="usdscash.main.ment2"/></div>
+            <div class="m_sc_stitle"><spring:message code="usdscash.main.ment3"/> <br><spring:message code="usdscash.main.ment4"/></div>
             <div class="m_sc_btn_area">
              <c:if test="${userIdx eq null}">
-					<a href="/wesell/login.do" class="loginbtn <c:if test="${currentP eq 'login'}">click</c:if> w-button"><spring:message code="menu.login"/></a>
-					<a href="/wesell/join.do" class="registbtn <c:if test="${currentP eq 'join'}">click</c:if> w-button"><spring:message code="menu.register"/></a>
+					<a href="/usdscash/login.do" class="loginbtn <c:if test="${currentP eq 'login'}">click</c:if> w-button"><spring:message code="menu.login"/></a>
+					<a href="/usdscash/join.do" class="registbtn <c:if test="${currentP eq 'join'}">click</c:if> w-button"><spring:message code="menu.register"/></a>
 				</c:if>
             </div>
           </div>
-          <div class="m_sc_box2"><img src="/wesell/webflow/images2/wesell_logo.png" loading="lazy" srcset="/wesell/webflow/images2/wesell_logo-p-500.png 500w, /wesell/webflow/images2/wesell_logo-p-800.png 800w, /wesell/webflow/images2/wesell_logo-p-2000.png 2000w, /wesell/webflow/images2/wesell_logo.png 2000w" sizes="(max-width: 767px) 45vw, 200px" alt="" class="m_sc1_img">
+          <div class="m_sc_box2"><img src="/usdscash/webflow/images2/wesell_logo.png" loading="lazy" srcset="/usdscash/webflow/images2/wesell_logo-p-500.png 500w, /usdscash/webflow/images2/wesell_logo-p-800.png 800w, /usdscash/webflow/images2/wesell_logo-p-2000.png 2000w, /usdscash/webflow/images2/wesell_logo.png 2000w" sizes="(max-width: 767px) 45vw, 200px" alt="" class="m_sc1_img">
             <div class="n_sc_chart">
               <div class="n_sc_chart_box"></div>
             </div>
@@ -36,14 +36,14 @@
         </div>
         <div class="m_rolling">
           <div class="rolling_area">
-            <div><spring:message code="wesell.main.ment7"/></div>
+            <div><spring:message code="usdscash.main.ment7"/></div>
           </div>
         </div>
       </div>
       <div class="m_section2 wf-section">
         <div class="m_sc_block2">
-          <div class="m_sc_title2"><spring:message code="wesell.main.ment8"/></div>
-          <div class="m_sc_stitle"><spring:message code="wesell.main.ment9"/></div>
+          <div class="m_sc_title2"><spring:message code="usdscash.main.ment8"/></div>
+          <div class="m_sc_stitle"><spring:message code="usdscash.main.ment9"/></div>
           <div class="m_sc2_box">
             <div class="form-block w-form">
               <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get">
@@ -51,7 +51,7 @@
                   <div class="m_c_box">
                     <div>USDT</div><input type="text" class="m_c_input w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="Example Text" id="field-2" required="">
                   </div>
-                  <div class="m_c_box2"><img src="/wesell/webflow/images2/1608681_exchange_icon_11608681_exchange_icon.png" loading="lazy" alt="" class="m_c_icon"></div>
+                  <div class="m_c_box2"><img src="/usdscash/webflow/images2/1608681_exchange_icon_11608681_exchange_icon.png" loading="lazy" alt="" class="m_c_icon"></div>
                   <div class="m_c_box">
                     <div>Coin Select</div><select id="field-3" name="field-3" data-name="Field 3" class="m_coin_select w-select">
                       <option value="">Select one...</option>
@@ -77,32 +77,32 @@
       </div>
       <div class="m_section3 wf-section">
         <div class="m_sc_block3">
-          <div class="m_sc_title2"><spring:message code="wesell.main.ment10"/></div>
-          <div class="m_sc_stitle"><spring:message code="wesell.main.ment11"/></div>
+          <div class="m_sc_title2"><spring:message code="usdscash.main.ment10"/></div>
+          <div class="m_sc_stitle"><spring:message code="usdscash.main.ment11"/></div>
           <div class="m_sc_itemblock">
-            <div id="w-node-_9e3126ee-a5bb-a243-52af-c9c612938c27-d31606f3" class="m_sc_item"><img src="/wesell/webflow/images2/chart.png" loading="lazy" srcset="/wesell/webflow/images2/chart-p-500.png 500w, /wesell/webflow/images2/chart-p-800.png 800w, /wesell/webflow/images2/chart-p-2000.png 2000w, /wesell/webflow/images2/chart.png 2000w" sizes="(max-width: 767px) 18vw, 119.828125px" alt="" class="m_sc_item_img">
-              <div class="m_item_title"><spring:message code="wesell.main.ment12"/></div>
-              <div><spring:message code="wesell.main.ment13"/></div>
+            <div id="w-node-_9e3126ee-a5bb-a243-52af-c9c612938c27-d31606f3" class="m_sc_item"><img src="/usdscash/webflow/images2/chart.png" loading="lazy" srcset="/usdscash/webflow/images2/chart-p-500.png 500w, /usdscash/webflow/images2/chart-p-800.png 800w, /usdscash/webflow/images2/chart-p-2000.png 2000w, /usdscash/webflow/images2/chart.png 2000w" sizes="(max-width: 767px) 18vw, 119.828125px" alt="" class="m_sc_item_img">
+              <div class="m_item_title"><spring:message code="usdscash.main.ment12"/></div>
+              <div><spring:message code="usdscash.main.ment13"/></div>
             </div>
-            <div id="w-node-cc896c90-49b8-1127-0cbd-60b9d1aa82d8-d31606f3" class="m_sc_item"><img src="/wesell/webflow/images2/trophy.svg" loading="lazy" alt="" class="m_sc_item_img">
-              <div class="m_item_title"><spring:message code="wesell.main.ment14"/></div>
-              <div><spring:message code="wesell.main.ment15"/></div>
+            <div id="w-node-cc896c90-49b8-1127-0cbd-60b9d1aa82d8-d31606f3" class="m_sc_item"><img src="/usdscash/webflow/images2/trophy.svg" loading="lazy" alt="" class="m_sc_item_img">
+              <div class="m_item_title"><spring:message code="usdscash.main.ment14"/></div>
+              <div><spring:message code="usdscash.main.ment15"/></div>
             </div>
-            <div id="w-node-_7b33e635-8304-82b5-e245-f9828f15f995-d31606f3" class="m_sc_item"><img src="/wesell/webflow/images2/rocket.svg" loading="lazy" alt="" class="m_sc_item_img">
-              <div class="m_item_title"><spring:message code="wesell.main.ment16"/></div>
-              <div><spring:message code="wesell.main.ment17"/></div>
+            <div id="w-node-_7b33e635-8304-82b5-e245-f9828f15f995-d31606f3" class="m_sc_item"><img src="/usdscash/webflow/images2/rocket.svg" loading="lazy" alt="" class="m_sc_item_img">
+              <div class="m_item_title"><spring:message code="usdscash.main.ment16"/></div>
+              <div><spring:message code="usdscash.main.ment17"/></div>
             </div>
-            <div id="w-node-_99f0a873-fe84-57f9-abf3-57f13cb5adc7-d31606f3" class="m_sc_item"><img src="/wesell/webflow/images2/fix.svg" loading="lazy" alt="" class="m_sc_item_img">
-              <div class="m_item_title"><spring:message code="wesell.main.ment18"/></div>
-              <div><spring:message code="wesell.main.ment19"/></div>
+            <div id="w-node-_99f0a873-fe84-57f9-abf3-57f13cb5adc7-d31606f3" class="m_sc_item"><img src="/usdscash/webflow/images2/fix.svg" loading="lazy" alt="" class="m_sc_item_img">
+              <div class="m_item_title"><spring:message code="usdscash.main.ment18"/></div>
+              <div><spring:message code="usdscash.main.ment19"/></div>
             </div>
-            <div id="w-node-a908d69f-1c49-7dda-efc8-82e6e22adbbf-d31606f3" class="m_sc_item"><img src="/wesell/webflow/images2/puzzle.png" loading="lazy" srcset="/wesell/webflow/images2/puzzle-p-500.png 500w, /wesell/webflow/images2/puzzle-p-800.png 800w, /wesell/webflow/images2/puzzle-p-2000.png 2000w, /wesell/webflow/images2/puzzle.png 2000w" sizes="(max-width: 767px) 18vw, 83.28125px" alt="" class="m_sc_item_img">
-              <div class="m_item_title"><spring:message code="wesell.main.ment20"/></div>
-              <div><spring:message code="wesell.main.ment21"/></div>
+            <div id="w-node-a908d69f-1c49-7dda-efc8-82e6e22adbbf-d31606f3" class="m_sc_item"><img src="/usdscash/webflow/images2/puzzle.png" loading="lazy" srcset="/usdscash/webflow/images2/puzzle-p-500.png 500w, /usdscash/webflow/images2/puzzle-p-800.png 800w, /usdscash/webflow/images2/puzzle-p-2000.png 2000w, /usdscash/webflow/images2/puzzle.png 2000w" sizes="(max-width: 767px) 18vw, 83.28125px" alt="" class="m_sc_item_img">
+              <div class="m_item_title"><spring:message code="usdscash.main.ment20"/></div>
+              <div><spring:message code="usdscash.main.ment21"/></div>
             </div>
-            <div id="w-node-ca8a5e45-d795-05dc-2d10-1d2f3d010553-d31606f3" class="m_sc_item"><img src="/wesell/webflow/images2/partner.png" loading="lazy" srcset="/wesell/webflow/images2/partner-p-500.png 500w, /wesell/webflow/images2/partner-p-800.png 800w, /wesell/webflow/images2/partner-p-2000.png 2000w, /wesell/webflow/images2/partner.png 2000w" sizes="(max-width: 767px) 18vw, 131.09375px" alt="" class="m_sc_item_img">
-              <div class="m_item_title"><spring:message code="wesell.main.ment22"/></div>
-              <div><spring:message code="wesell.main.ment23"/></div>
+            <div id="w-node-ca8a5e45-d795-05dc-2d10-1d2f3d010553-d31606f3" class="m_sc_item"><img src="/usdscash/webflow/images2/partner.png" loading="lazy" srcset="/usdscash/webflow/images2/partner-p-500.png 500w, /usdscash/webflow/images2/partner-p-800.png 800w, /usdscash/webflow/images2/partner-p-2000.png 2000w, /usdscash/webflow/images2/partner.png 2000w" sizes="(max-width: 767px) 18vw, 131.09375px" alt="" class="m_sc_item_img">
+              <div class="m_item_title"><spring:message code="usdscash.main.ment22"/></div>
+              <div><spring:message code="usdscash.main.ment23"/></div>
             </div>
           </div>
         </div>
@@ -111,20 +111,20 @@
         <div class="m_sc_store">
           <div class="m_store_block">
             <div class="m_store_txt">
-              <div class="m_sc_title2"><spring:message code="wesell.main.ment24"/><br><spring:message code="wesell.main.ment25"/></div>
-              <div class="m_sc_stitle"><spring:message code="wesell.main.ment26"/></div>
-              <div> <spring:message code="wesell.main.ment27"/></div>
+              <div class="m_sc_title2"><spring:message code="usdscash.main.ment24"/><br><spring:message code="usdscash.main.ment25"/></div>
+              <div class="m_sc_stitle"><spring:message code="usdscash.main.ment26"/></div>
+              <div> <spring:message code="usdscash.main.ment27"/></div>
               <div class="m_sc_btn_area">
-                <a href="#" class="m_store_btn w-inline-block"><img src="/wesell/webflow/images2/google_play.svg" loading="lazy" alt="" class="m_sc_store_icon">
+                <a href="#" class="m_store_btn w-inline-block"><img src="/usdscash/webflow/images2/google_play.svg" loading="lazy" alt="" class="m_sc_store_icon">
                   <div>GET IT ON<br><span class="storetxt">Google Play</span></div>
                 </a>
-                <a href="#" class="m_store_btn w-inline-block"><img src="/wesell/webflow/images2/appstore.svg" loading="lazy" alt="" class="m_sc_store_icon">
+                <a href="#" class="m_store_btn w-inline-block"><img src="/usdscash/webflow/images2/appstore.svg" loading="lazy" alt="" class="m_sc_store_icon">
                   <div>Download on the<br><span class="storetxt">App Store</span></div>
                 </a>
               </div>
             </div>
             <div class="m_store_box">
-              <div class="m_sotre_back"></div><img src="/wesell/webflow/images2/wesell_logo.svg" loading="lazy" alt="" class="mlogo_store_deco _2"><img src="/wesell/webflow/images2/favicon256.png" loading="lazy" alt="" class="mlogo_store_deco">
+              <div class="m_sotre_back"></div><img src="/usdscash/webflow/images2/wesell_logo.svg" loading="lazy" alt="" class="mlogo_store_deco _2"><img src="/usdscash/webflow/images2/favicon256.png" loading="lazy" alt="" class="mlogo_store_deco">
             </div>
           </div>
         </div>
@@ -155,8 +155,8 @@
 				</div>
 			</c:forEach>
 		</div>
-	<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
-  <a data-w-id="0331a75b-f75e-124e-d24c-9bad6e3bde93" style="opacity:0" href="#" class="ask w-inline-block"><img src="/wesell/webflow/images2/9042680_multi_bubble_icon_19042680_multi_bubble_icon.png" loading="lazy" alt="" class="askicon"></a>
+	<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
+  <a data-w-id="0331a75b-f75e-124e-d24c-9bad6e3bde93" style="opacity:0" href="#" class="ask w-inline-block"><img src="/usdscash/webflow/images2/9042680_multi_bubble_icon_19042680_multi_bubble_icon.png" loading="lazy" alt="" class="askicon"></a>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=636de9ea5f52266a6d1606f1" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow2.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

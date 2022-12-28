@@ -44,29 +44,29 @@ public class JoinController {
 
 	@RequestMapping(value = "/login.do")
 	public String login(HttpServletRequest request, Model model) throws Exception {
-		return "wesell/wesellLogin";
+		return "usdscash/usdscashLogin";
 	}
-	@RequestMapping(value = "/wesellLogin.do")
-	public String wesellLogin(HttpServletRequest request, Model model) throws Exception {
+	@RequestMapping(value = "/usdscashLogin.do")
+	public String usdscashLogin(HttpServletRequest request, Model model) throws Exception {
 		String autoLogout = request.getParameter("autoLogout");
 		HttpSession session = request.getSession();
 		session.setAttribute("currentP", "login");
 		model.addAttribute("autoLogout",autoLogout);
-		return "user/wesellLogin";
+		return "user/usdscashLogin";
 	}
 	
 	@RequestMapping(value = "/join.do")
 	public String join(Model model, HttpServletRequest request) throws Exception {
 
-		return "wesell/wesellJoin";
+		return "usdscash/usdscashJoin";
 	}
-	@RequestMapping(value = "/wesellJoin.do")
-	public String wesellJoin(HttpServletRequest request, Model model) throws Exception {
+	@RequestMapping(value = "/usdscashJoin.do")
+	public String usdscashJoin(HttpServletRequest request, Model model) throws Exception {
 		String autoLogout = request.getParameter("autoLogout");
 		HttpSession session = request.getSession();
 		session.setAttribute("currentP", "login");
 		model.addAttribute("autoLogout",autoLogout);
-		return "user/wesellJoin";
+		return "user/usdscashJoin";
 	}
 	@ResponseBody
 	@RequestMapping(value="/verificationPhone.do" , produces="application/json; charset=utf8")
@@ -850,7 +850,7 @@ public class JoinController {
 	
 	@RequestMapping(value = "/login2.do")
 	public String login2(HttpServletRequest request, Model model) throws Exception {
-		return "wesell/login2";
+		return "usdscash/login2";
 	}
 	@ResponseBody
 	@RequestMapping(value = "/loginProcess2.do", produces="application/json; charset=utf8")

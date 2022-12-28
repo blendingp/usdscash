@@ -9,7 +9,7 @@
 	data-wf-site="6073d35203881b197a7cdb93">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <style>
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
@@ -40,7 +40,7 @@ input[type=range]::-webkit-slider-thumb {
 
 <body class="body-2">
 	<div class="frame">
-		<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="trade_frame">
 			<div class="trade_topblock">
 				<div class="tradetop_coin" onclick="coinMenu()" style="cursor:pointer; z-index:5;">
@@ -845,7 +845,7 @@ input[type=range]::-webkit-slider-thumb {
 			</div>
 		</div>
 
-		<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 	</div>
 	<div style="display: none">
 		<div class="notBalance"><spring:message code='pop.transfer.notBalance' /></div>

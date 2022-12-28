@@ -35,24 +35,24 @@
     <bean id="adminInterceptor" class="egovframework.example.sample.web.util.Interceptor">
     	<property name="urls">
     		<list> <!-- interceptor 제외할 url list -->
-    			<value>/wesell/changeLanguage.do</value>
-    			<value>/wesell/0nI0lMy6jAzAFRVe0DqLOw/logout.do</value>
-    			<value>/wesell/0nI0lMy6jAzAFRVe0DqLOw/login.do</value>
-    			<value>/wesell/0nI0lMy6jAzAFRVe0DqLOw/loginProcess.do</value>
-    			<value>/wesell/showRest.do</value>
-    			<value>/wesell/user/myasset.do</value>    			   			
-    			<value>/wesell/user/tradeHistory.do</value>    			   			
-    			<value>/wesell/user/fundingHistory.do</value>    			   			
-    			<value>/wesell/trade.do</value>    			   			
-    			<value>/wesell/block.do</value>    			   			
-    			<value>/wesell/logoutProcess.do</value>
-    			<value>/wesell/kycDataUpdate.do</value>
-    			<value>/wesell/infl/login.do</value>
-    			<value>/wesell/infl/loginProcess.do</value>
-    			<value>/wesell/verificationPhoneJoin.do</value>
-    			<value>/wesell/verificationEmailJoin.do</value>
-    			<value>/wesell/0nI0lMy6jAzAFRVe0DqLOw/user/updateCommissionRate.do</value>
-    			<value>/wesell/0nI0lMy6jAzAFRVe0DqLOw/trade/apiMoneyResult.do</value> <!-- api data받는 url -->
+    			<value>/usdscash/changeLanguage.do</value>
+    			<value>/usdscash/0nI0lMy6jAzAFRVe0DqLOw/logout.do</value>
+    			<value>/usdscash/0nI0lMy6jAzAFRVe0DqLOw/login.do</value>
+    			<value>/usdscash/0nI0lMy6jAzAFRVe0DqLOw/loginProcess.do</value>
+    			<value>/usdscash/showRest.do</value>
+    			<value>/usdscash/user/myasset.do</value>    			   			
+    			<value>/usdscash/user/tradeHistory.do</value>    			   			
+    			<value>/usdscash/user/fundingHistory.do</value>    			   			
+    			<value>/usdscash/trade.do</value>    			   			
+    			<value>/usdscash/block.do</value>    			   			
+    			<value>/usdscash/logoutProcess.do</value>
+    			<value>/usdscash/kycDataUpdate.do</value>
+    			<value>/usdscash/infl/login.do</value>
+    			<value>/usdscash/infl/loginProcess.do</value>
+    			<value>/usdscash/verificationPhoneJoin.do</value>
+    			<value>/usdscash/verificationEmailJoin.do</value>
+    			<value>/usdscash/0nI0lMy6jAzAFRVe0DqLOw/user/updateCommissionRate.do</value>
+    			<value>/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/apiMoneyResult.do</value> <!-- api data받는 url -->
     		</list>
     	</property>
     </bean>  

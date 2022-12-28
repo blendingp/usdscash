@@ -57,10 +57,10 @@ public class UserController {
 	@RequestMapping(value = "/main.do")
 	public String main(HttpServletRequest request, ModelMap model) throws Exception {
 		
-		return "wesell/wesellMain";
+		return "usdscash/usdscashMain";
 	}
-	@RequestMapping(value = "/wesellMain.do")
-	public String wesellMain(HttpServletRequest request, ModelMap model) throws Exception {
+	@RequestMapping(value = "/usdscashMain.do")
+	public String usdscashMain(HttpServletRequest request, ModelMap model) throws Exception {
 		HttpSession session = request.getSession();
 		session.setAttribute("currentP", "main");
 		int lang = 0;
@@ -79,7 +79,7 @@ public class UserController {
 		in.put("bcategory", "notice");
 		model.addAttribute("nlist", sampleDAO.list("selectAllBoard", in));
 		model.addAttribute("nowpage", "mainp");
-		return "user/wesellMain";
+		return "user/usdscashMain";
 	}
 	@RequestMapping(value="/message.do")
 	public String message(HttpServletRequest request, ModelMap model){

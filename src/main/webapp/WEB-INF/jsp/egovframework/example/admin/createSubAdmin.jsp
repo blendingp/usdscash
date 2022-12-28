@@ -25,7 +25,7 @@
 								</div>
 								<div class="card-body">
 									<form name="insertForm" id="insertForm" method="post">
-										<c:if test="${project.name eq 'wesell'}">
+										<c:if test="${project.name eq 'usdscash'}">
 											<div class="form-group">
 												<label>분류 </label> 
 												<label class="radio-inline"> <input type="radio" name="level" value="2" checked="">권한 2</label>
@@ -77,7 +77,7 @@
 <script>
 	function insertProcess() {
 		var data = $("#insertForm").serialize();
-		var url = "/wesell/0nI0lMy6jAzAFRVe0DqLOw/subAdminInsert.do";
+		var url = "/usdscash/0nI0lMy6jAzAFRVe0DqLOw/subAdminInsert.do";
 		$.ajax({
 			type : 'post',
 			url : url,

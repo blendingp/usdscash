@@ -11,7 +11,7 @@
 </head>
 <body>
 리플 지갑 생성 페이지
-<form action="/wesell/createXRPWallet.do">
+<form action="/usdscash/createXRPWallet.do">
 	<input type="submit"/>
 </form>
 </body>

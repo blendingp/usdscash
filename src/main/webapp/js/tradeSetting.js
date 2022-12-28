@@ -105,7 +105,7 @@ function setCookieMobile(name, value, expiredays) {
 function coinLoad(){
 	$.ajax({
 		type:'get',
-		url:'/wesell/getCoinInfo.do',
+		url:'/usdscash/getCoinInfo.do',
 		data:{"userIdx":userIdx},
 		dataType: "json",
 		success:function(data){

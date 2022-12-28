@@ -11,7 +11,7 @@
 <title>Login</title>
 <meta content="login" property="og:title">
 <meta content="login" property="twitter:title">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <style>
 .w-button{
@@ -24,15 +24,15 @@ var auto = "${autoLogout}";
 if(auto == "1"){
 // 	alert("<spring:message code='join.autoLogout'/>");
 	alert("You have been logged out automatically.");
-	location.href="/wesell/login.do";
+	location.href="/usdscash/login.do";
 }
 </script>
 <body class="body1">
 	<div class="frame">
-		<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="frame4">
 			<div class="login_block">
-				<div class="loginblock"><img src="/wesell/webflow/images2/wesell_logo.svg" loading="lazy" data-w-id="ea9f9d47-59cb-1533-1095-666329c4628b" alt="" class="login_logo">
+				<div class="loginblock"><img src="/usdscash/webflow/images2/wesell_logo.svg" loading="lazy" data-w-id="ea9f9d47-59cb-1533-1095-666329c4628b" alt="" class="login_logo">
 					<div class="title4"> <spring:message code="menu.login" /> </div>
 					<div class="w-form">
 						<form action="javascript:login()" id="loginFrm" class="form-5">
@@ -65,7 +65,7 @@ if(auto == "1"){
 								<span onclick="$('#pwPop').css('display','flex')"
 									class="login_pwbtn" style="cursor: pointer;"><spring:message
 										code="join.forgotPW" /></span>" / " <span
-									onclick="location.href='/wesell/join.do'" class="login_pwbtn"
+									onclick="location.href='/usdscash/join.do'" class="login_pwbtn"
 									style="cursor: pointer;"><spring:message
 										code="menu.register2" /></span>
 							</div>
@@ -129,7 +129,7 @@ if(auto == "1"){
       </div>
       
 	</div>
-	<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+	<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 	<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b1125ac4d4d60ab9c62f81" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		function SetNum(obj) {
@@ -152,13 +152,13 @@ if(auto == "1"){
 			$.ajax({
 				type : 'post',
 				data : formData,
-				url : '/wesell/loginProcess.do',
+				url : '/usdscash/loginProcess.do',
 			 	contentType: false,
 			 	processData: false,				
 				success : function(data) {
 					if (data.result == 'success') {
 						alert(data.msg);
-						location.href = "/wesell/user/main.do";
+						location.href = "/usdscash/user/main.do";
 					} else {
 						console.log(data.msg);
 						alert(data.msg);
@@ -175,7 +175,7 @@ if(auto == "1"){
 					'joinKind' : $("#joinKind").val()
 				},
 				dataType : 'json',
-				url : '/wesell/verificationPhoneOrEmail.do',
+				url : '/usdscash/verificationPhoneOrEmail.do',
 				success : function(data) {
 					alert(data.msg);
 					checkPhone = true;
@@ -193,7 +193,7 @@ if(auto == "1"){
 					phone : $("#phoneP").val()
 				},
 				dataType : 'json',
-				url : '/wesell/verificationPhone.do',
+				url : '/usdscash/verificationPhone.do',
 				success : function(data) {
 					alert(data.msg);
 					checkPhone = true;
@@ -223,7 +223,7 @@ if(auto == "1"){
 					pCode : pCode
 				},
 				dataType : 'json',
-				url : '/wesell/checkPhoneCode.do',
+				url : '/usdscash/checkPhoneCode.do',
 				success : function(data) {
 					alert(data.msg);
 					checkPhone = true;
@@ -250,7 +250,7 @@ if(auto == "1"){
 					pw2 : pw2
 				},
 				dataType : 'json',
-				url : '/wesell/changePW.do',
+				url : '/usdscash/changePW.do',
 				success : function(data) {
 					alert(data.msg);
 					$('#pwPop').css('display','none')

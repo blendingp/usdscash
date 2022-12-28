@@ -13,7 +13,7 @@
 <title><spring:message code="menu.message"/></title>
 <meta content="account setting" property="og:title">
 <meta content="account setting" property="twitter:title">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 <style>
 .message-pop__content::-webkit-scrollbar {
 width:7px;
@@ -34,11 +34,11 @@ height: 0;
 </head>
 <body style="height:100%">
   <div class="all" style="height:100%">
-    <jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+    <jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
     <div class="body3" style="min-height: calc(100% - 297px);">
 	  <div class="refer1">
         <div class="refermenu">
-          <div class="rewardmlist click" onClick="location.href='/wesell/user/message.do'">
+          <div class="rewardmlist click" onClick="location.href='/usdscash/user/message.do'">
 			<div class="rewardmlisttext"><spring:message code="menu.message"/></div>
 			<img src="webflow/images2/right_icon.png" loading="lazy" alt="" class="cusarrow" style="display:none;">
 		  </div>
@@ -76,13 +76,13 @@ height: 0;
           <div class="listpagebox2">
             <ui:pagination paginationInfo="${pi}" type="customPageUser" jsFunction="fn_egov_link_page"/>
           </div>
-          <form name="listForm" id="listForm" action = "/wesell/user/message.do">
+          <form name="listForm" id="listForm" action = "/usdscash/user/message.do">
 			<input type="hidden" name="pageIndex" />
 		  </form>
         </div>
       </div>
     </div>
-    <jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+    <jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
     <div class="message-pop" id="messagepop" style="display:none;">
       <div class="message-pop__box">
         <div class="message-pop__xbox">
@@ -106,7 +106,7 @@ height: 0;
 		type="text/javascript"
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 		crossorigin="anonymous"></script>
-	<script src="/wesell/webflow/js/webflow2.js" type="text/javascript"></script>
+	<script src="/usdscash/webflow/js/webflow2.js" type="text/javascript"></script>
 	<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 <script>
@@ -129,7 +129,7 @@ var reading = false;
 function readMessage(idx,content){
 	if(reading) return;
 	reading = true;
-	var url = "/wesell/user/readMessage.do";
+	var url = "/usdscash/user/readMessage.do";
 	$.ajax({
 		type:'post',
 		url : url,

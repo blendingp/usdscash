@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Futures Trade</title>
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <style>
 input[type=range]::-webkit-slider-thumb {
@@ -22,7 +22,7 @@ input[type=range]::-webkit-slider-thumb {
 </style>
 <body class="body1">
 	<div class="frame">
-	<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+	<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 	<div class="frame6">
 		<div class="block">
 			<div class="maintananceblock">
@@ -45,7 +45,7 @@ input[type=range]::-webkit-slider-thumb {
 				</div>
 		</div>
 	</div>
-	<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+	<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 	<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>

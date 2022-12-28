@@ -11,27 +11,27 @@
 	<div class="footer <c:if test="${nowpage eq 'tradep'}"> _2</c:if>">
 		<div class="footer_block">
 			<div class="f_wrap">
-				<div class="footerlogoblock"><img src="/wesell/webflow/images2/wesell_logo.svg" loading="lazy" alt="" class="footerlogo"></div>
+				<div class="footerlogoblock"><img src="/usdscash/webflow/images2/wesell_logo.svg" loading="lazy" alt="" class="footerlogo"></div>
 				<div class="footerlist_warp">
 					<div class="footerlist_block">
 						<div class="footerlist_title">
 							<spring:message code="menu.deal" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/tradeSpot.do'"><spring:message code="newwave.menu.spotCoin"/></div>
-						<%-- <div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/trade.do?betMode=inverse'"><spring:message code="menu.spotCoin"/></div> --%>
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/tradeSpot.do'"><spring:message code="newwave.menu.spotCoin"/></div>
+						<%-- <div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/trade.do?betMode=inverse'"><spring:message code="menu.spotCoin"/></div> --%>
 					</div>
 					<div class="footerlist_block">
 						<div class="footerlist_title">
 							<spring:message code="menu.depandwith" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/user/wallet.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/wallet.do'">
 							<spring:message code="wallet.deposit"/>
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/user/walletWithdrwa.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/walletWithdrwa.do'">
 							<spring:message code="wallet.withdrawal"/>
 						</div>
 						 
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/user/transactions.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/transactions.do'">
 							<spring:message code="wallet.DeandWithHistory_m"/> 
 						</div> 
 					</div>
@@ -39,13 +39,13 @@
 						<div class="footerlist_title">
 							<spring:message code="support.center" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/notice.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/notice.do'">
 							<spring:message code="menu.notice" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/faq.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/faq.do'">
 							<spring:message code="newwave.menu.faq"/>
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/user/helpCenter.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/helpCenter.do'">
 							<spring:message code="submitRequest" />
 						</div>
 						
@@ -54,21 +54,21 @@
 						<div class="footerlist_title">
 							<spring:message code="menu.mypage" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/user/tradeHistory.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/tradeHistory.do'">
 							<spring:message code="trade.tradeHistory" />
 						</div>
-<!-- 						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/wesell/user/fundingHistory.do'"> -->
+<!-- 						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/fundingHistory.do'"> -->
 <%-- 							<spring:message code="menu.fundingHistory"/> --%>
 <!-- 						</div>						 -->
 					</div>
 				</div>
 			</div>
-          	<div class="copyright">Copyright ⓒ WESELL All Rights Reserved.<a href="https://kr.freepik.com/" class="link"></a>
+          	<div class="copyright">Copyright ⓒ usdscash All Rights Reserved.<a href="https://kr.freepik.com/" class="link"></a>
           	</div>
 		</div>
 	</div>
 </div>
-  <a data-w-id="0331a75b-f75e-124e-d24c-9bad6e3bde93" style="opacity:0" href="#" class="ask w-inline-block"><img src="/wesell/webflow/images2/9042680_multi_bubble_icon_19042680_multi_bubble_icon.png" loading="lazy" alt="" class="askicon"></a>
+  <a data-w-id="0331a75b-f75e-124e-d24c-9bad6e3bde93" style="opacity:0" href="#" class="ask w-inline-block"><img src="/usdscash/webflow/images2/9042680_multi_bubble_icon_19042680_multi_bubble_icon.png" loading="lazy" alt="" class="askicon"></a>
 <!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6a6127be-0ed3-4737-b291-ffad1cae3e54"> </script> -->
 <!--End of Tawk.to Script-->
 <script>

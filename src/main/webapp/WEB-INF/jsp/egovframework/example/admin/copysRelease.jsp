@@ -54,7 +54,7 @@ function release(){
 		$.ajax({
 			type:'post',
 			data: data ,
-			url:'/wesell/0nI0lMy6jAzAFRVe0DqLOw/copysReleaseProcess.do',
+			url:'/usdscash/0nI0lMy6jAzAFRVe0DqLOw/copysReleaseProcess.do',
 			success:function(data){
 				alert(data.msg);
 				if(data.result == "suc")

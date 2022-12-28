@@ -10,7 +10,7 @@
 <html data-wf-page="62b16a1ad874f735cccc57cd" data-wf-site="62b1125ac4d4d60ab9c62f81">
 <head>
 <meta charset="utf-8">
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 <style>
 .asset_coininfo_txt {
 	min-width: 150px;
@@ -133,7 +133,7 @@
 		}
 	</script>
 	<div class="frame">
-		<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="frame2">
 			<jsp:include page="../userFrame/walletFrame.jsp"></jsp:include>
 			<div class="asset_block">
@@ -516,7 +516,7 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
     <div class="popup" style="display:none;">
       <div class="deposit_pop" style="display:flex;">
         <div class="depositpop_box" style="display:flex;">
@@ -685,7 +685,7 @@
 				'amount' : ramount
 			},
 			dataType : 'json',
-			url : '/wesell/user/requestDeposit.do',
+			url : '/usdscash/user/requestDeposit.do',
 			success : function(data) {
 				alert("<spring:message code='pop.applycationComplete'/>");
 				location.href = 'transactions.do';

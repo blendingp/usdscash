@@ -10,14 +10,14 @@
 <head>
 <meta charset="utf-8">
 <title>FAQ</title>
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <body class="body1">
 	<div class="frame">
 		<div class="form-block w-form">
-			<form name="listForm" id="listForm" action="/wesell/faq.do">
+			<form name="listForm" id="listForm" action="/usdscash/faq.do">
 				<input type="hidden" name="pageIndex" />
-				<jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+				<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 				<div class="frame5">
 					<jsp:include page="../userFrame/customerBanner.jsp"></jsp:include>
 					<div class="custermer_listblock">
@@ -61,7 +61,7 @@
 					</div>
 				</div>
 			</form>
-			<jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+			<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 		</div>
 	</div>
 
@@ -83,10 +83,10 @@
 						type : type,
 					},
 					dataType : 'json',
-					url : '/wesell/checkdetail.do',
+					url : '/usdscash/checkdetail.do',
 					success : function(data) {
 						if (data.result == 'success') {
-							location.href = "/wesell/detail.do?bidx="+bidx+"&type="+type;
+							location.href = "/usdscash/detail.do?bidx="+bidx+"&type="+type;
 						} else {
 							console.log(data.msg);
 							alert(data.msg);

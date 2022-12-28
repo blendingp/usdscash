@@ -21,14 +21,14 @@
 		$.ajax({
 			type:'post',
 			data : data,
-			url : '/wesell/loginProcess2.do',
+			url : '/usdscash/loginProcess2.do',
 			success:function(data){
 				alert("data.msg:"+data.msg);
 				if(data.result == "fail"){
 					$("#userId").val("");
 					$("#userPw").val("");
 				}else{
-					location.href="/wesell/user/main.do";
+					location.href="/usdscash/user/main.do";
 				}
 			}
 		})

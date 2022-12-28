@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Futures Trade</title>
-<jsp:include page="../wesellFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <style>
 input[type=range]::-webkit-slider-thumb { 
@@ -24,14 +24,14 @@ input[type=range]::-webkit-slider-thumb {
 </style>
 <body>
   <div class="all-n">
-    <jsp:include page="../wesellFrame/top2.jsp"></jsp:include>
+    <jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
         
-    <div class="downstime" style="display:flex;"><img src="/wesell/webflow/louisImage/attention-warning.svg" loading="lazy" alt="" class="downstimeimg">
+    <div class="downstime" style="display:flex;"><img src="/usdscash/webflow/louisImage/attention-warning.svg" loading="lazy" alt="" class="downstimeimg">
       <div class="downstimetext"><spring:message code="pop.userBlock_1"/></div>
       <div class="downstimetext2"><spring:message code="pop.userBlock_2"/></div>
     </div>
    
-    <jsp:include page="../wesellFrame/footer2.jsp"></jsp:include>
+    <jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
 	</div>    
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>

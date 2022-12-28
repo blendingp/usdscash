@@ -42,10 +42,10 @@
 		$.ajax({
 			type: 'post',
 			data: data,
-			url:'/wesell/0nI0lMy6jAzAFRVe0DqLOw/loginProcess.do',
+			url:'/usdscash/0nI0lMy6jAzAFRVe0DqLOw/loginProcess.do',
 			success: function(data){
 				if(data.result == "success"){
-					location.href = '/wesell/0nI0lMy6jAzAFRVe0DqLOw/main.do';
+					location.href = '/usdscash/0nI0lMy6jAzAFRVe0DqLOw/main.do';
 				}
 				if(data.result == "fail"){
 					alert(data.msg);

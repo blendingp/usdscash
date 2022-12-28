@@ -993,7 +993,7 @@ public class AdminUserController {
 				return obj.toJSONString();
 	        }
 	        
-			String filePath = "C:/upload/wesell/photo/";
+			String filePath = "C:/upload/usdscash/photo/";
 	        File fileP = new File(filePath);
 	        if(!fileP.exists()) {
 	        	fileP.mkdirs();

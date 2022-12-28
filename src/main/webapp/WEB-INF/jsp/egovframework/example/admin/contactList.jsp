@@ -30,7 +30,7 @@ function page(pageNo){
 							<h6 class="m-0 font-weight-bold text-primary">contact</h6>
 						</div>
 						<div class="card-body">
-							<form action="/wesell/0nI0lMy6jAzAFRVe0DqLOw/contact/contactList.do" name="listForm" id="listForm">
+							<form action="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/contact/contactList.do" name="listForm" id="listForm">
 								<div class="col-lg-3">
 									<label>검색</label>
 									<div class="form-group input-group">
@@ -53,7 +53,7 @@ function page(pageNo){
 									</div>
 								</div>
 									
-								<c:if test="${project.name eq 'wesell'}">
+								<c:if test="${project.name eq 'usdscash'}">
 									<div class="col-lg-2">
 										<label>구분 설정</label>
 										<div class="form-group input-group">
@@ -86,13 +86,13 @@ function page(pageNo){
 									<tbody>
 										<c:forEach var="item" items="${list}" varStatus="i">
 											<tr class="check tr"
-												onclick="location.href='/wesell/0nI0lMy6jAzAFRVe0DqLOw/contact/contactDetail.do?idx=${item.idx}'"
+												onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/contact/contactDetail.do?idx=${item.idx}'"
 												style="cursor:pointer; background-color:${item.color}">
 												<td class="check box" style="display: none;"><input
 													type="checkbox" name="is_check" class="check"
 													value="${item.idx}"></td>
 												<td
-													onclick="location.href='/wesell/0nI0lMy6jAzAFRVe0DqLOw/user/userDetail.do?idx=${item.uidx}'">${item.mname}
+													onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/user/userDetail.do?idx=${item.uidx}'">${item.mname}
 													(<c:if test="${item.pname eq null}">없음</c:if>${item.pname})</td>
 												<td>${item.mphone}</td>
 												<td style="width: 50%; word-break: break-all;">
@@ -175,7 +175,7 @@ function deleteSubmit(){
 		if($(this).is(":checked") == true)
 			checkedVal += $(this).val()+":";
 	});
-	location.href="/wesell/0nI0lMy6jAzAFRVe0DqLOw/contact/contactDelete.do?idxs="+checkedVal;
+	location.href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/contact/contactDelete.do?idxs="+checkedVal;
 }
 function allSelect(){
 	$("input:checkbox[name=is_check]").each(function() {
@@ -187,7 +187,7 @@ function confirm(idx){
 	$.ajax({
 		type:'post',
 		data:{"idx" : idx},
-		url:'/wesell/0nI0lMy6jAzAFRVe0DqLOw/contact/contactConfirm.do?',
+		url:'/usdscash/0nI0lMy6jAzAFRVe0DqLOw/contact/contactConfirm.do?',
 		
 		success:function(data){
 			location.reload();

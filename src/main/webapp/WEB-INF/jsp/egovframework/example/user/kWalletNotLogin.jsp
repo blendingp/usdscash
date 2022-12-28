@@ -16,26 +16,26 @@
 <title>deposit</title>
 <meta content="deposit" property="og:title">
 <meta content="deposit" property="twitter:title">
-<jsp:include page="../wesellFrame/header2.jsp" />
+<jsp:include page="../usdscashFrame/header2.jsp" />
 <script>
 	var fileurl = '<%=this.getClass().getSimpleName().replaceAll("_", ".").replaceAll(".jsp", "")%>';
 </script>
 </head>
 <body class="body2">
-	<jsp:include page="../wesellFrame/top2.jsp" />
+	<jsp:include page="../usdscashFrame/top2.jsp" />
 	<div class="frame-2">
 		<div class="frame2-2">
 			<div class="asset_block-2">
 				<div class="sideblock">
 					<div class="text-block-36"><spring:message code="menu.depandwith" /></div>
-					<div class="selectmenu select" onclick="location.href ='/wesell/user/kWallet.do'" style="cursor:pointer">
+					<div class="selectmenu select" onclick="location.href ='/usdscash/user/kWallet.do'" style="cursor:pointer">
 						<div class="text7"							
 							style="cursor: pointer;"><spring:message code="wallet.KRW.Deposit" /></div>
 					</div>
-					<%-- <div class="selectmenu"  onclick="location.href ='/wesell/user/kWalletWithdraw.do'" style="cursor:pointer">
+					<%-- <div class="selectmenu"  onclick="location.href ='/usdscash/user/kWalletWithdraw.do'" style="cursor:pointer">
 						<div class="text7"><spring:message code="wallet.KRW.Withdrawal" /></div>
 					</div> --%>
-					<%-- <div class="selectmenu"  onclick="location.href ='/wesell/user/kTransactions.do'" style="cursor:pointer">
+					<%-- <div class="selectmenu"  onclick="location.href ='/usdscash/user/kTransactions.do'" style="cursor:pointer">
 						<div class="text7"><spring:message code="wallet.KRW.History" /></div>
 					</div> --%>
 				</div>
@@ -112,7 +112,7 @@
 									</div>
 								</div>
 								<div class="btnwrap-2">
-									<%-- <a href="/wesell/user/contact.do?title=입금 계좌 문의" class="btn-2 w-inline-block">
+									<%-- <a href="/usdscash/user/contact.do?title=입금 계좌 문의" class="btn-2 w-inline-block">
 										<div class="btntxt-2"><spring:message code="newwave.wallet.acc_inq" /></div>
 									</a> --%> 
 									<a href="javascript:depositSubmit()"
@@ -132,7 +132,7 @@
 				</div>
 			</div>
 		</div>		
-		<jsp:include page="../wesellFrame/footer2.jsp" />
+		<jsp:include page="../usdscashFrame/footer2.jsp" />
 	</div>
 	<script
 		src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=619ddb62800e4c70cba341a2"
@@ -188,12 +188,12 @@
 		jQuery.ajax({
 			type : "POST",
 			data : allData,
-			url : "/wesell/notLogDepositProcess.do",
+			url : "/usdscash/notLogDepositProcess.do",
 			dataType : "json",
 			success : function(data) {
 				alert(data.msg);
 				if (data.result == "suc") {
-					/* location.href = "/wesell/user/kTransactions.do"; */
+					/* location.href = "/usdscash/user/kTransactions.do"; */
 				}
 				else{
 					location.reload();

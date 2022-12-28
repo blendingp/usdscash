@@ -31,7 +31,7 @@ function page(pageNo){
 						<div class="panel-heading">전송</div>
                         <div class="panel-body">
                         	<div class="form-group input-group">
-								<form action="/wesell/sendtest.do" method="post" >
+								<form action="/usdscash/sendtest.do" method="post" >
 									<div>코인종류<select name="kind" onChange="onChange()">
 										<option>선택</option>
 										<option>BTC</option>
