@@ -14,9 +14,9 @@
   <meta property="og:url" content="https://usdscash.com">
   <meta content="BITOCEAN" property="twitter:title">
   <meta name="format-detection" content="telephone=no">
-  <link href="/usdscash/webflow/css/wesell-normalize.css?v=3" rel="stylesheet" type="text/css">
-  <link href="/usdscash/webflow/css/wesell-webflow.css?v=4" rel="stylesheet" type="text/css">
-  <link href="/usdscash/webflow/css/wesell-exchange.webflow.css?v=5" rel="stylesheet" type="text/css">
+  <link href="/usdscash/webflow/css/normalize.css?v=3" rel="stylesheet" type="text/css">
+  <link href="/usdscash/webflow/css/webflow.css?v=4" rel="stylesheet" type="text/css">
+  <link href="/usdscash/webflow/css/usds-cash.webflow.css?v=5" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7CUbuntu:300,300italic,400,400italic,500,500italic,700,700italic%7CNoto+Sans+KR:100,300,regular,500,700,900%7CNanum+Gothic:regular,700,800%7CRoboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic%7CRoboto+Serif:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&amp;subset=korean,latin,korean,latin,cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese,cyrillic-ext,latin,latin-ext,vietnamese" media="all">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic","Noto Sans KR:100,300,regular,500,700,900:korean,latin","Nanum Gothic:regular,700,800:korean,latin","Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic:cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese","Roboto Serif:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic:cyrillic-ext,latin,latin-ext,vietnamese"]  }});</script>
