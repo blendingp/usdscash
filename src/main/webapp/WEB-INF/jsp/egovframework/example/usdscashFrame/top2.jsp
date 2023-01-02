@@ -88,7 +88,7 @@
 				<a href="#" class="top_btn w-button"><spring:message code="menu.support"/></a>
 				<div class="top_toggle">
 					<a href="/usdscash/notice.do" class="top_toggle_btn w-button"><spring:message code="menu.notice" /></a>
-					<a href="/usdscash/customerService.do" class="top_toggle_btn w-button"><spring:message code="menu.support" /></a> 
+					<a href="/usdscash/event.do" class="top_toggle_btn w-button"><spring:message code="menu.event" /></a> 
 					<a href="/usdscash/user/helpCenter.do" class="top_toggle_btn w-button"><spring:message code="submitRequest" /></a> 
 					<a href="/usdscash/faq.do" class="top_toggle_btn w-button"><spring:message code="newwave.menu.faq"/></a>
 				</div>

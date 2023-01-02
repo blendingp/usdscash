@@ -186,6 +186,43 @@ public class BoardController {
 		return "board/notice";
 	}
 	
+	@RequestMapping(value = "/event.do")
+	public String event(HttpServletRequest request, ModelMap model) throws Exception {
+		HttpSession session = request.getSession();
+		int lang = 0;
+		if(session.getAttribute("lang") == null || session.getAttribute("lang").equals("EN")) lang = 1;
+		else if(session.getAttribute("lang").equals("JP")) lang = 2;
+		else if(session.getAttribute("lang").equals("CH")) lang = 3;
+		else if(session.getAttribute("lang").equals("FC")) lang = 4;
+		String search = request.getParameter("search");
+		
+		PaginationInfo pi = new PaginationInfo();
+		if(request.getParameter("pageIndex") == null || request.getParameter("pageIndex").equals("")){
+			pi.setCurrentPageNo(1);
+		}else{
+			pi.setCurrentPageNo(Integer.parseInt(""+request.getParameter("pageIndex")));
+		}
+		
+		if((""+search).length()>50 || (""+request.getParameter("pageIndex")).length() > 30){
+			return "board/event";
+		}
+		pi.setPageSize(10);
+		pi.setRecordCountPerPage(10);
+		EgovMap in = new EgovMap();
+		in.put("first" , pi.getFirstRecordIndex());
+		in.put("record" , pi.getRecordCountPerPage());
+		in.put("search", search);		
+		in.put("bcategory", "notice");		
+		in.put("blang", lang);
+		pi.setTotalRecordCount((int)sampleDAO.select("selectBoardListCnt" , in));
+		List<?> noticeList = (List<?>) sampleDAO.list("selectBoardList", in);
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("pi", pi);
+		model.addAttribute("search", request.getParameter("search"));
+
+		return "board/event";
+	}
+	
 	@RequestMapping(value = "/faq.do")
 	public String faq(HttpServletRequest request, ModelMap model) throws Exception {
 		HttpSession session = request.getSession();
