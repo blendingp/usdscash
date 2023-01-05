@@ -18,7 +18,7 @@
 </style>
 <div class="top">
 	<div class="top_block _2">
-		<div class="top_info">
+		<!-- <div class="top_info">
 			<div class="top_info_txt">
 				코인:<span class="rate up">13231</span>
 			</div>
@@ -39,7 +39,7 @@
 			<div class="top_info_txt">
 				점유율:<span class="rate up">BTC 30%</span>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="top_box login">
 			<c:if test="${userIdx eq null}">
@@ -81,16 +81,16 @@
 		</div>
 		<div class="top_box">
 			<div class="top_btn_warp">
-				<a href="/usdscash/tradeSpot.do" class="top_btn w-button"><spring:message code="trade.trade"/></a>
+				<a href="/usdscash/user/main.do" class="top_btn w-button"><spring:message code="menu.crypto"/></a>
 				<div class="btn_deco"></div>
 			</div>
 			<div class="top_btn_warp">
 				<a href="#" class="top_btn w-button"><spring:message code="menu.support"/></a>
 				<div class="top_toggle">
-					<a href="/usdscash/notice.do" class="top_toggle_btn w-button"><spring:message code="menu.notice" /></a>
-					<a href="/usdscash/event.do" class="top_toggle_btn w-button"><spring:message code="menu.event" /></a> 
+					<a href="/usdscash/board/noticeList.do" class="top_toggle_btn w-button"><spring:message code="menu.notice" /></a>
+					<%-- <a href="/usdscash/board/eventList.do" class="top_toggle_btn w-button"><spring:message code="menu.event" /></a> --%> 
 					<a href="/usdscash/user/helpCenter.do" class="top_toggle_btn w-button"><spring:message code="submitRequest" /></a> 
-					<a href="/usdscash/faq.do" class="top_toggle_btn w-button"><spring:message code="newwave.menu.faq"/></a>
+					<a href="/usdscash/board/faqList.do" class="top_toggle_btn w-button"><spring:message code="newwave.menu.faq"/></a>
 				</div>
 				<div class="btn_deco"></div>
 			</div>

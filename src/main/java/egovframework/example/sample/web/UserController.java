@@ -57,6 +57,11 @@ public class UserController {
 		
 		return "usdscash/usdscashMain";
 	}
+	@RequestMapping(value = "/cryptoDetail.do")
+	public String cryptoDetail(HttpServletRequest request, ModelMap model) throws Exception {
+		
+		return "usdscash/usdscashCrypto";
+	}
 	
 	@RequestMapping(value = "/usdscashMain.do")
 	public String usdscashMain(HttpServletRequest request, ModelMap model) throws Exception {

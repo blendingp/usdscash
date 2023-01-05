@@ -55,10 +55,10 @@
 						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/customerService.do'">
 							<spring:message code="support.center" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/notice.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/board/noticeList.do'">
 							<spring:message code="menu.notice" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/faq.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/board/faqList.do'">
 							<spring:message code="menu.faq"/>
 						</div>
 						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/helpCenter.do'">

@@ -20,7 +20,7 @@
 			</a>
 			<div class="f_btn_area">
 				<a href="#" class="f_btn w-button"><spring:message code="menu.support"/></a> 
-				<a href="/usdscash/notice.do" class="f_btn w-button"><spring:message code="menu.notice" /></a>
+				<a href="/usdscash/board/noticeList.do" class="f_btn w-button"><spring:message code="menu.notice" /></a>
 				<a href="javascript:menuShow('mypageMenu')" class="f_btn w-button"><spring:message code="menu.mypage"/></a>
 				<!-- <a href="#" class="f_btn w-button">개인정보 취급방침</a> 
 				<a href="#" class="f_btn w-button">이용약관</a> 
@@ -67,10 +67,10 @@
 						<div class="footerlist_title">
 							<spring:message code="support.center" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/notice.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/board/noticeList.do'">
 							<spring:message code="menu.notice" />
 						</div>
-						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/faq.do'">
+						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/board/faqList.do'">
 							<spring:message code="newwave.menu.faq"/>
 						</div>
 						<div class="footerlist" style="cursor: pointer;" onclick="location.href='/usdscash/user/helpCenter.do'">

@@ -15,7 +15,7 @@
 <body class="body">
 	<div class="frame">
 		<div class="form-block w-form">
-			<form name="listForm" id="listForm" action="/usdscash/notice.do">
+			<form name="listForm" id="listForm" action="/usdscash/board/noticeList.do">
 				<input type="hidden" name="pageIndex" />
 				<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 

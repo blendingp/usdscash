@@ -27,7 +27,7 @@
 					<a href="/usdscash/user/main.do" class="topbtn <c:if test="${currentP eq 'main'}">click</c:if> w-button"><spring:message code="menu.main"/></a>
 				</div>
 				<div class="topmenubtn">
-					<a href="/usdscash/tradeSpot.do" class="topbtn <c:if test="${currentP eq 'trade'}">click</c:if> w-button"><spring:message code="trade.trade"/></a>
+					<a href="/usdscash/user/main.do" class="topbtn <c:if test="${currentP eq 'trade'}">click</c:if> w-button"><spring:message code="menu.crypto"/></a>
 				</div>
 				<div class="topmenubtn">
 					<img src="/usdscash/webflow/images/more_icon3.svg" loading="lazy" alt="" class="top_arrow">
@@ -46,8 +46,8 @@
  					<a onclick="dropToggle(this)" href="#" class="topbtn <c:if test="${currentP eq 'customer'}">click</c:if> w-button"><spring:message code="menu.support"/></a> 
 					<div class="topbtn_drop tall">
 						<a href="/usdscash/customerService.do" class="button-14-copy w-button"><spring:message code="menu.support" /></a> 
-						<a href="/usdscash/notice.do" class="button-14-copy w-button"><spring:message code="menu.notice" /></a> 
-						<a href="/usdscash/faq.do" class="button-14-copy w-button"><spring:message code="menu.faq"/></a> 
+						<a href="/usdscash/board/noticeList.do" class="button-14-copy w-button"><spring:message code="menu.notice" /></a> 
+						<a href="/usdscash/board/faqList.do" class="button-14-copy w-button"><spring:message code="menu.faq"/></a> 
 						<a href="/usdscash/user/helpCenter.do" class="button-14-copy w-button"><spring:message code="submitRequest" /></a> 
 					</div>
 					<%-- <a href="#" class="button-3 w-button servicep"><spring:message code="menu.support"/></a> --%>
@@ -183,10 +183,10 @@
 					<div class="asidelist" onclick="location.href='/usdscash/customerService.do'">
 						<div><spring:message code="menu.support"/></div>
 					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/notice.do'">
+					<div class="asidelist" onclick="location.href='/usdscash/board/noticeList.do'">
 						<div><spring:message code="menu.notice"/></div>
 					</div>
-					<div class="asidelist" onclick="location.href='/usdscash/faq.do'">
+					<div class="asidelist" onclick="location.href='/usdscash/board/faqList.do'">
 						<div><spring:message code="menu.faq"/></div>
 					</div>
 					<div class="asidelist" onclick="location.href='/usdscash/user/helpCenter.do'">

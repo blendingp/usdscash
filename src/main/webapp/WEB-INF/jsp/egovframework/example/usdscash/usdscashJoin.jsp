@@ -1,409 +1,407 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.*"%>
+
 <!DOCTYPE html>
-<!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Thu Oct 21 2021 06:43:44 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="6344e745b7a4c981c4be68a6" data-wf-site="6344e745b7a4c962c3be683c" >
+<!--  This site was created in Webflow. https://www.webflow.com  -->
+<!--  Last Published: Thu Dec 01 2022 07:56:03 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="638d805ee804c441330a535c" data-wf-site="638d805ee804c444b60a5350">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
+<jsp:include page="../usdscashFrame/header2.jsp" />
 </head>
-<body class="body1">
-	<form id="joinFrm" class="form-5">
-		<div class="frame">
-			<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
-			<div class="frame4 regist" >
-				<div class="login_block">
-					<div class="loginblock" style="display:flex;"><img src="/usdscash/webflow/images2/main_logo1.svg" loading="lazy" data-w-id="ea9f9d47-59cb-1533-1095-666329c4628b" alt="" class="login_logo">
-						<div class="title4"><spring:message code="menu.register" /></div>
-						<div class="w-form">
-							<div class="regist_btnwarp">
-								<input type="hidden" name="joinKind" id="joinKind" value="setphone"/>
-								<a href="javascript:setAuth('setphone')" class="button-65 w-button click setphonebtn"><spring:message code="join.phoneauth" /></a> 
-								<a href="javascript:setAuth('setemail')" class="button-65 w-button setemailbtn"><spring:message code="join.emailauth" /></a>
-							</div>
-							<label class="title5"><spring:message code="join.name" /></label>
-							<input type="text" class="text-field-10 w-input" maxlength="30" name="name" placeholder="<spring:message code="join.nameTxt"/>" id="name"> 
-							
-							<label for="name" class="title5 setphone"> <spring:message code="join.phone" /></label>
-							<div class="loginbox setphone">
-								<input type="text" onkeyup="SetNum(this)" class="text-field-9 w-input" maxlength="12" name="phone"	placeholder="<spring:message code="join.phoneTxt"/>" id="phone">
-								<a href="javascript:sendRequestPhone()" class="button-10 w-button"> <spring:message code="join.request" /></a>
-							</div>
-							<label class="title5 setemail" style="display:none"><spring:message code="join.email" /></label>
-							<div class="loginbox setemail" style="display:none">
-								<input type="text" class="text-field-9 w-input" maxlength="30" name="email" id="email" placeholder="<spring:message code="join.emailTxt"/>"> 
-								<a href="javascript:sendRequestEmail()" class="button-10 w-button">
-									<spring:message code="join.request" />
-								</a>
-							</div>
-							
-							<label class="title5"><spring:message code="join.pw" /></label> 
-							<input type="password" class="text-field-10 w-input" maxlength="20" name="pw" placeholder="<spring:message code="join.pWrong"/>" id="pw">
-							<div class="warn_login"><spring:message code="join.pwTerms"/></div>
-							<label class="title5">
-							<spring:message code="join.pwConfirm" /></label> 
-							<input type="password" class="text-field-10 w-input" maxlength="20" placeholder="<spring:message code="join.pwConfirm"/>" id="pwConfirm">
-						</div>
-						<div class="title5">
-							<spring:message code="join.invite" />
-						</div>
-						<input type="text" class="text-field-10 w-input" maxlength="10" name="inviteCode" placeholder="<spring:message code="join.inviteTxt"/>" value="${invi}"> 
-						
-						<%-- <label for="email-4" class="title5">
-							<spring:message code="join.maccount"/>(<spring:message code="join.mbank"/>)
-						</label>
-						<div class="loginbox">
-							<input type="email" class="text-field-9 w-input" maxlength="256"
-								name="account" data-name="Email 4" placeholder="<spring:message code="join.inputMaccount"/>"
-								id="account" required=""><select id="bank" name="bank"
-								data-name="Field" class="select-field-7 w-select">
-								<option value=""><spring:message code="newwave.support.select"/></option>
-								<option value="카카오뱅크">카카오뱅크</option>
-								<option value="국민은행">국민은행</option>
-								<option value="기업은행">기업은행</option>
-								<option value="농협은행">농협은행</option>
-								<option value="신한은행">신한은행</option>
-								<option value="산업은행">산업은행</option>
-								<option value="우리은행">우리은행</option>
-								<option value="한국씨티은행">한국시티은행</option>
-								<option value="하나은행">하나은행</option>
-								<option value="SC제일은행">SC제일은행</option>
-								<option value="경남은행">경남은행</option>
-								<option value="광주은행">광주은행</option>
-								<option value="대구은행">대구은행</option>
-								<option value="도이치">도이치</option>
-								<option value="뱅크오브아메리카">뱅크오브아메리카</option>
-								<option value="부산은행">부산은행</option>
-								<option value="산림조합">산림조합</option>
-								<option value="저축은행">저축은행</option>
-								<option value="새마을금고">새마을금고</option>
-								<option value="수협은행">수협은행</option>
-								<option value="산협중앙회">산협중앙회</option>
-								<option value="우체국">우체국</option>
-								<option value="전북은행">전북은행</option>
-								<option value="제주은행">제주은행</option>
-								<option value="중국건설은행">중국건설은행</option>
-								<option value="중국공상은행">중국공상은행</option>
-								<option value="중국은행">중국은행</option>
-								<option value="BNP파리바">BNP파리바</option>
-								<option value="HSBC은행">HSBC은행</option>
-								<option value="JP모간">JP모간</option>
-								<option value="케이뱅크">케이뱅크</option>
-								<option value="토스뱅크">토스뱅크</option>			
-							</select>
-						</div> --%>
-						<label class="w-checkbox privacy_check">
-							<input type="checkbox" id="calAgree" class="w-checkbox-input checkbox-5">
-							<span class="w-form-label" for="calAgree"><spring:message code="join.calAgree"/></span>
-						</label>
-						<input onclick="join()" readonly style="padding: 8px 100px;"
-							value="<spring:message code="join.apply" />"
-							class="submit-button-2 w-button">
+<body class="body">
+	<div class="frame">
+		<jsp:include page="../usdscashFrame/top2.jsp"/>
+		<div class="article">
+			<div class="banner">
+				<div class="b_img login">
+					<div class="b_box">
+						<h1 class="heading">회원가입</h1>
+						<div>회원가입을 통해 <spring:message code="root.project"/>의 보험 서비스를 시작해보세요</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="registpop" id="phonePop" style="display: none">
-			<div class="registpop_blcok">
-				<div class="pop_exist">
-					<img onclick="javascript:$('#phonePop').css('display', 'none')"
-						src="/usdscash/webflow/images2/wx.png" loading="lazy" alt=""
-						class="image-38">
-				</div>
-				<div class="poptitle">
-					<div class="title6">
-						<spring:message code="join.authenticate" />
-					</div>
-				</div>
-				<div class="w-form">
-					<label for="name"><spring:message
-							code="join.fillauthenticate" /></label>
-					<div class="pop_input">
-						<input type="text" class="text-field-18 w-input" maxlength="20"
-							name="pCode" id="pCode"
-							placeholder="<spring:message code="join.fillcode"/>"> <a
-							href="javascript:sendRequestPhone()" class="button-32 w-button"><spring:message code="join.rerequest" /></a>
-					</div>
-				</div>
-				<div class="auth_count"><spring:message code="join.vtime"/> <span id="vtime">03:00</span></div>
-				<div class="text-block-24">
-					<spring:message code="join.3mincode" />
-				</div>
-				<div class="pop_btn">
-					<a href="javascript:$('#phonePop').css('display', 'none')"
-						class="button-15-copy w-button"><spring:message
-							code="join.cancelcode" /></a> <a href="javascript:checkCodePhone()"
-						class="button-15 w-button" style="text-align: center;"><spring:message
-							code="join.comfcode" /></a>
-				</div>
-			</div>
-		</div>
-		<div class="registpop" id="emailPop" style="display: none">
-			<div class="registpop_blcok">
-				<div class="pop_exist">
-					<img onclick="javascript:$('#emailPop').css('display', 'none')"
-						src="/usdscash/webflow/images2/wx.png" loading="lazy" alt=""
-						class="image-38">
-				</div>
-				<div class="poptitle">
-					<div class="title6">
-						<spring:message code="join.authenticate" />
-					</div>
-				</div>
-				<div class="w-form">
-					<%-- 	<div class="text-block-100">
-						<spring:message code="join.fillauthenticate" />
-					</div> --%>
-					<label for="name"><spring:message
-							code="join.fillauthenticate" /></label>
-					<div class="pop_input">
-						<input type="text" class="text-field-18 w-input" maxlength="20"
-							name="eCode" id="eCode"
-							placeholder="<spring:message code="join.fillcode"/>"> <a
-							href="javascript:sendRequestEmail()" class="button-32 w-button"><spring:message
-								code="join.rerequest" /></a>
-					</div>
-				</div>
-				<div class="text-block-24">
-					<spring:message code="join.3mincode" />
-				</div>
-				<div class="pop_btn">
-					<a href="javascript:$('#emailPop').css('display', 'none')"
-						class="button-15-copy w-button"><spring:message
-							code="join.cancelcode" /></a> <a href="javascript:checkCodeEmail()"
-						class="button-15 w-button" style="text-align: center;"><spring:message
-							code="join.comfcode" /></a>
-				</div>
-				<div class="welcomepop">
-					<div class="registpop_blcok">
-						<div class="pop_exist">
-							<img src="/usdscash/webflow/images2/wx.png" loading="lazy" alt=""
-								class="image-38">
-						</div>
-						<div class="poptitle welcome">
-							<div class="title6">
-								<spring:message code="pop.welcome_1" />
-							</div>
-							<div>
-								<div class="welecomeblock">
-									<div class="text-block-26">
-										<spring:message code="pop.loui_1" />
-										<br>
-										<spring:message code="pop.loui_2" />
-									</div>
+			<div class="form-block w-form">
+				<form id="joinForm" name="joinForm">
+					<input type="hidden" name="terms1" id="terms1" value="0"/>
+					<input type="hidden" name="terms2" id="terms2" value="0"/>
+					<div class="section">
+						<div class="login_section">
+							<div class="r_step_area">
+								<div class="r_step on" id="subtitle1">
+									<div class="r_deco on"></div>
+									<div>1.약관동의</div>
+								</div>
+								<div class="r_step" id="subtitle2">
+									<div class="r_deco"></div>
+									<div>2. 회원정보입력</div>
+								</div>
+								<div class="r_step" id="subtitle3">
+									<div class="r_deco"></div>
+									<div>3. 입력정보확인</div>
+								</div>
+								<div class="r_step" id="subtitle4">
+									<div class="r_deco"></div>
+									<div>4.가입완료</div>
 								</div>
 							</div>
-							<%-- <div class="welcomebtn">
-							<a href="#" class="citationbtn3 w-button"><spring:message code="pop.close"/></a>
-						</div> --%>
+							<div class="r_block" id="block1">
+								<div class="login_title">약관동의</div>
+								<div class="login_txt">홈페이지 회원가입을 위해서는 아래의 홈페이지 이용약관, 개인정보 수집 및 이용에 대한 정책을 읽어보시고 동의하셔야 합니다.</div>
+								<div class="login_title">홈페이지 이용약관</div>
+								<div class="r_term"> <div>홈페이지 이용약관 내용</div> </div>
+								<div class="check_box" onclick="termsCheck('terms1')" style="cursor:pointer">
+									<div class="check_area" id="terms1Check"> <img src="/usdscash/webflow/images/check_whitesmokesvg.svg" loading="lazy" alt="" class="check_icon"> </div>
+									<div>위 홈페이지 이용약관에 대해 동의합니다.</div>
+								</div>
+								<div class="login_title">개인정보 수집 및 이용에 대한 안내</div>
+								<div class="login_txt">홈페이지 일반회원가입을 위한 개인정보 수집 및 이용을 위하여 개인정보보호법 제15조 및 제22조에 따라 귀하의 동의를 받고자 합니다.</div>
+								<div class="r_term"> <div>개인정보 수집 및 이용에 대한 안내 내용</div> </div>
+								<div class="check_box" onclick="termsCheck('terms2')" style="cursor:pointer">
+									<div class="check_area" id="terms2Check"> <img src="/usdscash/webflow/images/check_whitesmokesvg.svg" loading="lazy" alt="" class="check_icon"> </div>
+									<div>위 홈페이지 이용약관에 대해 동의합니다.</div>
+								</div>
+								<div class="general_btn_area">
+									<a href="/usdscash/main.do" class="genral_btn _2 w-button">취소</a>
+									<a href="javascript:termsCheckAll()" class="genral_btn w-button">확인</a>
+								</div>
+							</div>
+							<div class="r_block" id="block2" style="display:none;">
+								<div class="login_title">회원정보입력</div>
+								<div class="login_txt"> <span class="star">*</span> 표시항목은 필수입력사항입니다(일반전화 제외) </div>
+								<div class="r_general">
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span>이름 </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="name" id="name">
+											<div class="regist_warn" id="nameTxt"></div>
+										</div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span>아이디 </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="id" id="id">
+											<a href="javascript:idCheck()" class="r_btn w-button" id="idBtn">중복확인</a>
+											<div class="regist_warn" id="idTxt"></div>
+										</div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span>비밀번호 </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="pw" id="pw">
+											<div class="circle_brn" onclick="pwpopToggle()">?</div>
+											<div class="regist_warn" id="pwTxt"></div>
+										</div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span>비밀번호 확인 </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="pwCheck" id="pwCheck">
+											<div class="regist_warn" id="pwCheckTxt"></div>
+										</div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span>휴대폰번호 </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="phone1" id="phone1">
+											<div>-</div>
+											<input type="text" class="login_input w-input" name="phone2" id="phone2">
+											<div>-</div>
+											<input type="text" class="login_input w-input" name="phone3" id="phone3">
+											<a href="javascript:auth()" class="r_btn w-button" id="phoneBtn">문자 인증</a>
+											<div class="regist_warn" id="phoneTxt"></div>
+										</div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span>이메일 </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="email1" id="email1">
+											<div>@</div>
+											<input type="text" class="login_input w-input" name="email2" id="email2">
+											<select class="login_input select w-select" onchange="email2Select(this)">
+												<option value="-1">직접입력</option>
+												<option value="naver.com">naver.com</option>
+												<option value="hanmail.net">hanmail.net</option>
+												<option value="hotmail.com">hotmail.com</option>
+												<option value="nate.com">nate.com</option>
+												<option value="yahoo.co.kr">yahoo.co.kr</option>
+												<option value="empas.com">empas.com</option>
+												<option value="dreamwiz.com">dreamwiz.com</option>
+												<option value="freechal.com">freechal.com</option>
+												<option value="lycos.co.kr">lycos.co.kr</option>
+												<option value="korea.com">korea.com</option>
+												<option value="gmail.com">gmail.com</option>
+												<option value="hanmir.com">hanmir.com</option>
+												<option value="paran.com">paran.com</option>
+											</select>
+											<div class="regist_warn" id="emailTxt"></div>
+										</div>
+									</div>
+								</div>
+								<div class="general_btn_area">
+									<a href="javascript:step('1')" class="genral_btn _2 w-button">이전</a>
+									<a href="javascript:userData()" class="genral_btn w-button">확인</a>
+								</div>
+							</div>
+							<div class="r_block" id="block3" style="display:none;">
+								<div class="login_title">입력정보확인</div>
+								<div class="r_general">
+									<div class="r_input_warp">
+										<div class="r_input_title">이름</div>
+										<div class="r_input_box"> <div class="r_txt" id="jname"></div> </div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title">아이디</div>
+										<div class="r_input_box"> <div class="r_txt" id="jid"></div> </div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title">휴대폰번호</div>
+										<div class="r_input_box"> <div class="r_txt" id="jphone"></div> </div>
+									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title">이메일</div>
+										<div class="r_input_box"> <div class="r_txt" id="jemail"></div> </div>
+									</div>
+								</div>
+								<div class="general_btn_area">
+									<a href="javascript:step('2')" class="genral_btn _2 w-button">이전</a>
+									<a href="javascript:join()" class="genral_btn w-button">확인</a>
+								</div>
+							</div>
+							<div class="r_block" id="block4" style="display:none;">
+								<div class="login_title">가입완료</div>
+								<div class="r_general">
+									<div class="r_box _2">
+										<div class="complete"><strong><spring:message code="root.project"/></strong> 회원가입이 완료되었습니다.</div>
+										<div>로그인하신 후 서비스를 이용하실 수 있습니다.</div>
+										<img src="/usdscash/webflow/images/usds_logo_2.svg" loading="lazy" alt="" class="r_checkimg">
+									</div>
+									<div class="r_box">
+										<div>기타 문의사항은 이메일상담신청 또는 고객센터(0000-0000)로 연락 주시기 바랍니다.</div>
+									</div>
+								</div>
+								<div class="general_btn_area">
+									<a href="/usdscash/login.do" class="genral_btn w-button">로그인</a>
+								</div>
+							</div>
 						</div>
 					</div>
+				</form>
+			</div>
+		</div>
+		<jsp:include page="../usdscashFrame/footer2.jsp" />
+		<div class="pop registpop" id="pwpop" style="display:none;">
+			<div class="pop_warn">
+				<div class="pop_titleblock">
+					<div>비밀번호 안내</div>
+					<div class="exsit_btn" onclick="pwpopToggle()">
+						<img src="/usdscash/webflow/images/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images/wx_black-p-500.png 500w, /usdscash/webflow/images/wx_black-p-800.png 800w, /usdscash/webflow/images/wx_black-p-1080.png 1080w, /usdscash/webflow/images/wx_black-p-1600.png 1600w, /usdscash/webflow/images/wx_black.png 1600w" alt="" class="exsit_icon">
+					</div>
+				</div>
+				<div class="pop_general">
+					<div class="pop_txt"> •"영문+숫자"조합 10자리 이상 또는 "영문+숫자+특수문자"조합 8자리 이상으로 입력하여 주시기 바랍니다.<br>• 동일한 단어 또는 숫자 반복은 사용 불가합니다.<br>• 사용자 아이디와 동일하게 사용 불가합니다. </div>
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
-	</form>
-	<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6073d35203881b197a7cdb93" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="	crossorigin="anonymous"></script>
-	<script src="/usdscash/webflow/js/webflow2.js" type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		function SetNum(obj) {
-			val = obj.value;
-			re = /[^0-9]/gi;
-			obj.value = val.replace(re, "");
-		}
-		function SetText(obj) {
-			val = obj.value;
-			re = /[^ㄱ-ㅎ|가-힣|a-z|A-Z]/gi;
-			//obj.value=val.replace(re,"");
-		}
-		var checkPhone = false;
-		var sendingPhone = false;
-		function sendRequestPhone() {
-			if (sendingPhone)
-				return;
-			sendingPhone = true;
-			$.ajax({
-				type : 'post',
-				data : {
-					'phone' : $("#phone").val()
-				},
-				url : '/usdscash/verificationPhoneJoin.do',
-				success : function(data) {
-					sendingPhone = false;
-					alert(data.msg);
-					if (data.result == 'success') {
-						$("#phonePop").css("display", "flex");
-						vCountStart(3);
-					}
+		<div class="pop login_pop" id="authPop" style="display:none;">
+			<div class="l_pop _1">
+				<div class="exsit_btn" onclick="authPopToggle()">
+					<img src="/usdscash/webflow/images/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images/wx_black-p-500.png 500w, /usdscash/webflow/images/wx_black-p-800.png 800w, /usdscash/webflow/images/wx_black-p-1080.png 1080w, /usdscash/webflow/images/wx_black-p-1600.png 1600w, /usdscash/webflow/images/wx_black.png 1600w" alt="" class="exsit_icon">
+				</div>
+				<div class="login_title">휴대폰 인증</div>
+				<div class="form-block w-form">
+					<form id="authForm" name="authForm">
+						<div class="l_title">인증번호</div>
+						<div class="l_inputbox">
+							<input type="text" class="input2 w-input" name="authCode" id="authCode">
+						</div>
+					</form>
+				</div>
+				<a href="javascript:authChk()" class="genral_btn w-button">확인</a>
+			</div>
+		</div>
+	</div>
+	<jsp:include page="../usdscashFrame/bottom2.jsp" />
+	<script>
+	function idCheck(){
+		var data = $("#joinForm").serialize();
+		$.ajax({
+			type :"post",
+			data : data ,
+			dataType : "json" ,
+			url : "/usdscash/idCheck.do",
+			success:function(data){
+				if(data.result == "success"){
+					$("#idBtn").html("확인 완료");
 				}
-			})
+				else{
+					alert(data.msg);
+					$("#id").focus();
+				}
+			},
+			error:function(e){ console.log("ajax error"); }
+		});
+	}
+	
+	function pwpopToggle(){
+		if($("#pwpop").css("display") == "none"){
+			$("#pwpop").css("display", "flex");
 		}
-		function checkCodePhone() {
-			if(!vstart){
-				alert("<spring:message code='join.phoneconfirm'/>");
-				return;
+		else{
+			$("#pwpop").hide();
+		}
+	}
+	
+	function authPopToggle(){
+		if($("#authPop").css("display") == "none"){
+			$("#authPop").css("display", "flex");
+		}
+		else{
+			$("#authPop").hide();
+		}
+	}
+	
+	let authCheck = false;
+	function auth(){
+		var data = $("#joinForm").serialize();
+		$.ajax({
+			type :"post",
+			data : data ,
+			dataType : "json" ,
+			url : "/usdscash/auth.do",
+			success:function(data){
+				if(data.result == 'success'){
+					authPopToggle();
+				}
+				else{
+					alert(data.msg);
+					$("#phoneBtn").html("인증 완료");
+				}
 			}
-			$.ajax({
-				type : 'post',
-				data : {
-					'pCode' : $("#pCode").val()
-				},
-				url : '/usdscash/checkPhoneCode.do',
-				success : function(data) {
-					alert(data.msg);
-					if (data.result == 'success') {
-						checkPhone = true;
-						$("#phonePop").css("display", "none");
-					}
+		})
+	}
+	function authChk(){
+		var data = $("#authForm").serialize();
+		$.ajax({
+			type:'post',
+			data : data,
+			url :'/usdscash/authChk.do',
+			success:function(data){
+				alert(data.msg);
+				if(data.result == 'success'){
+					authCheck = true;
+					$("#phone").attr("readonly", "readonly");
+					$("#authBtn").attr("href", "#");
+					$("#authBtn").html("인증 완료");
+					$("#authPop").hide();
 				}
-			})
-		}
-		var sendingEmail = false;
-		var checkEmail = false;
-		function sendRequestEmail() {
-			if (sendingEmail)
-				return;
-			sendingEmail = true;
-			$.ajax({
-				type : 'post',
-				data : {
-					'email' : $("#email").val()
-				},
-				url : '/usdscash/verificationEmailJoin.do',
-				success : function(data) {
-					sendingEmail = false;
-					alert(data.msg);
-					if (data.result == 'success') {
-						$("#emailPop").css("display", "flex");
-					}
-				}
-			})
-		}
-		function checkCodeEmail() {
-			$.ajax({
-				type : 'post',
-				data : {
-					'eCode' : $("#eCode").val()
-				},
-				url : '/usdscash/checkEmailCode.do',
-				success : function(data) {
-					alert(data.msg);
-					if (data.result == 'success') {
-						checkEmail = true;
-						$("#emailPop").css("display", "none");
-					}
-				}
-			})
-		}
-		var joining = false;
-		function join() {			
-			if (joining)
-				return;
-			
-			if (!checkPhone && !checkEmail) {				
-				alert("<spring:message code='join.phoneconfirmOrEmail'/>");
-				return false;
 			}
+		})
+	}
 
-			/* if (!checkEmail) {
-				alert("<spring:message code='join.emailconfirm'/>");
-				return false;
-			} */
-			if ($("#pw").val() != $("#pwConfirm").val()) {
-				alert("<spring:message code='join.jpWrong'/>")
-				return false;
-			}
-			
-			if(!chkPW()){
-				return false;
-			}
-			
-			if(!$("#calAgree").is(":checked")){
-				alert("<spring:message code='join.calAgree_msg'/>")
-				return false;
-			}
-			
-			/* if ($("#account").val().length < 1) {
-				alert("<spring:message code='join.wrAccount'/>")
-				return false;
-			}
-			if ($("#bank").val().length < 1) {
-				alert("<spring:message code='join.inputMbank'/>")
-				return false;
-			} */
-			joining = true;
-			var data = $("#joinFrm").serialize();
-			
-			$.ajax({
-				type : 'post',
-				data : data,
-				url : '/usdscash/joinProcess.do',
-				success : function(data) {
-					joining = false;
-					alert(data.msg);
-					if (data.result == 'success') {
-						location.href = "/usdscash/login.do";
-					}
-				}
-			})
+	function email2Select(obj){
+		if(obj.value == "-1"){
+			$("#email2").val("");
+		}
+		else{
+			$("#email2").val(obj.value);
+		}
+	}
+	</script>
+	<script>
+	function step(num){
+		$(".r_step").removeClass("on");
+		$(".r_deco").removeClass("on");
+		$("#subtitle"+num).addClass("on");
+		$("#subtitle"+num+" .r_deco").addClass("on");
+		
+		$(".r_block").hide();
+		$("#block"+num).css("display", "flex");
+		
+		location.href="#joinForm";
+	}
+
+	function termsCheck(name){
+		if($("#"+name).val() == 0){
+			$("#"+name).val(1);
+			$("#"+name+"Check").addClass("click");
+		}
+		else{
+			$("#"+name).val(0);
+			$("#"+name+"Check").removeClass("click");
+		}
+	}
+	function termsCheckAll(){
+		let terms1 = $("#terms1").val();
+		let terms2 = $("#terms2").val();
+		if(terms1==0 || terms2==0){
+			alert("약관에 모두 동의해주세요.");
+			return;
+		}
+		else{
+			step('2');
+		}
+	}
+	
+	function userData(){
+		if(!authCheck){
+			alert("휴대폰번호 인증을 진행해주세요.");
+			return;
 		}
 		
-		function chkPW() {
-		    var pw = String($("#pw").val());
-		    var num = pw.search(/[0-9]/g);
-		    var eng = pw.search(/[a-z]/ig);
-		    var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-		    if (pw.length < 8) {
-		        alert("<spring:message code='join.pwTerms'/>");
-		        return false;
-		    } else if (pw.search(/\s/) != -1) {
-		    	 alert("<spring:message code='join.pwTerms'/>");
-		        return false;
-		    } else if (num < 0 || eng < 0) {
-		    	 alert("<spring:message code='join.pwTerms'/>");
-		        return false;
-		    } else {
-		        return true;
-		    }
-		}
+		var data = $("#joinForm").serialize();
+		$.ajax({
+			type :"post",
+			data : data ,
+			dataType : "json" ,
+			url : "/usdscash/userDataCheck.do",
+			success:function(data){
+				if(data.result == "success"){
+					$("#jname").html($("#name").val());
+					$("#jid").html($("#id").val());
+					$("#jphone").html($("#phone1").val()+$("#phone2").val()+$("#phone3").val());
+					$("#jemail").html($("#email1").val()+"@"+$("#email2").val());
 
-		let vstart = false;
-		function vCountStart(min){
-			if(vstart) return;
-			vstart = true;
-			var timer = min * 60;
-			var minutes, seconds;
-			var interval = setInterval(function () {
-		        minutes = parseInt(timer / 60, 10);
-		        seconds = parseInt(timer % 60, 10);
+					step('3');
+				}
+				else{
+					alert(data.msg);
+				}
+			},
+			error:function(e){ console.log("ajax error"); }
+		});
+	}
 
-		        minutes = minutes < 10 ? "0" + minutes : minutes;
-		        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-		        $("#vtime").text(minutes + ":" + seconds);
-
-		        if (--timer < 0) {
-		        	clearInterval(interval)
-		        	vstart = false;
-		        }
-		    }, 1000);
+	function join(){
+		if(!authCheck){
+			alert("휴대폰번호 인증을 진행해주세요.");
+			return;
 		}
 		
-		function setAuth(kind){
-			$("#joinKind").val(kind);
-			$(".setphone").css("display", "none");
-			$(".setemail").css("display", "none");
-			$("."+kind).css("display", "flex");
-			
-			$(".setphonebtn").removeClass("click");
-			$(".setemailbtn").removeClass("click");
-			$("."+kind+'btn').addClass("click");
-		}
+		var data = $("#joinForm").serialize();
+		$.ajax({
+			type :"post",
+			data : data ,
+			dataType : "json" ,
+			url : "/usdscash/joinProcess.do",
+			success:function(data){
+				if(data.result == "success"){
+					step('4');
+					return;
+				}
+				else{
+					alert(data.msg);
+					return;
+				}
+			},
+			error:function(e){ console.log("ajax error"); }
+		});
+	}
 	</script>
 </body>
 </html>

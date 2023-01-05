@@ -15,7 +15,7 @@
 <body class="body">
 	<div class="frame">
 		<div class="form-block w-form">
-			<form name="listForm" id="listForm" action="/usdscash/notice.do">
+			<form name="listForm" id="listForm" action="/usdscash/board/noticeList.do">
 				<input type="hidden" name="pageIndex" />
 				<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 				<div class="article">
@@ -23,7 +23,7 @@
 						<div class="b_img custermer">
 							<div class="b_box">
 								<h1 class="heading">이벤트</h1>
-								<div>국민안심투자보험이 준비한 이벤트에 참여해보세요.</div>
+								<div><spring:message code="root.project"/>가 준비한 이벤트에 참여해보세요.</div>
 							</div>
 						</div>
 					</div>

@@ -195,7 +195,7 @@ public class Interceptor  extends HandlerInterceptorAdapter{
 			}
 		}
 		
-		if(Project.isKyc()){
+		/*if(Project.isKyc()){
 			if(!userIdx.equals("null")){
 				Member mem = Member.getMemberByIdx(Integer.parseInt(userIdx));
 				if(!mem.isKyc && url.contains("/user/") && !url.contains("kycCenter.do")){
@@ -204,7 +204,7 @@ public class Interceptor  extends HandlerInterceptorAdapter{
 					return false;
 				}
 			}
-		}
+		}*/
         return true;
     }
   

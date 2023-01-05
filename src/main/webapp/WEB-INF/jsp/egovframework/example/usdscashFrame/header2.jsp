@@ -40,6 +40,11 @@
 <%
 	}
 %>
+<style>
+.pop{
+	display:none;
+}
+</style>
 </head>
 <body>
 </body>
