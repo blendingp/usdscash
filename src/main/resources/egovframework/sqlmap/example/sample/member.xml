@@ -679,19 +679,12 @@
 				  , level
 				  , wallet
 				  , joinDate
-				  , parentsIdx
-		]]>
-				  <isEqual property="joinKind" compareValue="setemail">
 				  , email
-				  </isEqual>
-		<![CDATA[		  
 				  , mbank
 				  , maccount
 				  , lastLogin
+				  , id
 		]]>
-			<isNotEmpty property="id">
-				, id
-			</isNotEmpty>
 			<isNotEmpty property="istest">
 				, istest
 			</isNotEmpty>
@@ -713,9 +706,6 @@
 			<isNotEmpty property="vBank">
 				, vBank
 			</isNotEmpty>
-			<isNotEmpty property="emailconfirm">
-				, emailconfirm
-			</isNotEmpty>
 		<![CDATA[
 				  , version)
 			VALUES ( #country#				  
@@ -725,20 +715,12 @@
 				  , #level#
 				  , #wallet#
 				  , now()
-				  , #parentsIdx#
-		]]>
-				  <isEqual property="joinKind" compareValue="setemail">
 				  , #email#
-				  </isEqual>
-		<![CDATA[				  
-				 
 				  , #bank#
 				  , #account#
 				  , now()
+				  , #id#
 		]]>
-			<isNotEmpty property="id">
-				, #id#
-			</isNotEmpty>
 			<isNotEmpty property="istest">
 				, #istest#
 			</isNotEmpty>
@@ -759,9 +741,6 @@
 			</isNotEmpty>
 			<isNotEmpty property="vBank">
 				, #vBank#
-			</isNotEmpty>
-			<isNotEmpty property="emailconfirm">
-				, #emailconfirm#
 			</isNotEmpty>
 		<![CDATA[
 				  , 2)

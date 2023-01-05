@@ -103,7 +103,6 @@
                 <entry key="customPage" value-ref="customPagingRendererAdmin"/>
                 <entry key="customPageUser" value-ref="customPagingRenderer"/>
                 <entry key="customPageInfl" value-ref="customPagingRendererInfl"/>
-                <entry key="customPageUser" value-ref="customPagingRenderer"/>
                 <entry key="P2PPageUser" value-ref="P2PPagingRenderer"/>
             </map>
         </property>

@@ -91,85 +91,81 @@ public class AdminUserController {
 	@ResponseBody
 	@RequestMapping(value="/insertChong.do" , produces="application/json; charset=utf8")
 	public String insertChong(HttpServletRequest request){
-		String inviteCode = request.getParameter("code"); // 초대코드
-		String country = "82"; // 국가
-		String phone = request.getParameter("phone"); // 전화번호
-		String id = request.getParameter("id"); // 전화번호
-		String name = request.getParameter("name"); // 이름
-		String pw = request.getParameter("pw"); // pw
-		String level = request.getParameter("level");
-		String email = request.getParameter("email");
 		JSONObject obj = new JSONObject();
 		obj.put("result", "fail");
-		if(phone == null || phone.equals("") || phone.length() > 20){
-			obj.put("msg", "연락처를 입력해주세요.");
+		
+		HttpSession session = request.getSession();
+		
+		String name = request.getParameter("name"); // 이름
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw"); // pw
+		String pwCheck = request.getParameter("pwCheck");
+		String phone = request.getParameter("phone"); // 전화번호
+		String email = request.getParameter("email1")+"@"+request.getParameter("email2"); // 이메일
+		
+		if(Validation.isNull(name)){
+			obj.put("msg", Message.get().msg(messageSource, "pop.inputName", request));
 			return obj.toJSONString();
 		}
-		if(email == null || email.isEmpty()){
-			obj.put("result", "fail");
-			obj.put("msg", "이메일을 입력해주세요");
+		
+		if(Validation.isNull(id)){
+			obj.put("msg", Message.get().msg(messageSource, "join.inputId", request));
 			return obj.toJSONString();
 		}
-		if(!Validation.isValidEmail(email) && email.length() > 50){
-			obj.put("result", "fail");
-			obj.put("msg", "이메일 형식이 올바르지않습니다.");
-			return obj.toJSONString();
-		}
-		if(name == null || name.equals("")){
-			obj.put("msg", "이름을 입력해주세요.");
-			return obj.toJSONString();
-		}
-		if(pw == null || pw.equals("") || pw.length() > 30){
-			obj.put("msg", "비밀번호를 입력해주세요.");
-			return obj.toJSONString();
-		}
-		EgovMap in = new EgovMap();
-		in.put("country", country);
-		in.put("phone", phone);
-		in.put("id", id);
-		in.put("jstat", "1");
-		EgovMap info = (EgovMap)sampleDAO.select("selectIsMemberPhoneOrID" , in);
-		if(info != null){
-			if((""+info.get("phone")).equals(phone))
-				obj.put("msg", "이미 가입된 전화번호입니다.");
-			else
-				obj.put("msg", "이미 가입된 아이디입니다.");
-				
-			return obj.toJSONString();
-		}else{
-			in.put("parentsIdx", -1);   // 추천인 -1
-			if(inviteCode.equals(Project.getProjectName()) || inviteCode == null || inviteCode.equals("")){ // 관리자코드
-				in.put("parentsIdx", -1);   // 추천인 -1
-//				in.put("gparentsIdx", -1);   // 추천인 -1
-			}else if(inviteCode != null && !inviteCode.equals("")) {
-				in.put("inviteCode", inviteCode);
-				//부모를 찾는다
-				EgovMap parents = (EgovMap)sampleDAO.select("selectMemberByAdminInvitationCode", in);
-				if (parents == null) {
-					obj.put("msg", "유효하지 않은 초대코드입니다");
-					return obj.toJSONString();
-				}
-				String plevel = ""+parents.get("level");
-				in.put("parentsIdx", ""+parents.get("idx"));
-				if(plevel.compareTo("chong")==0){
-					//총판인 할아버지를 찾는다 
-//					String gIdx = ""+parents.get("parentsIdx");
-//					EgovMap ing = new EgovMap();
-//					ing.put("userIdx", gIdx);
-//					EgovMap gparents = (EgovMap)sampleDAO.select("getGrandParents", ing);
-//					if(gparents != null){
-//						String glevel = ""+parents.get("level");
-//						if(glevel.compareTo("chong")==0)
-//							in.put("gparentsIdx", gparents.get("idx"));
-//					}
-				}
+		else{
+			EgovMap emailCheck = (EgovMap)sampleDAO.select("selectIsMemberId" , id);
+			if(emailCheck != null){
+				obj.put("msg", Message.get().msg(messageSource, "join.duplId", request));
+				return obj.toJSONString();
 			}
 		}
+		
+		if(Validation.isNull(pw) || !Validation.isValidPassword(pw)){
+			obj.put("msg", Message.get().msg(messageSource, "join.pWrong", request));
+			return obj.toJSONString();
+		}
+		if(pw.compareTo(pwCheck)!=0){
+			obj.put("msg", Message.get().msg(messageSource, "join.jpWrong", request));
+			return obj.toJSONString();
+		}
+
+		if(Validation.isNull(phone)){
+			obj.put("msg", Message.get().msg(messageSource, "pop.inputPhone", request));
+			return obj.toJSONString();
+		}
+		else{
+			EgovMap phoneCheck = (EgovMap)sampleDAO.select("selectIsMemberPhone" , phone);
+			if(phoneCheck != null){
+				obj.put("msg", Message.get().msg(messageSource, "pop.alreadyPhone", request));
+				return obj.toJSONString();
+			}
+		}
+		
+		if(Validation.isNull(email)){
+			obj.put("msg", Message.get().msg(messageSource, "join.emailTxt", request));
+			return obj.toJSONString();
+		}
+		else if(!Validation.isValidEmail(email) && email.length() > 50){
+			obj.put("result", "fail");
+			obj.put("msg", Message.get().msg(messageSource, "pop.checkEmail", request));
+			return obj.toJSONString();
+		}
+		else{
+			EgovMap emailCheck = (EgovMap)sampleDAO.select("selectIsMemberEmail" , email);
+			if(emailCheck != null){
+				obj.put("msg", Message.get().msg(messageSource, "pop.alreadyEmail", request));
+				return obj.toJSONString();
+			}
+		}
+		
+		EgovMap in = new EgovMap();
+		in.put("jstat", "1");
 		in.put("name", name);
+		in.put("id", id);
 		in.put("pw", pw);
-		in.put("level", level);
 		in.put("wallet", "0");
 		in.put("istest", "0");
+		in.put("phone", phone);
 		in.put("email", email);
 		in.put("joinKind", "setemail");
 //		String invi = Validation.getTempPassword(3);

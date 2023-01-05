@@ -43,7 +43,7 @@ public class MainController {
 //		return "imgSlider";
 	}
 	
-	@ResponseBody
+	@ResponseBody 
 	@RequestMapping(value="/testEmail.do")
 	public String testEmail(HttpServletRequest request){
 		HttpSession session = request.getSession();

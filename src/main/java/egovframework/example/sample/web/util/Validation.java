@@ -43,6 +43,12 @@ public class Validation {
 	public static boolean isValidPhone(String str) {
 	    return Pattern.matches("^\\d{2,3}\\d{3,4}\\d{4}$", str);
 	}
+	public static boolean isValidPassword(String str) {
+		boolean check1 = Pattern.matches("^[A-Za-z0-9]{10,}$", str);
+		boolean check2 = Pattern.matches("^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*#?&])[A-Za-z[0-9]$@$!%*#?&]{8,}$", str);
+		
+		return (check1 || check2);
+	}
 
 	public static String getTempPassword(int length) {
 		int index = 0;

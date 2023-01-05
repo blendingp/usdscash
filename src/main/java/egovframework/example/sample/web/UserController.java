@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +24,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,7 +32,6 @@ import egovframework.example.sample.classes.CointransService;
 import egovframework.example.sample.classes.Member;
 import egovframework.example.sample.classes.Message;
 import egovframework.example.sample.classes.Project;
-import egovframework.example.sample.classes.ServerInfo;
 import egovframework.example.sample.classes.SocketHandler;
 import egovframework.example.sample.classes.Wallet;
 import egovframework.example.sample.service.impl.Log;
@@ -59,6 +57,7 @@ public class UserController {
 		
 		return "usdscash/usdscashMain";
 	}
+	
 	@RequestMapping(value = "/usdscashMain.do")
 	public String usdscashMain(HttpServletRequest request, ModelMap model) throws Exception {
 		HttpSession session = request.getSession();
