@@ -147,7 +147,6 @@ public class BoardController {
 		else if(session.getAttribute("lang").equals("JP")) lang = 2;
 		else if(session.getAttribute("lang").equals("CH")) lang = 3;
 		else if(session.getAttribute("lang").equals("FC")) lang = 4;
-		String search = request.getParameter("search");
 		
 		PaginationInfo pi = new PaginationInfo();
 		if(request.getParameter("pageIndex") == null || request.getParameter("pageIndex").equals("")){
@@ -156,23 +155,20 @@ public class BoardController {
 			pi.setCurrentPageNo(Integer.parseInt(""+request.getParameter("pageIndex")));
 		}
 		
-		if((""+search).length()>50 || (""+request.getParameter("pageIndex")).length() > 30){
-			return "board/notice";
-		}
 		pi.setPageSize(10);
 		pi.setRecordCountPerPage(10);
 		EgovMap in = new EgovMap();
 		in.put("first" , pi.getFirstRecordIndex());
 		in.put("record" , pi.getRecordCountPerPage());
-		in.put("search", search);		
 		in.put("bcategory", type);		
 		in.put("blang", lang);
 		pi.setTotalRecordCount((int)sampleDAO.select("selectBoardListCnt" , in));
-		List<?> noticeList = (List<?>) sampleDAO.list("selectBoardList", in);
-		model.addAttribute("noticeList", noticeList);
+		List<?> list = (List<?>) sampleDAO.list("selectBoardList", in);
+		model.addAttribute("list", list);
 		model.addAttribute("pi", pi);
-		model.addAttribute("search", request.getParameter("search"));
-		return "board/"+type;
+		
+		model.addAttribute("type", type);
+		return "board/boardList";
 	}
 	
 	@RequestMapping(value = "/detail.do")

@@ -54,6 +54,24 @@ public class UserController {
 
 	@RequestMapping(value = "/main.do")
 	public String main(HttpServletRequest request, ModelMap model) throws Exception {
+		HttpSession session = request.getSession();
+		session.setAttribute("currentP", "main");
+		int lang = 0;
+		if(session.getAttribute("lang") == null || session.getAttribute("lang").equals("EN")) lang = 1;
+		EgovMap in = new EgovMap();
+		in.put("bcategory", "event");
+		in.put("bwhere", 1);
+		in.put("blang", lang);
+		ArrayList<EgovMap> list = (ArrayList<EgovMap>)sampleDAO.list("selectAllBoard", in);
+		for(int i = 0; i < list.size(); i++){
+			String text = StringEscapeUtils.unescapeHtml3(list.get(i).get("bcontent").toString());
+			list.get(i).put("text", text);
+		}
+		model.addAttribute("notilist", list);
+		in.put("limit", 3);
+		in.put("bcategory", "notice");
+		model.addAttribute("nlist", sampleDAO.list("selectAllBoard", in));
+		model.addAttribute("nowpage", "mainp");
 		
 		return "usdscash/usdscashMain";
 	}
@@ -61,6 +79,47 @@ public class UserController {
 	public String cryptoDetail(HttpServletRequest request, ModelMap model) throws Exception {
 		
 		return "usdscash/usdscashCrypto";
+	}
+	
+	@RequestMapping(value = "/tradeHistory.do")
+	public String tradeHistory(HttpServletRequest request, ModelMap model) throws Exception {
+		HttpSession session = request.getSession();
+		session.setAttribute("currentP", "mypage");
+		String userIdx = "" + session.getAttribute("userIdx");
+		
+		PaginationInfo paginationInfo = new PaginationInfo();
+		if (request.getParameter("pageIndex") == null || request.getParameter("pageIndex").isEmpty())
+			paginationInfo.setCurrentPageNo(1);
+		else
+			paginationInfo.setCurrentPageNo(Integer.parseInt("" + request.getParameter("pageIndex")));
+		
+		paginationInfo.setPageSize(10);
+		paginationInfo.setRecordCountPerPage(15);
+		EgovMap in = new EgovMap();
+		in.put("userIdx", userIdx);
+		in.put("symbol", "SafeCoin");
+		in.put("first", paginationInfo.getFirstRecordIndex());
+		in.put("record", paginationInfo.getRecordCountPerPage());
+
+		paginationInfo.setTotalRecordCount((int) sampleDAO.select("selectEndtimeMyTradeListCnt", in));
+		model.addAttribute("list", sampleDAO.list("selectEndtimeMyTradeList", in));
+		model.addAttribute("paginationInfo", paginationInfo);
+		
+		return "usdscash/usdscashTradeHistory";
+	}
+	
+	@RequestMapping(value = "/mypage.do")
+	public String mypage(HttpServletRequest request, ModelMap model) throws Exception {
+		HttpSession session = request.getSession();
+		int userIdx = Integer.parseInt(session.getAttribute("userIdx").toString());
+		model.addAttribute("info", sampleDAO.select("selectMemberByIdx", userIdx));
+		
+		return "usdscash/usdscashMypage";
+	}
+	@RequestMapping(value = "/portfolio.do")
+	public String portfolio(HttpServletRequest request, ModelMap model) throws Exception {
+		
+		return "usdscash/usdscashPortfolio";
 	}
 	
 	@RequestMapping(value = "/usdscashMain.do")
@@ -177,6 +236,7 @@ public class UserController {
 			obj.put("msg", Message.get().msg(messageSource, "pop.sendError", request));
 			return obj.toJSONString();
 		}
+		System.out.println("phoneCode : "+code);
 		session.setAttribute("phoneCode", code);
 		obj.put("msg", Message.get().msg(messageSource, "pop.sendCode", request));
 		obj.put("result","success");
@@ -952,8 +1012,8 @@ public class UserController {
 		return "user/referells";
 	}
 
-	@RequestMapping(value = "/tradeHistory.do")
-	public String tradeHistory(HttpServletRequest request, ModelMap model) throws Exception {
+	@RequestMapping(value = "/tradeHistory_old.do")
+	public String tradeHistory_old(HttpServletRequest request, ModelMap model) throws Exception {
 		long starttime = Calendar.getInstance().getTime().getTime();
 		HttpSession session = request.getSession();
 		session.setAttribute("currentP", "mypage");

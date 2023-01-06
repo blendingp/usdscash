@@ -116,226 +116,100 @@
 			</div>
 		</div>
 		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>
-		<div class="pop m_popup">
-			<div class="m_pop">
-				<div class="m_pop_box">
-					<div>This is some text inside of a div block.</div>
+		<div class="pop m_popup" id="popDiv">
+			<c:forEach var="item" items="${notilist}">
+				<div class="m_pop" id="popupn${item.bidx}" style="display: none;">
+					<div class="m_pop_box">
+						<div style="word-break: break-all; line-height: normal;">${item.text}</div>
+					</div>
+					<div class="pop_btn_warp">
+						<a href="#" onclick="closepopupn24('${item.bidx}')" class="today_btn w-button"><spring:message code="menu.24nonshow" /></a>
+						<div class="popx" onclick="closepopupn('${item.bidx}')"> <img src="/usdscash/webflow/images2/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images2/wx_black-p-500.png 500w, /usdscash/webflow/images2/wx_black-p-800.png 800w, /usdscash/webflow/images2/wx_black-p-1080.png 1080w, /usdscash/webflow/images2/wx_black-p-1600.png 1600w, /usdscash/webflow/images2/wx_black.png 1600w" alt="" class="popx_img"> </div>
+					</div>
 				</div>
-				<div class="pop_btn_warp">
-					<a href="#" class="today_btn w-button">오늘 하루 보지 않기</a>
-					<div class="popx"> <img src="/usdscash/webflow/images2/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images2/wx_black-p-500.png 500w, /usdscash/webflow/images2/wx_black-p-800.png 800w, /usdscash/webflow/images2/wx_black-p-1080.png 1080w, /usdscash/webflow/images2/wx_black-p-1600.png 1600w, /usdscash/webflow/images2/wx_black.png 1600w" alt="" class="popx_img"> </div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
 	<jsp:include page="../usdscashFrame/bottom2.jsp"></jsp:include>
 	<script>
-		function conDisplay(){ 	
-		    var con = document.getElementById("country"); 	
-		    if(con.style.display=='none'){ 		
-		    	con.style.display = 'flex'; 	
-		    }else{ 		
-		    	con.style.display = 'none'; 	
-		    } 
+	function notiCloseCheck(){
+		var allClose = true;
+		$.each($(".m_pop"), function(index, item){
+	 		if($(item).css("display") != 'none') allClose = false;
+		})
+		if(allClose){
+			$("#popDiv").css("display","none");
+		}
+	}
+
+	getCookieMobile ();
+	function getCookieMobile () {
+	    var cookiedata = document.cookie;
+	    let lang = 1;
+	    <c:forEach var="result" items="${notilist}">
+	        if ( cookiedata.indexOf("popupn${result.bidx}=done") < 0){    
+	        	$("#popDiv").css('display','flex');
+	            $("#popupn${result.bidx}").css('display' ,'block');    
+	        }else {
+	            $("#popupn${result.bidx}").css('display' ,'none');
+	        }            
+	                
+	    </c:forEach>
+	    notiCloseCheck();
+	}
+	function closepopupn(pidx){
+	    $("#popupn"+pidx).hide();
+	    notiCloseCheck();
+	}
+	function closepopupn24(pidx){
+		setCookieMobile( "popupn"+pidx , "done" , 1);
+	    $("#popupn"+pidx).hide();
+	    notiCloseCheck();
+	}
+
+	function setCookieMobile ( name, value, expiredays ) {    
+	    var todayDate = new Date();
+	    todayDate.setDate( todayDate.getDate() + expiredays );
+	    document.cookie = name + "=" + encodeURI(value)  + "; path=/; expires=" + todayDate.toGMTString() + ";"
+	}
+	
+	function fmtNum(num) {
+		if (num == null)
+			return 0;
+		if (num.length <= 3)
+			return num;
+
+		var decimalv = "";
+
+		if (num.indexOf(".") != -1) {
+			var numarr = num.split(".");
+			num = numarr[0];
+			decimalv = "." + numarr[1];
 		}
 
-		function notiCloseCheck() {
-			var allClose = true;
-			$.each($(".main_noticepop"), function(index, item) {
-				if ($(item).css("display") == 'flex')
-					allClose = false;
-			})
-			if (allClose) {
-				$("#popDiv").css("display", "none");
-			}
+		var len, point, str;
+		let
+		min = "";
+
+		num = num + "";
+		if (num.charAt(0) == '-') {
+			num = num.substr(1);
+			min = "-";
 		}
 
-		getCookieMobile();
-		function getCookieMobile() {
-			var cookiedata = document.cookie;
-			let
-			lang = 1;
-			<c:forEach var="result" items="${notilist}">
-			if (cookiedata.indexOf("popupn${result.bidx}=done") < 0) {
-				$("#popDiv").css('display', 'flex');
-				$("#popupn${result.bidx}").css('display', 'flex');
-			} else {
-				$("#popupn${result.bidx}").css('display', 'none');
-			}
+		point = num.length % 3;
+		str = num.substring(0, point);
+		len = num.length;
 
-			</c:forEach>
-			notiCloseCheck();
+		while (point < len) {
+			if (str != "")
+				str += ",";
+			str += num.substring(point, point + 3);
+			point += 3;
 		}
-		function closepopupn(pidx) {
-			var ck = $("#popupnc" + pidx).is(":checked");
-			if (ck) {
-				setCookieMobile("popupn" + pidx, "done", 1);
-			}
-			$("#popupn" + pidx).hide();
-			notiCloseCheck();
-		}
-
-		function setCookieMobile(name, value, expiredays) {
-			var todayDate = new Date();
-			todayDate.setDate(todayDate.getDate() + expiredays);
-			document.cookie = name + "=" + encodeURI(value)
-					+ "; path=/; expires=" + todayDate.toGMTString() + ";"
-		}
-
-		function fmtNum(num) {
-			if (num == null)
-				return 0;
-			if (num.length <= 3)
-				return num;
-
-			var decimalv = "";
-
-			if (num.indexOf(".") != -1) {
-				var numarr = num.split(".");
-				num = numarr[0];
-				decimalv = "." + numarr[1];
-			}
-
-			var len, point, str;
-			let
-			min = "";
-
-			num = num + "";
-			if (num.charAt(0) == '-') {
-				num = num.substr(1);
-				min = "-";
-			}
-
-			point = num.length % 3;
-			str = num.substring(0, point);
-			len = num.length;
-
-			while (point < len) {
-				if (str != "")
-					str += ",";
-				str += num.substring(point, point + 3);
-				point += 3;
-			}
-			return min + str + decimalv;
-		}
-
-		function getSymbol(symbol) {
-			switch (symbol) {
-			case "BTCUSDT":
-			case "BTC":
-			case "BTCUSD":
-				return 0;
-			case "ETHUSDT":
-			case "ETH":
-			case "ETHUSD":
-				return 1;
-			case "XRPUSDT":
-			case "XRP":
-			case "XRPUSD":
-				return 2;
-			case "TRXUSDT":
-			case "TRX":
-			case "TRXUSD":
-				return 3;
-			case "DOGEUSDT":
-			case "DOGE":
-			case "DOGEUSD":
-				return 4;
-			default:
-				break;
-			}
-		}
-
-		var coinArr = new Array('BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'TRXUSDT'); // 코인 변수명 
-		var fPrice = new Object;
-
-		var wsAPIUri = "wss://fstream.binance.com/stream?streams=";
-		for (i = 0; i < coinArr.length; i++) {
-			if (i == 0) {
-				wsAPIUri += coinArr[i].toLowerCase() + '@kline_1m';
-			} else {
-				wsAPIUri += '/' + coinArr[i].toLowerCase() + '@kline_1m';
-			}
-			wsAPIUri += '/' + coinArr[i].toLowerCase() + '@ticker';
-		}
-
-		var websocket2;
-
-		function initAPI() {
-			websocket2 = new WebSocket(wsAPIUri);
-			websocket2.onopen = function(evt) {
-				console.log("connect OK");
-				onAPIOpen(evt);
-			};
-			websocket2.onmessage = function(evt) {
-				onAPIMessage(evt);
-			};
-			websocket2.onerror = function(evt) {
-				onAPIError(evt);
-			};
-			websocket2.onclose = function(evt) {
-				console.log("API 재접속");
-				setTimeout("initAPI()", 1000);
-			};
-		}
-		function onAPIOpen(evt) {
-			console.log('APIOPEN---------------')
-		}
-		function onAPIMessage(evt) {
-			let
-			jdata = JSON.parse(evt.data);
-			let
-			stream = jdata.stream;
-
-			if (stream.slice(-7) === '@ticker') {
-				var symbol = stream.slice(0, -7).toUpperCase();
-				var cnum = getSymbol(jdata.data.s);
-				$(".mainCoin" + cnum).find(".cvolume").html(jdata.data.v);
-				$(".mainCoin" + cnum).find(".chigh").html(jdata.data.h);
-				$(".mainCoin" + cnum).find(".clow").html(jdata.data.l);
-				$(".mainCoin" + cnum).find(".cchange").html(jdata.data.P+"");
-				$(".mainCoin" + cnum).find(".cchange").removeClass("down");
-				$(".mainCoin" + cnum).find(".cchange").removeClass("up");
-				if(jdata.data.P < 0){
-					$(".mainCoin" + cnum).find(".cchange").addClass("down");
-				}
-				else if(jdata.data.P > 0){
-					$(".mainCoin" + cnum).find(".cchange").addClass("up");
-				}
-			}
-			if (stream.slice(-9) === '@kline_1m') {
-				try {
-					fPrice[jdata.data.s] = jdata.data.k['c'];
-					let
-					arr = new Array(5);
-					let
-					coin = [ 'BTC', 'ETH', 'XRP', 'TRX', 'DOGE' ];
-					for (i = 0; i < coin.length; i++) {
-						let
-						sym = coin[i];
-						let
-						type;
-						sym === 'BTC' ? type = 0 : sym === 'ETH' ? type = 1
-								: sym === 'XRP' ? type = 2
-										: sym === 'TRX' ? type = 3
-												: sym === 'DOGE' ? type = 4
-														: '';
-						for (key in fPrice) {
-							if (key === sym + 'USDT') {
-								arr[type] = fPrice[key];
-							}
-						}
-					}
-					for (var k = 0; k < 5; k++) {
-						$(".mainCoin" + k).find(".cnow").html(arr[k]);
-
-					}
-				} catch (e) {
-					console.log(stream, " kline err", e);
-				}
-			}
-		}
-		window.addEventListener("load", initAPI, false);
+		return min + str + decimalv;
+	}
 	</script>
+	<script src="/usdscash/js/mainSise.js" type="text/javascript"></script>
 </body>
 </html>

@@ -23,10 +23,10 @@
 							<div class="coin_name">
 								<img src="/usdscash/webflow/images2/binance_logo.svg" loading="lazy" alt="" class="coin_icon">
 								<div>세이프 코인(Safe Coin)</div>
-								<div class="c_btn_portfolio">
+								<!-- <div class="c_btn_portfolio">
 									<img src="/usdscash/webflow/images2/yellow_star.svg" loading="lazy" alt="" class="portfolio_star on">
 									<img src="/usdscash/webflow/images2/grey_star.svg" loading="lazy" alt="" class="portfolio_star off">
-									<!-- <div class="c_portfolio_toggle">
+									<div class="c_portfolio_toggle">
 										<div class="c_p_pbtn">
 											<div>MyPortfolio</div>
 											<div class="p_add_btn">
@@ -47,9 +47,9 @@
 												<img src="/usdscash/webflow/images2/plus.svg" loading="lazy" alt="" class="icon">
 											</div>
 										</div>
-									</div> -->
+									</div>
 									<div>포트폴리오에 추가하기</div>
-								</div>
+								</div> -->
 							</div>
 							<div class="c_p_titlebox">
 								<div>US$17,081.23</div>

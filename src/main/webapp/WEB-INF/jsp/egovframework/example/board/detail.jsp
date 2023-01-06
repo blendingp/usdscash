@@ -6,10 +6,6 @@
 <!DOCTYPE html>
 <html data-wf-page="62b181be37670240d0464eb6" data-wf-site="62b1125ac4d4d60ab9c62f81">
 <head>
-<meta charset="utf-8">
-<title>detail</title>
-<meta content="detail" property="og:title">
-<meta content="detail" property="twitter:title">
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <body class="body">
@@ -19,19 +15,7 @@
 			<div class="banner">
 				<div class="b_img custermer">
 					<div class="b_box">
-						<c:if test="${type eq 'notice'}">
-							<h1 class="heading">
-								<spring:message code="support.notice" />
-							</h1>
-							<div>
-								<spring:message code="main.cutomer_3" />
-							</div>
-						</c:if>
-						<c:if test="${type eq 'faq'}">
-							<h1 class="heading">
-								<spring:message code="menu.faq" />
-							</h1>
-						</c:if>
+						<h1 class="heading"><spring:message code="menu.${type}" /></h1>
 					</div>
 				</div>
 			</div>
@@ -49,8 +33,7 @@
 						</div>
 					</div>
 					<div class="general_btn_area">
-						<a href="/usdscash/${type}.do" class="genral_btn w-button"><spring:message
-								code="button.list" /></a>
+						<a href="/usdscash/board/${type}List.do" class="genral_btn w-button"><spring:message code="button.list" /></a>
 					</div>
 				</div>
 			</div>

@@ -5,11 +5,7 @@
 <!DOCTYPE html>
 <html data-wf-page="62b182e19230a043e4688475" data-wf-site="62b1125ac4d4d60ab9c62f81">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta content="detail" property="og:title">
-<meta content="detail" property="twitter:title">
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
-<title>Personal information processing policy</title>
 </head>
 <body class="body1">
   <div class="frame">

@@ -8,7 +8,6 @@
 <!--  Last Published: Tue Jun 29 2021 05:48:49 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="62b186c2f7e8877e2d12526e" data-wf-site="62b1125ac4d4d60ab9c62f81">
 <head>
-<meta charset="utf-8">
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <style>

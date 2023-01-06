@@ -68,7 +68,8 @@
 	           <li class="nav-item">
 	              <a class="nav-link" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/fixstat.do">
 	                  <i class="fas fa-fw fa-edit"></i>
-	                  <span>사이트 점검</span></a>
+	                  <span>사이트 점검</span>
+                  </a>
 	           </li>
 			</c:if>
 				
@@ -81,8 +82,8 @@
 	            <div id="collapse${collapseCnt}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 	                <div class="bg-white py-2 collapse-inner rounded">
 	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/tradeList.do?test=test">거래내역 ${futures}</a>
-	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/orderList.do?test=test">주문내역 ${futures}</a>
-	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/liqList.do?test=test">청산내역 ${futures}</a>
+	                    <%-- <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/orderList.do?test=test">주문내역 ${futures}</a>
+	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/liqList.do?test=test">청산내역 ${futures}</a> --%>
 	                    <c:if test="${project.inverse eq true}">
 	                     <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/tradeList.do?test=test&inverse=inverse">거래내역 (현물)</a>
 	                     <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/orderList.do?test=test&inverse=inverse">주문내역 (현물)</a>
@@ -97,12 +98,12 @@
 	                </div>
 	            </div>
 	        </li>
-			<li class="nav-item">
+			<!-- <li class="nav-item">
 	            <a class="nav-link" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/positionList.do">
 	                <i class="fas fa-fw fa-signal"></i>
 	                <span>현재 회원 포지션</span>
 	            </a>
-	        </li>
+	        </li> -->
 	        <c:if test="${project.spotTrade eq true}">
 		        <c:set var="collapseCnt" value="${collapseCnt+1}"/>
 		        <li class="nav-item">
@@ -117,31 +118,34 @@
 		                </div>
 		            </div>
 		        </li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 		            <a class="nav-link" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/positionList.do">
 		                <i class="fas fa-fw fa-signal"></i>
 		                <span>현재 회원 포지션</span>
 		            </a>
+		        </li> -->
+	        </c:if>
+	        
+	        <c:if test="${project.copytrade eq true}">
+		        <c:set var="collapseCnt" value="${collapseCnt+1}"/>
+		        <li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse${collapseCnt}" aria-expanded="true" aria-controls="collapse${collapseCnt}">
+		                <i class="fas fa-fw fa-folder"></i>
+		                <span>카피트레이딩</span>
+		            </a>
+		            <div id="collapse${collapseCnt}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+		                <div class="bg-white py-2 collapse-inner rounded">
+		                    <a class="collapse-item copytrade" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/traderList.do">트레이더 <span id="traderRequest"></span></a>
+		                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/followerList.do">팔로워</a>
+		                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/copytradeLog.do">트레이딩 로그</a>
+		                    <c:if test="${project.copyRequest eq true}">
+		                    	<a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/copyRequestList.do">팔로우 신청 리스트</a>
+		                    </c:if>
+		                </div>
+		            </div>
 		        </li>
 	        </c:if>
 	        
-	        <c:set var="collapseCnt" value="${collapseCnt+1}"/>
-	        <li class="nav-item">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse${collapseCnt}" aria-expanded="true" aria-controls="collapse${collapseCnt}">
-	                <i class="fas fa-fw fa-folder"></i>
-	                <span>카피트레이딩</span>
-	            </a>
-	            <div id="collapse${collapseCnt}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-	                <div class="bg-white py-2 collapse-inner rounded">
-	                    <a class="collapse-item copytrade" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/traderList.do">트레이더 <span id="traderRequest"></span></a>
-	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/followerList.do">팔로워</a>
-	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/copytradeLog.do">트레이딩 로그</a>
-	                    <c:if test="${project.copyRequest eq true}">
-	                    	<a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trader/copyRequestList.do">팔로우 신청 리스트</a>
-	                    </c:if>
-	                </div>
-	            </div>
-	        </li>
 	        <c:set var="collapseCnt" value="${collapseCnt+1}"/>
 	        <c:if test="${project.coinDeposit eq true}">
 		        <li class="nav-item">

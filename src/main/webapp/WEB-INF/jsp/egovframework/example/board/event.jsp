@@ -8,8 +8,6 @@
 <!--  Last Published: Tue Jun 29 2021 05:48:49 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="638d805ee804c48ea60a5358" data-wf-site="638d805ee804c444b60a5350">
 <head>
-<meta charset="utf-8">
-<title>Event</title>
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <body class="body">

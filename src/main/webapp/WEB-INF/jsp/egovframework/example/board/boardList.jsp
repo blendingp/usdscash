@@ -8,8 +8,6 @@
 <!--  Last Published: Tue Jun 29 2021 05:48:49 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="638d805ee804c48ea60a5358" data-wf-site="638d805ee804c444b60a5350">
 <head>
-<meta charset="utf-8">
-<title>Notice</title>
 <jsp:include page="../usdscashFrame/header2.jsp"></jsp:include>
 </head>
 <body class="body">
@@ -23,8 +21,7 @@
 					<div class="banner">
 						<div class="b_img custermer">
 							<div class="b_box">
-								<h1 class="heading"><spring:message code="menu.notice" /> </h1>
-								<div><spring:message code="main.cutomer_3" /></div>
+								<h1 class="heading"><spring:message code="menu.${type}" /></h1>
 							</div>
 						</div>
 					</div>
@@ -32,9 +29,9 @@
 						<div class="c_section1">
 							<div class="c_list_area">
 								<c:set var="number" value="${pi.totalRecordCount -pi.recordCountPerPage*(pi.currentPageNo-1) }" />
-								<c:forEach var="result" items="${noticeList}">
-									<div class="n_list _2" style="cursor: pointer;" onClick="checkdetail(${result.bidx})">
-										<div class="list_category">Notice</div>
+								<c:forEach var="result" items="${list}">
+									<div class="n_list" style="cursor: pointer;" onClick="checkdetail(${result.bidx})">
+										<div class="list_category">${fn:toUpperCase(type)}</div>
 										<div class="list_txt" style="word-break: break-word;">
 											<c:choose>
 												<c:when test="${fn:length(result.btitle) > 25}">

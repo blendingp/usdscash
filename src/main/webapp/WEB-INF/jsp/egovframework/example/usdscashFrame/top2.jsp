@@ -89,16 +89,17 @@
 				<div class="top_toggle">
 					<a href="/usdscash/board/noticeList.do" class="top_toggle_btn w-button"><spring:message code="menu.notice" /></a>
 					<%-- <a href="/usdscash/board/eventList.do" class="top_toggle_btn w-button"><spring:message code="menu.event" /></a> --%> 
-					<a href="/usdscash/user/helpCenter.do" class="top_toggle_btn w-button"><spring:message code="submitRequest" /></a> 
 					<a href="/usdscash/board/faqList.do" class="top_toggle_btn w-button"><spring:message code="newwave.menu.faq"/></a>
+					<a href="/usdscash/user/helpCenter.do" class="top_toggle_btn w-button"><spring:message code="submitRequest" /></a> 
 				</div>
 				<div class="btn_deco"></div>
 			</div>
 			<div class="top_btn_warp">
 				<a href="#" class="top_btn w-button"><spring:message code="menu.mypage"/></a>
 				<div class="top_toggle">
+					<a href="/usdscash/user/mypage.do" class="top_toggle_btn w-button"><spring:message code="menu.mypage"/></a> 
 					<a href="/usdscash/user/tradeHistory.do" class="top_toggle_btn w-button"><spring:message code="trade.tradeHistory"/></a> 
-					<a href="javascript:menuShow('mypageMenu')" class="top_toggle_btn w-button"><spring:message code="menu.mypage"/></a> 
+					<%-- <a href="/usdscash/user/portfolio.do" class="top_toggle_btn w-button"><spring:message code="menu.portfolio"/></a> --%> 
 				</div>
 				<div class="btn_deco"></div>
 			</div>
@@ -116,38 +117,42 @@
 			</div>
 		</div>
 		<div class="mobile_m_btn">
-			<img src="/usdscash/webflow/images2/menu2.svg" loading="lazy" alt=""
-				class="mobile_m_btnicon">
-			<div class="moblie_menu">
-				<div class="exsit_btn">
+			<img src="/usdscash/webflow/images2/menu2.svg" loading="lazy" alt="" class="mobile_m_btnicon" onclick="mobMenu()">
+			<div class="moblie_menu" id="mobMenu">
+				<div class="exsit_btn" onclick="mobMenu()">
 					<img src="/usdscash/webflow/images2/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images2/wx_black-p-500.png 500w, /usdscash/webflow/images2/wx_black-p-800.png 800w, /usdscash/webflow/images2/wx_black-p-1080.png 1080w, /usdscash/webflow/images2/wx_black-p-1600.png 1600w, /usdscash/webflow/images2/wx_black.png 1600w" alt="" class="exsit_icon">
 				</div>
-				<div class="mobile_menu_btn" onclick="loaction.href='/usdscash/tradeSpot.do'">
-					<div><spring:message code="trade.trade"/></div>
+				<div class="mobile_menu_btn" onclick="location.href='/usdscash/user/main.do'">
+					<div><spring:message code="menu.crypto"/></div>
 				</div>
 				<div class="mobile_toggle_warp">
 					<div class="mobile_menu_btn">
-						<div>고객센터</div>
-						<img src="/usdscash/webflow/images2/round_arrow_1.svg" loading="lazy" alt=""
-							class="ms_arrow">
-					</div>
-					<div class="mobile_menu_btn">
-						<div>마이페이지</div>
-						<img src="/usdscash/webflow/images2/round_arrow_1.svg" loading="lazy" alt=""
-							class="ms_arrow">
+						<div><spring:message code="menu.support"/></div>
+						<img src="/usdscash/webflow/images2/round_arrow_1.svg" loading="lazy" alt="" class="ms_arrow">
 					</div>
 					<div class="toggle_warp">
-						<div class="mobile_toggle_btn">
-							<div>공지사항</div>
+						<div class="mobile_toggle_btn" onclick="location.href='/usdscash/board/noticeList.do'">
+							<div><spring:message code="menu.notice" /></div>
 						</div>
-						<div class="mobile_toggle_btn">
-							<div>이벤트</div>
+						<div class="mobile_toggle_btn" onclick="location.href='/usdscash/board/faqList.do'">
+							<div><spring:message code="newwave.menu.faq"/></div>
 						</div>
-						<div class="mobile_toggle_btn">
-							<div>문의하기</div>
+						<div class="mobile_toggle_btn" onclick="location.href='/usdscash/user/helpCenter.do'">
+							<div><spring:message code="submitRequest" /></div>
 						</div>
-						<div class="mobile_toggle_btn">
-							<div>자주묻는 질문</div>
+					</div>
+				</div>
+				<div class="mobile_toggle_warp">
+					<div class="mobile_menu_btn">
+						<div><spring:message code="menu.mypage"/></div>
+						<img src="/usdscash/webflow/images2/round_arrow_1.svg" loading="lazy" alt="" class="ms_arrow">
+					</div>
+					<div class="toggle_warp">
+						<div class="mobile_toggle_btn" onclick="location.href='/usdscash/user/mypage.do'">
+							<div><spring:message code="menu.mypage"/></div>
+						</div>
+						<div class="mobile_toggle_btn" onclick="location.href='/usdscash/user/tradeHistory.do'">
+							<div><spring:message code="trade.tradeHistory"/></div>
 						</div>
 					</div>
 				</div>
@@ -161,6 +166,20 @@
 		$(this).children(".btn_deco").toggleClass("on")
 		$(this).children(".top_toggle").toggleClass("on")
 	});
+	
+	$(".mobile_menu_btn").on("click", function(){
+		$(this).next(".toggle_warp").toggle();
+	})
+	
+	function mobMenu(){
+		if($("#mobMenu").css("display")=="none"){
+			$("#mobMenu").css("display","flex");
+			$("html, body").addClass("not_scroll");
+		}else{
+			$("#mobMenu").css("display","none");
+			$("html, body").removeClass("not_scroll");
+		}
+	}
 </script>
 <script type="text/javascript">
 	var lang = "${lang}";
