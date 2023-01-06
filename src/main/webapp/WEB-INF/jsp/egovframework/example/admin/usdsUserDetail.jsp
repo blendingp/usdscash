@@ -256,10 +256,7 @@
 										</div>
 										<div class="col-lg-4">
 											<div class="form-group">
-												<label>이메일 <c:if test="${info.emailconfirm eq 1}">(인증완료)</c:if>
-													<c:if test="${info.emailconfirm ne 1}">(미인증)</c:if>
-												</label> <a target="_blank"
-													href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/trade/emailList.do?idx=${info.idx }">변경기록</a>
+												<label>이메일</label>
 												<c:if
 													test="${project.subAdminPower eq false and adminLevel ne 1}">
 													<div class="form-group">
@@ -281,89 +278,7 @@
 												</c:if>
 											</div>
 										</div>
-										<div class="col-lg-6">
-											<label>수수료 비율 변경 ( 0~${project.chongMaxRate}% ) 유저는
-												의미없고 총판인 경우만 의미 있음( 하위 총판에게 내려주는 수수료 비율임)</label>
-											<div class="form-group input-group">
-
-												<c:if test="${info.level eq 'user'}">
-												유저의 수수료 비율 변경 선택 없음, 총판만 변경 가능
-												</c:if>
-												<c:if test="${info.level eq 'chong'}">
-													<input name="commissionRate" id="commissionRate"
-														class="form-control" placeholder="숫자만 입력"
-														value="${info.commissionRate}" onkeyup="SetNum(this);" />
-
-													<span class="input-group-btn">
-														<button type="button"
-															onclick="javascript:updateCommissionRate(${info.idx})"
-															class="btn btn-danger">수정</button>
-													</span>
-												</c:if>
-											</div>
-										</div>
 									</div>
-									<div class="row">
-										<div class="col-lg-6">
-											<div class="form-group">
-												<label>보유 포인트</label> <span style="color: red">*포인트
-													충전시 20초 후 갱신되니 새로고침 후 확인하세요</span>
-												<pre>&nbsp;<fmt:formatNumber value="${info.wallet}" pattern="#,###.########" /></pre>
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<c:if
-												test="${project.subAdminPower eq true or adminLevel eq 1}">
-												<label>포인트 추가 / 회수</label>
-												<div class="form-group input-group">
-													<span class="input-group-btn">
-														<button type="button"
-															onclick="javascript:updatePoint(${info.idx},'+')"
-															class="btn btn-primary">추가</button>
-													</span> <input name="point" class="form-control"
-														placeholder="숫자만 입력" id="point" onkeyup="SetNum(this);" />
-													<span class="input-group-btn">
-														<button type="button"
-															onclick="javascript:updatePoint(${info.idx},'-')"
-															class="btn btn-danger">회수</button>
-													</span>
-												</div>
-											</c:if>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-6">
-											<c:if
-												test="${project.krCode eq true and info.parentsIdx eq '-1'}">
-												<label>한글 레퍼럴 계정</label>
-												<div class="form-group input-group">
-													<span class="input-group-btn">
-														<button type="button"
-															onclick="javascript:setKrCode(${info.idx})"
-															class="btn btn-primary">변경</button>
-													</span> <input name="point" class="form-control"
-														value="${info.isKrCode}" id="krCode" readonly />
-												</div>
-											</c:if>
-										</div>
-										<div class="col-lg-6">
-											<%--<c:if test="${project.name ne 'graphttok'}"> --%>
-											<c:if
-												test="${project.subAdminPower eq true or adminLevel eq 1}">
-												<label>USDT 입금</label>
-												<div class="form-group input-group">
-													<span class="input-group-btn">
-														<button type="button"
-															onclick="javascript:depositUSDT(${info.idx})"
-															class="btn btn-primary">입금</button>
-													</span> <input name="point" class="form-control"
-														placeholder="숫자만 입력" id="depoUSDT" onkeyup="SetNum(this);" />
-												</div>
-											</c:if>
-											<%--</c:if> --%>
-										</div>
-									</div>
-
 									<div class="row">
 										<div class="col-lg-8">
 											<div class="form-group">
@@ -422,140 +337,6 @@
 											</div>
 										</div>
 									</div>
-									<%-- <div class="row">
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> 
-													<a href="https://etherscan.io/token/${pinfo.ercAddress}" target="_blank"> 상위 총판의 ETH 지갑 주소 </a>
-												</label>
-												<pre>&nbsp;<c:if test="${pinfo eq null}">상위 총판이 없습니다.</c:if>${pinfo.ercAddress}</pre>
-											</div>
-										</div>
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> <a
-													href="https://www.blockchain.com/btc/address/${pinfo.btcAddress}"
-													target="_blank"> 상위 총판의 BTC 지갑 주소 </a>
-												</label>
-												<pre>&nbsp;<c:if test="${pinfo eq null}">상위 총판이 없습니다.</c:if>${pinfo.btcAddress}</pre>
-											</div>
-										</div>
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> <a
-													href="https://xrpscan.com/account/${xrpAccount.xrpAddress}"
-													target="_blank"> 상위 총판의 XRP 지갑 주소 </a>
-												</label>
-												<pre>&nbsp;${xrpAccount.xrpAddress}</pre>
-											</div>
-										</div>
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> <a
-													href="https://tronscan.org/#/address/${pinfo.trxAddress}"
-													target="_blank"> 상위 총판의 TRX 지갑 주소 </a>
-												</label>
-												<pre>&nbsp;<c:if test="${pinfo eq null}">상위 총판이 없습니다.</c:if>${pinfo.trxAddress}</pre>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> <a
-													href="https://etherscan.io/token/${info.ercAddress}"
-													target="_blank"> 해당 회원의 ETH 지갑 주소 </a>
-												</label>
-												<c:set var="placeholder" value="" />
-												<c:if test="${info.ercAddress eq null}">
-													<c:set var="placeholder" value="지갑 주소가 없습니다." />
-												</c:if>
-												<div class="form-group input-group">
-													<input type="text" class="form-control" name="ercAddress"
-														id="ercAddress" value="${info.ercAddress}"
-														placeholder="${placeholder}"> <span
-														class="input-group-btn">
-														<button type="button"
-															onclick="javascript:updateInfo('ercAddress')"
-															class="btn btn-primary">변경</button>
-													</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> <a
-													href="https://www.blockchain.com/btc/address/${info.btcAddress}"
-													target="_blank"> 해당 회원의 BTC 지갑 주소 </a>
-												</label>
-												<c:set var="placeholder" value="" />
-												<c:if test="${info.btcAddress eq null}">
-													<c:set var="placeholder" value="지갑 주소가 없습니다." />
-												</c:if>
-												<div class="form-group input-group">
-													<input type="text" class="form-control" name="btcAddress"
-														id="btcAddress" value="${info.btcAddress}"
-														placeholder="${placeholder}"> <span
-														class="input-group-btn">
-														<button type="button"
-															onclick="javascript:updateInfo('btcAddress')"
-															class="btn btn-primary">변경</button>
-													</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> 
-													<a href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/account/realBalanceLog.do?coinname=XRP&kind=1&useridx=${info.idx}" target="_blank"></a>
-													해당 회원의 XRP Destination Tag 
-												</label>
-												<pre>&nbsp;${info.destinationTag}</pre>
-											</div>
-										</div>
-										<div class="col-lg-3">
-											<div class="form-group">
-												<label> <a
-													href="https://tronscan.org/#/address/${info.trxAddress}"
-													target="_blank"> 해당 회원의 TRX 지갑 주소 </a>
-												</label>
-												<c:set var="placeholder" value="" />
-												<c:if test="${info.trxAddress eq null}">
-													<c:set var="placeholder" value="지갑 주소가 없습니다." />
-												</c:if>
-												<div class="form-group input-group">
-													<input type="text" class="form-control" name="trxAddress"
-														id="trxAddress" value="${info.trxAddress}"
-														placeholder="${placeholder}"> <span
-														class="input-group-btn">
-														<button type="button"
-															onclick="javascript:updateInfo('trxAddress')"
-															class="btn btn-primary">변경</button>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<c:if
-										test="${project.coinDeposit eq true or project.inverse eq true}">
-										<div class="row">
-											<c:forEach var="item" items="${coinWallet}"
-												varStatus="status">
-												<div class="col-lg-2">
-													<div class="form-group">
-														<label> ${fn:toUpperCase(item.key)} Balance <c:if
-																test="${status.index eq 0}">
-																<a
-																	href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/account/totalLog.do?userIdx=${info.idx}"
-																	target="_blank">Total Log</a>
-															</c:if>
-														</label>
-														<pre>&nbsp;<fmt:formatNumber value="${item.value}" pattern="#,###.########" />${fn:toUpperCase(item.key)}</pre>
-													</div>
-												</div>
-											</c:forEach>
-										</div>
-									</c:if> --%>
 									<div class="row">
 										<c:if test="${info.level eq 'user'}">
 											<div class="col-lg-2">
@@ -659,38 +440,6 @@
 														<pre><c:forEach var="item" items="${parents}" varStatus="i"><a href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/user/userDetail.do?idx=${item.userIdx}">${item.name}(${item.level})</a><- </c:forEach>${info.name}(${info.level })</pre>
 													</div>
 												</div>
-												<div class="col-lg-2">
-													<div class="form-group">
-														<label>주의회원 여부</label>
-														<c:if test="${info.danger == 0}">
-															<pre>일반회원</pre>
-														</c:if>
-														<c:if test="${info.danger == 1}">
-															<pre style="font-weight: 600">주의회원</pre>
-														</c:if>
-													</div>
-												</div>
-												<div class="col-lg-4">
-													<label>주의회원 금액</label>
-													<div class="form-group input-group">
-														<input class="form-control" id="dmoney"
-															onkeyup="SetNum(this);" value="${info.dmoney}" />
-														<c:if test="${info.danger == 0}">
-															<span class="input-group-btn">
-																<button type="button"
-																	onclick="javascript:userDanger(${info.idx} , 1)"
-																	class="btn btn-danger">주의회원설정</button>
-															</span>
-														</c:if>
-														<c:if test="${info.danger == 1}">
-															<span class="input-group-btn">
-																<button type="button"
-																	onclick="javascript:userDanger(${info.idx} , 0)"
-																	class="btn btn-warning">일반회원설정</button>
-															</span>
-														</c:if>
-													</div>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -777,7 +526,7 @@
 												</div>
 											</div>
 										</div>
-										<c:if test="${project.vAccount eq true}">
+										<%-- <c:if test="${project.vAccount eq true}">
 											<div class="col-lg-6">
 												<div class="form-group">
 													<label>가상 계좌 정보 : ${info.vBank} / ${info.vAccount}</label>
@@ -862,9 +611,9 @@
 													</c:if>
 												</div>
 											</div>
-										</c:if>
+										</c:if> --%>
 									</div>
-									<div class="row">
+									<%-- <div class="row">
 										<div class="col-lg-12">
 											<div class="row">
 												<div class="col-lg-12">
@@ -910,6 +659,7 @@
 												</div>
 											</div>
 										</div>
+									</div> --%>
 								</form>
 							</div>
 						</div>

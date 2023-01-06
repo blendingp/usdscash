@@ -37,19 +37,13 @@ function page(pageNo){
 										<input type="hidden" name="isp2p" id="isp2p" value="${isp2p}" /> 
 										<input type="hidden" name="pageIndex" value="1" /> 
 										<select id="searchSelect" name="searchSelect" class="form-control">
-											<option value="m.name"
-												<c:if test="${searchSelect eq 'm.name'}">selected</c:if>>회원명</option>
-											<option value="m.email"
-												<c:if test="${searchSelect eq 'm.email'}">selected</c:if>>이메일</option>
-											<option value="m.inviteCode"
-												<c:if test="${searchSelect eq 'm.inviteCode'}">selected</c:if>>InviteCode</option>
-											<option value="m.phone"
-												<c:if test="${searchSelect eq 'm.phone'}">selected</c:if>>전화번호</option>
+											<option value="m.name" <c:if test="${searchSelect eq 'm.name'}">selected</c:if>>회원명</option>
+											<option value="m.email" <c:if test="${searchSelect eq 'm.email'}">selected</c:if>>이메일</option>
+											<option value="m.inviteCode" <c:if test="${searchSelect eq 'm.inviteCode'}">selected</c:if>>InviteCode</option>
+											<option value="m.phone" <c:if test="${searchSelect eq 'm.phone'}">selected</c:if>>전화번호</option>
 										</select> 
 										<input type="text" name="search" class="form-control" value="${search}">
-										<button class="btn btn-default" type="submit">
-											<i class="fa fa-search"></i>
-										</button>									
+										<button class="btn btn-default" type="submit"> <i class="fa fa-search"></i> </button>
 									</div>
 								</div>
 									
@@ -85,29 +79,21 @@ function page(pageNo){
 									</thead>
 									<tbody>
 										<c:forEach var="item" items="${list}" varStatus="i">
-											<tr class="check tr"
-												onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/contact/contactDetail.do?idx=${item.idx}'"
-												style="cursor:pointer; background-color:${item.color}">
-												<td class="check box" style="display: none;"><input
-													type="checkbox" name="is_check" class="check"
-													value="${item.idx}"></td>
-												<td
-													onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/user/userDetail.do?idx=${item.uidx}'">${item.mname}
-													(<c:if test="${item.pname eq null}">없음</c:if>${item.pname})</td>
+											<tr class="check tr" onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/contact/contactDetail.do?idx=${item.idx}'" style="cursor:pointer; background-color:${item.color}">
+												<td class="check box" style="display: none;"><input type="checkbox" name="is_check" class="check" value="${item.idx}"></td>
+												<td onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/user/userDetail.do?idx=${item.uidx}'">
+													${item.mname}(<c:if test="${item.pname eq null}">없음</c:if>${item.pname})
+												</td>
 												<td>${item.mphone}</td>
 												<td style="width: 50%; word-break: break-all;">
 													<c:if test="${item.isp2p eq true}"><span style="color:blue">(P2P)&ensp;</span></c:if>${item.title}
 												</td>
-												<td><fmt:formatDate value="${item.cdate}"
-														pattern="yyyy-MM-dd HH:mm"></fmt:formatDate></td>
+												<td><fmt:formatDate value="${item.cdate}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate></td>
 												<td>${item.readYn}</td>
 												<td>${item.answerYn}</td>
-												<td><fmt:formatDate value="${item.adate}"
-														pattern="yyyy-MM-dd HH:mm"></fmt:formatDate></td>
+												<td><fmt:formatDate value="${item.adate}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate></td>
 												<c:if test="${item.confirm eq 0}">
-													<td><button type="button"
-															onclick="confirm(${item.idx})"
-															class="btn btn-danger confirm">처리</button></td>
+													<td><button type="button" onclick="confirm(${item.idx})" class="btn btn-danger confirm">처리</button></td>
 												</c:if>
 												<c:if test="${item.confirm eq 1}">
 													<td>처리완료</td>
@@ -120,26 +106,14 @@ function page(pageNo){
 							<div class="row">
 								<div class="col-sm-12" style="text-align: center;">
 									<ul class="pagination">
-										<ui:pagination paginationInfo="${pi}" type="customPage"
-											jsFunction="page" />
+										<ui:pagination paginationInfo="${pi}" type="customPage" jsFunction="page" />
 									</ul>
 								</div>
 							</div>	
-							<button type="button" onclick="deleteMode()" id="deleteBtn"
-								class="btn btn-danger">삭제
-							</button>
-							<button type="button" onclick="deleteRelease()"
-								style="display: none;" id="deleteRelease"
-								class="btn btn-primary">해제
-							</button>
-							<button type="button" onclick="allSelect()"
-								style="display: none;" id="allSelectBtn"
-								class="btn btn-default">전체선택
-							</button>
-							<button type="button" onclick="deleteSubmit()"
-								style="display: none;" id="deleteSubmit" class="btn btn-danger">삭제
-								적용
-							</button>
+							<button type="button" onclick="deleteMode()" id="deleteBtn" class="btn btn-danger">삭제</button>
+							<button type="button" onclick="deleteRelease()" style="display: none;" id="deleteRelease" class="btn btn-primary">해제</button>
+							<button type="button" onclick="allSelect()" style="display: none;" id="allSelectBtn" class="btn btn-default">전체선택</button>
+							<button type="button" onclick="deleteSubmit()" style="display: none;" id="deleteSubmit" class="btn btn-danger">삭제 적용</button>
 						</div>
 					</div>
 				</div>

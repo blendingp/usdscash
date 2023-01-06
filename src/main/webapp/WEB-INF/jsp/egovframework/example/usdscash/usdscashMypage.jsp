@@ -18,7 +18,7 @@
 		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="article">
 			<div class="section">
-				<div class="ad_box"></div>
+				
 				<div class="form-block w-form">
 					<form id="infoForm" name="infoForm">
 						<input type="hidden" name="idx" id="idx" value="${info.idx}" />
@@ -80,7 +80,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="ad_box"></div>
+				
 			</div>
 		</div>
 		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>

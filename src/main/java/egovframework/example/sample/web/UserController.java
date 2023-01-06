@@ -70,6 +70,7 @@ public class UserController {
 		model.addAttribute("notilist", list);
 		in.put("limit", 3);
 		in.put("bcategory", "notice");
+		model.addAttribute("coinlist", sampleDAO.list("selectCoinListByCoinnum"));
 		model.addAttribute("nlist", sampleDAO.list("selectAllBoard", in));
 		model.addAttribute("nowpage", "mainp");
 		
@@ -77,6 +78,12 @@ public class UserController {
 	}
 	@RequestMapping(value = "/cryptoDetail.do")
 	public String cryptoDetail(HttpServletRequest request, ModelMap model) throws Exception {
+		String coinNum = request.getParameter("coinNum");
+		
+		if(!Validation.isNull(coinNum)){
+			model.addAttribute("coin", (EgovMap)sampleDAO.select("selectCoinByCoinnum", coinNum));
+		}
+		model.addAttribute("coinNum", coinNum);
 		
 		return "usdscash/usdscashCrypto";
 	}

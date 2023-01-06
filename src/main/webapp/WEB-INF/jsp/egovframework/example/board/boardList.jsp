@@ -29,20 +29,38 @@
 						<div class="c_section1">
 							<div class="c_list_area">
 								<c:set var="number" value="${pi.totalRecordCount -pi.recordCountPerPage*(pi.currentPageNo-1) }" />
-								<c:forEach var="result" items="${list}">
-									<div class="n_list" style="cursor: pointer;" onClick="checkdetail(${result.bidx})">
-										<div class="list_category">${fn:toUpperCase(type)}</div>
-										<div class="list_txt" style="word-break: break-word;">
-											<c:choose>
-												<c:when test="${fn:length(result.btitle) > 25}">
-													${fn:substring(result.btitle,0,20)}...
-												</c:when>
-												<c:otherwise>${result.btitle }</c:otherwise>
-											</c:choose>
+								<c:if test="${type eq 'inquiry'}">
+									<c:forEach var="result" items="${list}">
+										<div class="n_list" style="cursor: pointer;" onClick="checkdetail(${result.idx})">
+											<div class="list_category">${fn:toUpperCase(type)}</div>
+											<div class="list_txt" style="word-break: break-word;">
+												<c:choose>
+													<c:when test="${fn:length(result.title) > 25}">
+														${fn:substring(result.title,0,20)}...
+													</c:when>
+													<c:otherwise>${result.title }</c:otherwise>
+												</c:choose>
+											</div>
+											<div class="list_txt date">${result.cdate}</div> 
 										</div>
-										<div class="list_txt date">${result.bdate}</div> 
-									</div>
-								</c:forEach>
+									</c:forEach>
+								</c:if>
+								<c:if test="${type ne 'inquiry'}">
+									<c:forEach var="result" items="${list}">
+										<div class="n_list" style="cursor: pointer;" onClick="checkdetail(${result.bidx})">
+											<div class="list_category">${fn:toUpperCase(type)}</div>
+											<div class="list_txt" style="word-break: break-word;">
+												<c:choose>
+													<c:when test="${fn:length(result.btitle) > 25}">
+														${fn:substring(result.btitle,0,20)}...
+													</c:when>
+													<c:otherwise>${result.btitle }</c:otherwise>
+												</c:choose>
+											</div>
+											<div class="list_txt date">${result.bdate}</div> 
+										</div>
+									</c:forEach>
+								</c:if>
 							</div>
 							<div class="page_area">
 								<a href="#" class="page_btn w-button"> 
@@ -58,12 +76,11 @@
 	</div>
 	<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 	<script>
+		var type = '${type}';
 		function fn_egov_link_page(page) {
 			document.listForm.pageIndex.value = page;
 			document.listForm.submit();
 		}
-		
-		var type = "notice";
 		
 		function checkdetail(bidx) {
 			$.ajax({
@@ -76,7 +93,7 @@
 					url : '/usdscash/checkdetail.do',
 					success : function(data) {
 						if (data.result == 'success') {
-							location.href = "/usdscash/detail.do?bidx="+bidx+"&type=notice";
+							location.href = "/usdscash/detail.do?bidx="+bidx+"&type="+type;
 						} else {
 							console.log(data.msg);
 							alert(data.msg);

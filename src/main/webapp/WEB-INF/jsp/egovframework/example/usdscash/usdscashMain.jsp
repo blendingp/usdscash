@@ -15,11 +15,11 @@
 		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="article">
 			<div class="section">
-				<div class="ad_box"></div>
+				
 				<div class="p_section">
 					<div class="p_title_block">
 						<div class="p_title_warp">
-							<div class="p_title">암호화폐 시세</div>
+							<div class="p_title"><spring:message code="menu.crypto"/> <spring:message code="wallet.marketPrice"/></div>
 						</div>
 						<!-- <div class="g_warn"> 현재 전 세계 암호화폐 시가총액은 $890십억이며, 최근 24시간 내 변동폭은<span class="rate down"> -1.9%↓</span>입니다. </div> -->
 					</div>
@@ -48,10 +48,11 @@
 							</div>
 						</div>
 						<div class="ms_list list" onclick="location.href='/usdscash/user/cryptoDetail.do'" style="cursor:pointer">
+							<c:set var="coinName" value="SafeCoin"/>
 							<div class="ms_list_content _1"> <div>1</div> </div>
 							<div class="ms_list_content _2">
-								<div class="icon_warp"> <img src="/usdscash/webflow/images2/btc.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
-								<div> 세이프코인 <span class="small_grey">Safe Coin</span> </div>
+								<div class="icon_warp"> <img src="/usdscash/webflow/images2/binance_logo.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
+								<div> <spring:message code="trade.coin.${fn:toLowerCase(coinName)}"/> <span class="small_grey">${coinName}</span> </div>
 							</div>
 							<div class="ms_list_content _2"> <div class="cnow"></div> </div>
 							<div class="ms_list_content _2"> <div class="chigh"></div> </div>
@@ -59,60 +60,28 @@
 							<div class="ms_list_content _2"> <div class="rate_txt cchange"></div> </div>
 							<div class="ms_list_content _2"> <div class="cvolume"></div> </div>
 						</div>
-						<div class="ms_list list mainCoin0 _1">
-							<div class="ms_list_content _1"> <div>2</div> </div>
-							<div class="ms_list_content _2">
-								<div class="icon_warp"> <img src="/usdscash/webflow/images2/btc.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
-								<div> 비트코인 <span class="small_grey">BTC</span> </div>
+						<c:forEach var="coinL" items="${coinlist}" varStatus="i">
+							<c:set var="coinName" value="${coinL.coinName}"/>
+							<div class="ms_list list mainCoin${coinL.coinNum}" onclick="location.href='/usdscash/user/cryptoDetail.do?coinNum=${coinL.coinNum}'" style="cursor:pointer">
+								<div class="ms_list_content _1"> <div>${i.index+2}</div> </div>
+								<div class="ms_list_content _2">
+									<div class="icon_warp"> <img src="/usdscash/webflow/images2/${fn:toLowerCase(coinL.coinName)}.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
+									<div><spring:message code="trade.coin.${fn:toLowerCase(coinName)}"/><span class="small_grey">${coinName}</span>
+									</div>
+								</div>
+								<div class="ms_list_content _2"> <div class="cnow"></div> </div>
+								<div class="ms_list_content _2"> <div class="chigh"></div> </div>
+								<div class="ms_list_content _2"> <div class="clow"></div> </div>
+								<div class="ms_list_content _2"> <div class="rate_txt cchange"></div> </div>
+								<div class="ms_list_content _2"> <div class="cvolume"></div> </div>
 							</div>
-							<div class="ms_list_content _2"> <div class="cnow"></div> </div>
-							<div class="ms_list_content _2"> <div class="chigh"></div> </div>
-							<div class="ms_list_content _2"> <div class="clow"></div> </div>
-							<div class="ms_list_content _2"> <div class="rate_txt cchange"></div> </div>
-							<div class="ms_list_content _2"> <div class="cvolume"></div> </div>
-						</div>
-						<div class="ms_list list mainCoin2 _2">
-							<div class="ms_list_content _1"> <div>3</div> </div>
-							<div class="ms_list_content _2">
-								<div class="icon_warp"> <img src="/usdscash/webflow/images2/btc.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
-								<div> 리플 <span class="small_grey">XRP</span> </div>
-							</div>
-							<div class="ms_list_content _2"> <div class="cnow"></div> </div>
-							<div class="ms_list_content _2"> <div class="chigh"></div> </div>
-							<div class="ms_list_content _2"> <div class="clow"></div> </div>
-							<div class="ms_list_content _2"> <div class="rate_txt cchange"></div> </div>
-							<div class="ms_list_content _2"> <div class="cvolume"></div> </div>
-						</div>
-						<div class="ms_list list mainCoin1 _1">
-							<div class="ms_list_content _1"> <div>4</div> </div>
-							<div class="ms_list_content _2">
-								<div class="icon_warp"> <img src="/usdscash/webflow/images2/btc.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
-								<div> 이더리움 <span class="small_grey">ETH</span> </div>
-							</div>
-							<div class="ms_list_content _2"> <div class="cnow"></div> </div>
-							<div class="ms_list_content _2"> <div class="chigh"></div> </div>
-							<div class="ms_list_content _2"> <div class="clow"></div> </div>
-							<div class="ms_list_content _2"> <div class="rate_txt cchange"></div> </div>
-							<div class="ms_list_content _2"> <div class="cvolume"></div> </div>
-						</div>
-						<div class="ms_list list mainCoin3 _2">
-							<div class="ms_list_content _1"> <div>5</div> </div>
-							<div class="ms_list_content _2">
-								<div class="icon_warp"> <img src="/usdscash/webflow/images2/btc.svg" loading="lazy" alt="" class="ms_coin_icon"> </div>
-								<div>트론<span class="small_grey">TRX</span> </div>
-							</div>
-							<div class="ms_list_content _2"> <div class="cnow"></div> </div>
-							<div class="ms_list_content _2"> <div class="chigh"></div> </div>
-							<div class="ms_list_content _2"> <div class="clow"></div> </div>
-							<div class="ms_list_content _2"> <div class="rate_txt cchange"></div> </div>
-							<div class="ms_list_content _2"> <div class="cvolume"></div> </div>
-						</div>
+						</c:forEach>
 						<div class="page_area">
 							<a href="#" class="page_btn click w-button">1</a>
 						</div>
 					</div>
 				</div>
-				<div class="ad_box"></div>
+				
 			</div>
 		</div>
 		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>

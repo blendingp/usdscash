@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html data-wf-page="62b161ec579cfc2fd19abb16" data-wf-site="62b1125ac4d4d60ab9c62f81" class="w-mod-js w-mod-touch w-mod-ix wf-notosanskr-n7-active wf-exo-n6-active wf-exo-n2-active wf-exo-n4-active wf-exo-n8-active wf-exo-n1-active wf-exo-n9-active wf-exo-n7-active wf-exo-n5-active wf-exo-n3-active wf-ubuntu-i4-active wf-ubuntu-n4-active wf-ubuntu-n3-active wf-ubuntu-i3-active wf-ubuntu-i5-active wf-ubuntu-n5-active wf-ubuntu-n7-active wf-notosanskr-n9-active wf-notosanskr-n4-active wf-notosanskr-n3-active wf-notosanskr-n1-active wf-ubuntu-i7-active wf-notosanskr-n5-active wf-exo-i5-active wf-exo-i6-active wf-exo-i2-active wf-exo-i4-active wf-exo-i1-active wf-exo-i7-active wf-exo-i8-active wf-exo-i9-active wf-exo-i3-active wf-active">
   <meta charset="utf-8">
-  <title>BITOCEAN</title>
-  <link rel="canonical" href="https://bitocean-global.com">
+  <title><spring:message code="root.project" /></title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
-  <meta name="keywords" content="BITOCEAN">
-  <meta name="description" content="BITOCEAN">
-  <meta property="og:title" content="BITOCEAN">
-  <meta property="og:description" content="BITOCEAN">
-  <meta property="og:url" content="https://bitocean-global.com">
-  <meta content="BITOCEAN" property="twitter:title">
+  <meta name="keywords" content="<spring:message code="root.project" />">
+  <meta name="description" content="<spring:message code="root.project" />">
+  <meta property="og:title" content="<spring:message code="root.project" />">
+  <meta property="og:description" content="<spring:message code="root.project" />">
+  <meta content="<spring:message code="root.project" />" property="twitter:title">
   <meta name="format-detection" content="telephone=no">
   <link href="/usdscash/webflow/css/normalize.css?v=2" rel="stylesheet" type="text/css">
   <link href="/usdscash/webflow/css/webflow.css?v=2" rel="stylesheet" type="text/css">

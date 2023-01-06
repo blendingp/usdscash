@@ -12,6 +12,23 @@
         ]]>
 	</select>
 	
+	<select id="selectCoinListByCoinnum" resultClass="EgovMap">
+        <![CDATA[
+            SELECT *
+            FROM coinlist
+            WHERE coinNum < 4
+        ]]>
+	</select>
+	
+	<select id="selectCoinByCoinnum" resultClass="EgovMap">
+        <![CDATA[
+            SELECT *
+            FROM coinlist
+            WHERE coinNum = #coinNum#
+            limit 1
+        ]]>
+	</select>
+	
 	<!-- 코인 승인 했을때 리플  정보 조회 -->
 	<select 
 		id="coin_getXrpinfo" 

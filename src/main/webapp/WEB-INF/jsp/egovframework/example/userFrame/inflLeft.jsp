@@ -59,7 +59,7 @@ function getInviteCode(){
 		type:'post',
 		url:'/usdscash/infl/getInviteCode.do',
 		success:function(data){
-			$("#invite").val("https://bitocean-global.com/usdscash/join.do?invi="+data.invite);
+			$("#invite").val(window.location.protocol+"//"+window.location.hostname+"/usdscash/join.do?invi="+data.invite);
 		}
 	})
 }

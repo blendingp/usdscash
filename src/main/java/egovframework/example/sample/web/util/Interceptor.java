@@ -72,8 +72,6 @@ public class Interceptor  extends HandlerInterceptorAdapter{
 		}
 		
 		if(urlArr[2].equals("0nI0lMy6jAzAFRVe0DqLOw")){
-			if(!adminServerCheck(request))
-				return false;
 		}
 		
     	for(int i=0; i < urls.size(); i++){ // url이 무시해야될 url이면 
@@ -95,12 +93,6 @@ public class Interceptor  extends HandlerInterceptorAdapter{
 			if(session.getAttribute("adminLogin") == null){ 
     			response.sendRedirect("/usdscash/0nI0lMy6jAzAFRVe0DqLOw/login.do");
     			return false;
-			}
-			if(!adminIpCheck(userip, request)){
-				session.setAttribute("adminIdx",null);
-				session.setAttribute("adminLogin", null);
-				response.sendRedirect("/usdscash/0nI0lMy6jAzAFRVe0DqLOw/login.do");
-				return false;
 			}
 			String adminLevel = ""+session.getAttribute("adminLevel");
 			
@@ -218,37 +210,6 @@ public class Interceptor  extends HandlerInterceptorAdapter{
     	}
         super.postHandle(request, response, handler, modelAndView);
     }   
-    
-    private boolean adminServerCheck(HttpServletRequest request){
-    	String serverName = request.getServerName();
-		String project = Project.getProjectName();
-		
-		if(serverName.equals("localhost")) return true;
-		switch(project){
-		case "usdscash": if(serverName.equals("usdscash.com")) return false;
-		}
-		return true;
-    }
-    
-    private boolean adminIpCheck(String userip, HttpServletRequest request){
-    	if(Project.isAdminIp()){
-    		String serverName = request.getServerName();
-    		if(serverName.equals("localhost") ||  
-    				(userip.length() <= 15 && userip.startsWith("61.79.227") || userip.startsWith("118.37.234") || userip.startsWith("211.222.65") || userip.startsWith("183.102.237"))) 
-    			return true;
-    		
-    		Log.print("userIp = "+userip, 1, "test");
-			boolean adminIp = false;
-			for(int i = 0; i < SocketHandler.adminIpList.size(); i++){
-				if(userip.equals(SocketHandler.adminIpList.get(i).get("ip")))
-					adminIp = true;
-			}
-			if(!adminIp){ // 관리자IP 아니면 강제로그아웃
-				return false;
-			}
-		}
-    	return true;
-    }
     
     private boolean isP2PServer(HttpServletRequest request){
     	String serverName = request.getServerName();

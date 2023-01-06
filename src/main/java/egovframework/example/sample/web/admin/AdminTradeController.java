@@ -156,6 +156,114 @@ public class AdminTradeController {
 		return "admin/tradeList";
 	}
 	
+	@RequestMapping(value="/usdsTradeList.do")
+	public String usdsTradeList(HttpServletRequest request , Model model, HttpServletResponse response){
+		String sdate = request.getParameter("sdate");
+		String edate = request.getParameter("edate");
+		String search = request.getParameter("search");
+		String searchSelect = request.getParameter("searchSelect");
+		String inverse = ""+request.getParameter("inverse");
+		String order = request.getParameter("order");
+		String orderAD = request.getParameter("orderAD");
+		String symbol = request.getParameter("symbol");
+		String test = request.getParameter("test");
+		String searchIdx = request.getParameter("searchIdx"); // 멤버디테일 - 전체보기 했을때 유저idx 들어옴
+		String username = request.getParameter("username"); // 멤버디테일 - 전체보기 했을때 유저네임 들어옴
+		
+		if(order==null || order.compareTo("")==0){
+			order = "buyDatetime";
+			orderAD = "desc";
+		}
+		
+		PaginationInfo pi = new PaginationInfo();
+		if(request.getParameter("pageIndex") == null || request.getParameter("pageIndex").equals("")){
+			pi.setCurrentPageNo(1);
+		}else{
+			pi.setCurrentPageNo(Integer.parseInt(""+request.getParameter("pageIndex")));
+		}
+		pi.setPageSize(10);
+		pi.setRecordCountPerPage(20);
+		EgovMap in = new EgovMap();
+		in.put("first", pi.getFirstRecordIndex());
+		in.put("record", pi.getRecordCountPerPage());
+		in.put("sdate", sdate);
+		in.put("edate", edate);
+		in.put("search", search);
+		in.put("searchIdx", searchIdx);
+		in.put("order", "t."+order);
+		in.put("orderAD", orderAD);
+		in.put("symbol", symbol);
+		in.put("test", test);
+		in.put("inverse", CointransService.sqlIsInverseValue(inverse));
+		
+		if(searchSelect == null || searchSelect.compareTo("") == 0){
+			searchSelect = "name";
+		}else if(searchSelect.compareTo("idx")==0 && search.length() > 2){
+			if(search.split("00").length != 1){
+				in.put("search", search.split("00")[1]);
+			}
+		}
+		if(searchSelect.equals("symbol")){
+			in.put("searchSelect",searchSelect);
+		}else{
+			in.put("searchSelect","m."+searchSelect);
+		}
+		
+		
+		String fileDown = request.getParameter("fileDown");
+		if(fileDown != null && !fileDown.equals("0") && !fileDown.equals("")){
+			in.put("nolimit", 1);
+			ArrayList<EgovMap> allList = (ArrayList<EgovMap>)sampleDAO.list("selectTradeList",in);
+			in.put("nolimit", null);
+			SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			DecimalFormat df = new DecimalFormat("###,###.########");
+			// header : 필드 이름 
+			String[] header = {"시간","회원명","소속 총판","Symbol","가격","수량"};
+			// dataNm 데이터 가져올 이름 
+			String[] dataNm = {"buyDatetime","name","pname","symbol","entryPrice","buyQuantity"};
+			// 이곳에서 리스트 데이터 수정할 부분 적용 
+			for(int i=0; i<allList.size(); i++){
+				if(Boolean.parseBoolean(allList.get(i).get("isOpen").toString())){
+					allList.get(i).put("entryPrice", df.format(allList.get(i).get("entryPrice")));
+					allList.get(i).put("position", allList.get(i).get("position").toString().toUpperCase());
+				}else{
+					allList.get(i).put("entryPrice", df.format(allList.get(i).get("liqPrice")));
+					allList.get(i).put("position", reservePosition(allList.get(i).get("position").toString()));
+				}
+				allList.get(i).put("buyDatetime", dt.format(allList.get(i).get("buyDatetime")));
+				allList.get(i).put("name", allList.get(i).get("name") +(Integer.parseInt(allList.get(i).get("istest")+"") == 1 ? " (테스트계정)" : ""));
+				allList.get(i).put("buyQuantity", df.format(allList.get(i).get("buyQuantity")));
+				allList.get(i).put("fee", df.format(allList.get(i).get("fee")));
+				allList.get(i).put("result", df.format(allList.get(i).get("result")));
+			}
+			try {
+				Validation.excelDown(response ,allList, "거래내역" , header , dataNm ,"", sdate+"~"+edate , "");
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		pi.setTotalRecordCount((int)sampleDAO.select("selectTradeListCnt",in));
+		ArrayList<EgovMap> list = (ArrayList<EgovMap>)sampleDAO.list("selectTradeList",in);
+		model.addAttribute("list", list);
+		model.addAttribute("feeResultSum", sampleDAO.select("selectTradeFeeResultSum",in));
+		model.addAttribute("testFeeResultSum", sampleDAO.select("selectTradeTestFeeResultSum",in));
+		model.addAttribute("pi", pi);
+		model.addAttribute("sdate", sdate);
+		model.addAttribute("edate", edate);
+		model.addAttribute("searchSelect", searchSelect);
+		model.addAttribute("search", search);
+		model.addAttribute("searchIdx", searchIdx);
+		model.addAttribute("username", username);
+		model.addAttribute("inverse", inverse);
+		model.addAttribute("order", order);
+		model.addAttribute("orderAD", orderAD);
+		model.addAttribute("symbol", symbol);
+		model.addAttribute("test", test);
+		model.addAttribute("useCoin", Project.getUseCoinNames());
+		return "admin/usdsTradeList";
+	}
+	
 	private String reservePosition(String pos){
 		if(pos.toLowerCase().equals("long"))
 			return "SHORT";

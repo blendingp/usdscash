@@ -326,6 +326,7 @@ public class JoinController {
 		String pw = request.getParameter("pw"); // pw
 		String phone = request.getParameter("phone1")+request.getParameter("phone2")+request.getParameter("phone3"); // 전화번호
 		String email = request.getParameter("email1")+"@"+request.getParameter("email2"); // 이메일
+		String inviteCode = request.getParameter("inviteCode"); // 초대코드
 
 		String msg = joinDataCheck(request);
 		if(!Validation.isNull(msg)){
@@ -345,8 +346,20 @@ public class JoinController {
 			in.put("email", email);
 			in.put("level", "user");
 			in.put("wallet", "0");
-			//in.put("bank", bank);
-			//in.put("account", account);
+			
+			if(Validation.isNull(inviteCode)){ // 관리자코드
+				in.put("parentsIdx", -1);   // 추천인 -1
+			}
+			else if(inviteCode != null && !inviteCode.equals("")) {
+				in.put("inviteCode", inviteCode);
+				//부모를 찾는다
+				EgovMap parents = (EgovMap)sampleDAO.select("selectMemberByAdminInvitationCode", in);
+				if (parents == null || Member.isBanded(parents.get("idx").toString())) {
+					obj.put("msg", Message.get().msg(messageSource, "pop.wrongInvite", request));
+					return obj.toJSONString();
+				}
+				in.put("parentsIdx", ""+parents.get("idx"));
+			}
 			
 			String invi = Validation.getTempNumber(3);
 			in.put("inviteCode", invi);

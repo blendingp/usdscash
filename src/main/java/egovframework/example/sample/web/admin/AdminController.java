@@ -61,19 +61,7 @@ public class AdminController {
 	@RequestMapping(value="/login.do")
 	public String login(HttpServletRequest request) throws NoSuchAlgorithmException, GeneralSecurityException{
 		String key = ""+request.getParameter("key");
-		try {
-			CryptoUtil crypto = CryptoUtil.getInstance();
-			String project = Project.getProjectName();
-			
-			if(request.getServerName().equals("localhost") || crypto.decrypt(key).equals(project)){
-				return "admin/login";
-			}else{
-				return "err";
-			}
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			return "err";
-		}
+		return "admin/login";
 	}
 	
 	@RequestMapping(value="/createSubAdmin.do")

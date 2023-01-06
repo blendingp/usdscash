@@ -779,7 +779,10 @@
 }
 
 .pop.purchase {
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .pop.acdelete {
@@ -3219,10 +3222,7 @@
   position: absolute;
   top: 101%;
   z-index: 20;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   padding: 14px;
   border-style: solid;
   border-width: 1px;

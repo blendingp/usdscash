@@ -17,11 +17,11 @@
             <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 		<c:if test="${adminLevel ne 3}">
-			<li class="nav-item">
+			<!-- <li class="nav-item">
 	        	<a class="nav-link" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/dangerMsgList.do" id="danger">
 	                   <i class="fas fa-fw fa-exclamation-circle"></i>
 	                   <span>주의회원 알림 <span id="dangerCnt"></span></span></a>
-	        	</li>
+	        	</li> -->
 			<c:if test="${project.wdPhoneMsg eq true}">
 				<li class="nav-item">
 	               <a class="nav-link" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/wdPhoneList.do">
@@ -65,12 +65,12 @@
 	                   </div>
 	               </div>
 	           </li>
-	           <li class="nav-item">
+	           <!-- <li class="nav-item">
 	              <a class="nav-link" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/fixstat.do">
 	                  <i class="fas fa-fw fa-edit"></i>
 	                  <span>사이트 점검</span>
                   </a>
-	           </li>
+	           </li> -->
 			</c:if>
 				
 			<c:set var="collapseCnt" value="${collapseCnt+1}"/>
@@ -251,7 +251,7 @@
 		            </div>
 		        </li>
 	        </c:if>
-	        <c:set var="collapseCnt" value="${collapseCnt+1}"/>
+	        <%-- <c:set var="collapseCnt" value="${collapseCnt+1}"/>
 	       	<li class="nav-item">
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse${collapseCnt}" aria-expanded="true" aria-controls="collapse${collapseCnt}">
 	                <i class="fas fa-fw fa-table"></i>
@@ -283,7 +283,7 @@
 	                   	</c:if>
 	                </div>
 	            </div>
-	        </li>
+	        </li> --%>
 	        <c:set var="collapseCnt" value="${collapseCnt+1}"/>
 	        <li class="nav-item">
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse${collapseCnt}" aria-expanded="true" aria-controls="collapse${collapseCnt}">
@@ -305,9 +305,9 @@
 	            </a>
 	            <div id="collapse${collapseCnt}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 	                <div class="bg-white py-2 collapse-inner rounded">
-	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/noticeList.do">공지사항</a>
 	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/eventList.do">팝업 공지사항</a>
-	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/systemList.do">자동댓글 게시판</a>
+	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/noticeList.do">공지사항</a>
+	                    <!-- <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/systemList.do">자동댓글 게시판</a> -->
 	                    <a class="collapse-item" href="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/faqList.do">FAQ</a>
 	                </div>
 	            </div>

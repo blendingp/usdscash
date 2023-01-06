@@ -25,7 +25,7 @@ function page(pageNo){
 					<h1 class="h3 mb-2 text-gray-800">게시판</h1>
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">${type}</h6>
+							<h6 class="m-0 font-weight-bold text-primary">${typeName}</h6>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -45,27 +45,19 @@ function page(pageNo){
 									</thead>
 									<tbody>
 										<c:forEach var="item" items="${list}" varStatus="i">
-											<tr>
-												<td><input type="checkbox" name="arrayIdx"
-													value="${item.bidx}" /></td>
-												<td
-													onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Detail.do?idx=${item.bidx}'"
-													style="cursor: pointer">${pi.totalRecordCount - (pi.totalRecordCount - ((pi.currentPageNo-1) * pi.recordCountPerPage + i.index)-1)}</td>
-												<td
-													onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Detail.do?idx=${item.bidx}'"
-													style="cursor: pointer; width: 60%; word-break: break-all;">${item.btitle}</td>
-												<c:if
-													test="${type eq 'event' || type eq 'notice' || type eq 'faq'}">
-													<td
-														onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Detail.do?idx=${item.bidx}'"
-														style="cursor: pointer"><c:if
-															test="${item.blang == 0}">KO</c:if> <c:if
-															test="${item.blang == 1}">EN</c:if></td>
+											<tr onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Detail.do?idx=${item.bidx}'" style="cursor:pointer;">
+												<td><input type="checkbox" name="arrayIdx" value="${item.bidx}" /></td>
+												<td>${i.index+1}</td>
+												<td style="width: 60%; word-break: break-all;">${item.btitle}</td>
+												<c:if test="${type eq 'event' || type eq 'notice' || type eq 'faq'}">
+													<td>
+														<c:if test="${item.blang == 0}">KO</c:if>
+														<c:if test="${item.blang == 1}">EN</c:if>
+													</td>
 												</c:if>
-												<td
-													onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Detail.do?idx=${item.bidx}'"
-													style="cursor: pointer"><fmt:formatDate
-														value="${item.bdate}" type="date"></fmt:formatDate></td>
+												<td>
+													<fmt:formatDate value="${item.bdate}" type="date"/>
+												</td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -74,25 +66,18 @@ function page(pageNo){
 							<div class="row">
 								<div class="col-sm-12" style="text-align: center;">
 									<ul class="pagination">
-										<ui:pagination paginationInfo="${pi}" type="customPage"
-											jsFunction="page" />
+										<ui:pagination paginationInfo="${pi}" type="customPage" jsFunction="page" />
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-					<form action="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}List.do"
-						name="listForm" id="listForm">
-						<input type="hidden" name="pageIndex" value="1" /> <input
-							type="hidden" name="type" value="${type}" />
+					<form action="/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}List.do" name="listForm" id="listForm">
+						<input type="hidden" name="pageIndex" value="1" />
+						<input type="hidden" name="type" value="${type}" />
 					</form>
-					<button type="button"
-						onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Write.do'"
-						class="btn btn btn-secondary">글등록
-					</button>
-					<button type="button" onclick="listDel('${type}')"
-						class="btn btn-outline btn-danger">글삭제
-					</button>
+					<button type="button" onclick="location.href='/usdscash/0nI0lMy6jAzAFRVe0DqLOw/board/${type}Write.do'" class="btn btn btn-secondary">글등록 </button>
+					<button type="button" onclick="listDel('${type}')" class="btn btn-outline btn-danger">글삭제 </button>
 				</div>				
 			</div>			
 		</div>

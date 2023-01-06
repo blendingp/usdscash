@@ -79,7 +79,7 @@
 					</div>
 				</div>
 			</div>
-          	<div class="copyright">Copyright ⓒ BITOCEAN All Rights Reserved.<a href="https://kr.freepik.com/" class="link"></a>
+          	<div class="copyright">Copyright ⓒ <spring:message code="root.project" /> All Rights Reserved.<a href="https://kr.freepik.com/" class="link"></a>
           	</div>
 		</div>
 	</div>

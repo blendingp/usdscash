@@ -65,11 +65,17 @@
 				<a href="#" class="top_btn w-button"> 
 					<c:if test="${lang eq null}">EN ▼</c:if> 
 					<c:if test="${lang eq 'EN'}">EN ▼</c:if>
-					<c:if test="${lang eq 'KO'}">KR ▼</c:if>
+					<c:if test="${lang eq 'KO'}">한국어 ▼</c:if>
+					<c:if test="${lang eq 'CH'}">中文 ▼</c:if>
+					<c:if test="${lang eq 'FC'}">français . ▼</c:if>
+					<c:if test="${lang eq 'JP'}">日本語 ▼</c:if>
 				</a>
 				<div class="top_toggle">
-					<a href="javascript:changeLang2('EN')" class="top_toggle_btn w-button">EN</a>
-					<a href="javascript:changeLang2('KO')" class="top_toggle_btn w-button">KR</a>
+					<a href="javascript:changeLang2('EN')" class="top_toggle_btn w-button">English</a>
+					<a href="javascript:changeLang2('KO')" class="top_toggle_btn w-button">한국어</a>
+					<a href="javascript:changeLang2('CH')" class="top_toggle_btn w-button">中文</a>
+					<a href="javascript:changeLang2('FC')" class="top_toggle_btn w-button">français .</a>
+					<a href="javascript:changeLang2('JP')" class="top_toggle_btn w-button">日本語</a>
 				</div>
 			</div>
 		</div>
@@ -89,7 +95,8 @@
 				<div class="top_toggle">
 					<a href="/usdscash/board/noticeList.do" class="top_toggle_btn w-button"><spring:message code="menu.notice" /></a>
 					<%-- <a href="/usdscash/board/eventList.do" class="top_toggle_btn w-button"><spring:message code="menu.event" /></a> --%> 
-					<a href="/usdscash/board/faqList.do" class="top_toggle_btn w-button"><spring:message code="newwave.menu.faq"/></a>
+					<a href="/usdscash/board/faqList.do" class="top_toggle_btn w-button"><spring:message code="menu.faq"/></a>
+					<a href="/usdscash/board/inquiryList.do" class="top_toggle_btn w-button"><spring:message code="menu.inquiry" /></a>
 					<a href="/usdscash/user/helpCenter.do" class="top_toggle_btn w-button"><spring:message code="submitRequest" /></a> 
 				</div>
 				<div class="btn_deco"></div>

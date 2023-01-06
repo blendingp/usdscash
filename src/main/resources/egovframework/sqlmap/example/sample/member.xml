@@ -684,6 +684,7 @@
 				  , maccount
 				  , lastLogin
 				  , id
+				  , parentsIdx
 		]]>
 			<isNotEmpty property="istest">
 				, istest
@@ -720,6 +721,7 @@
 				  , #account#
 				  , now()
 				  , #id#
+				  , #parentsIdx#
 		]]>
 			<isNotEmpty property="istest">
 				, #istest#

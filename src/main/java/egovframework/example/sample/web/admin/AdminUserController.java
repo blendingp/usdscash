@@ -402,7 +402,7 @@ public class AdminUserController {
 		model.addAttribute("colorList", sampleDAO.list("selectUserColorList" ,in));
 		
 		String fileDown = request.getParameter("fileDown");
-		if(fileDown != null && !fileDown.equals("0") && !fileDown.equals("")){
+		if(!Validation.isNull(fileDown) && !fileDown.equals("0")){
 			in.put("first", null);
 			ArrayList<EgovMap> allList = null;
 			
@@ -442,10 +442,17 @@ public class AdminUserController {
 			
 			SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			DecimalFormat df = new DecimalFormat("###,###.########");
+			
+			System.out.println("kyc : "+(boolean) Project.getPropertieMap().get("kyc"));
+			String LastHeader = "가입상태";
+			if((boolean) Project.getPropertieMap().get("kyc")){
+				LastHeader = "KYC인증";
+			}
+			
 			// header : 필드 이름 
-			String[] header = {"UID","이름(부모)","번호","등급","포인트","가입날짜","KYC인증"};
+			String[] header = {"UID","이름(부모)","번호","등급","포인트","가입날짜",LastHeader};
 			// dataNm 데이터 가져올 이름 
-			String[] dataNm = {"idx","name","phone","level","wallet","joinDate","isKYC"};
+			String[] dataNm = {"idx","name","phone","level","wallet","joinDate","lastdata"};
 			// 이곳에서 리스트 데이터 수정할 부분 적용 
 			for(int i=0; i<allList.size(); i++){
 				allList.get(i).put("joinDate", dt.format(allList.get(i).get("joinDate")));
@@ -454,7 +461,12 @@ public class AdminUserController {
 					allList.get(i).put("phone", phone.substring(0,3)+"****"+phone.substring(7,11));
 				allList.get(i).put("name", allList.get(i).get("name")+"("+allList.get(i).get("parent")+")" +(Integer.parseInt(allList.get(i).get("istest")+"") == 1 ? " (테스트계정)" : ""));
 				allList.get(i).put("wallet", df.format(allList.get(i).get("wallet")));
-				allList.get(i).put("isKYC", ((allList.get(i).get("confirm")+"").equals("true") ? "승인" : "미승인")+(allList.get(i).get("fkey") == null ? "(미등록)" : "(등록)"));
+				
+				String lastdata = ((allList.get(i).get("jstat")+"").equals("0") ? "승인대기중" : ((allList.get(i).get("jstat")+"").equals("1") ? "승인" : "취소"));
+				if((boolean) Project.getPropertieMap().get("kyc")){
+					lastdata = ((allList.get(i).get("confirm")+"").equals("true") ? "승인" : "미승인")+(allList.get(i).get("fkey") == null ? "(미등록)" : "(등록)");
+				}
+				allList.get(i).put("lastdata", lastdata);
 			}
 			try {
 				Validation.excelDown(response ,allList, "회원 목록" , header , dataNm ,"", "" , "");
@@ -695,6 +707,68 @@ public class AdminUserController {
 		EgovMap inlevel = new EgovMap();
 		inlevel.put("userLevel", userLevel);
 	
+		
+		EgovMap in = new EgovMap();		
+		model.addAttribute("info", info);
+		model.addAttribute("plus", "+");
+		model.addAttribute("minus", "-");
+		
+		in.put("useridx", idx);
+		
+		in.put("label", "+");
+		in.put("from", idx);
+		in.put("to", idx);
+//		model.addAttribute("transactionDList",sampleDAO.list("selectMem30Transactions",in));
+		in.put("label", "-");
+		in.put("from", 1);
+		in.put("to", idx);
+//		model.addAttribute("transactionWList",sampleDAO.list("selectMem30Transactions",in));
+//		model.addAttribute("tradeList",sampleDAO.list("selectMem30TradeList",in));
+		String pidx = ""+info.get("parentsIdx");
+		EgovMap pinfo = (EgovMap) sampleDAO.select("selectMemberByIdx", pidx);
+		if(pidx.equals("-1") || pidx.equals("null") || pidx.isEmpty()) {
+			String gidx = ""+info.get("gparentsIdx");
+			if(gidx.equals("-1") || gidx.equals("null") || gidx.isEmpty()) {
+				gidx = "1";
+			}
+		}
+		
+		Member mem = Member.getMemberByIdx(idx);
+		ArrayList<Member> parents = Member.getParents(mem);
+		ArrayList<EgovMap> parentsMap = new ArrayList<>();
+		for(int i = parents.size()-1; i >= 0; i--){
+			EgovMap p = new EgovMap();
+			p.put("name",parents.get(i).getName());
+			p.put("level",parents.get(i).getLevel());
+			p.put("userIdx",parents.get(i).userIdx);
+			parentsMap.add(p);
+		}
+		
+		EgovMap coinWallet = new EgovMap();
+		coinWallet.put("USDT", mem.getWalletC("USDT"));
+		for(Coin coin : Project.getUseCoinList()){
+			coinWallet.put(coin.coinName, mem.getWalletC(coin.coinName));
+		}//coinWallet jsp에서 잔액 뿌리기
+		
+		model.addAttribute("chongs",Member.getMemberListMapToLevel("chong"));
+		model.addAttribute("parents", parentsMap);
+		model.addAttribute("pinfo", pinfo);
+		model.addAttribute("useCoin", Project.getUseCoinNames());
+		model.addAttribute("coinWallet", coinWallet);
+		model.addAttribute("project", Project.getPropertieMap());
+		model.addAttribute("xrpAccount",sampleDAO.select("selectXrpAccount"));
+		model.addAttribute("project",Project.getPropertieMap());
+		return "admin/usdsUserDetail";
+	}		
+	
+	@RequestMapping(value="/userDetail_old.do")
+	public String userDetail_old(HttpServletRequest request , Model model){
+		int idx = Integer.parseInt(""+request.getParameter("idx"));
+		EgovMap info = (EgovMap)sampleDAO.select("selectMemberDetail",idx);
+		String userLevel = ""+info.get("level");
+		EgovMap inlevel = new EgovMap();
+		inlevel.put("userLevel", userLevel);
+		
 		
 		EgovMap in = new EgovMap();		
 		model.addAttribute("info", info);

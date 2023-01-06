@@ -21,8 +21,7 @@
 			<div class="banner">
 				<div class="b_img login">
 					<div class="b_box">
-						<h1 class="heading">회원가입</h1>
-						<div>회원가입을 통해 <spring:message code="root.project"/>의 보험 서비스를 시작해보세요</div>
+						<h1 class="heading"><spring:message code="menu.register"/></h1>
 					</div>
 				</div>
 			</div>
@@ -35,63 +34,62 @@
 							<div class="r_step_area">
 								<div class="r_step on" id="subtitle1">
 									<div class="r_deco on"></div>
-									<div>1.약관동의</div>
+									<div>1.<spring:message code="join.termsAgree"/></div>
 								</div>
 								<div class="r_step" id="subtitle2">
 									<div class="r_deco"></div>
-									<div>2. 회원정보입력</div>
+									<div>2. <spring:message code="join.infoInput"/></div>
 								</div>
 								<div class="r_step" id="subtitle3">
 									<div class="r_deco"></div>
-									<div>3. 입력정보확인</div>
+									<div>3. <spring:message code="join.checkInfo"/></div>
 								</div>
 								<div class="r_step" id="subtitle4">
 									<div class="r_deco"></div>
-									<div>4.가입완료</div>
+									<div>4.<spring:message code="join.subscriptionComplete"/></div>
 								</div>
 							</div>
 							<div class="r_block" id="block1">
-								<div class="login_title">약관동의</div>
-								<div class="login_txt">홈페이지 회원가입을 위해서는 아래의 홈페이지 이용약관, 개인정보 수집 및 이용에 대한 정책을 읽어보시고 동의하셔야 합니다.</div>
-								<div class="login_title">홈페이지 이용약관</div>
-								<div class="r_term"> <div>홈페이지 이용약관 내용</div> </div>
+								<div class="login_title"><spring:message code="join.termsAgree"/></div>
+								<div class="login_txt"><spring:message code="join.infoInputTxt"/></div>
+								<div class="login_title"><spring:message code="support.tac"/></div>
+								<div class="r_term"> <div><spring:message code="support.tac"/></div> </div>
 								<div class="check_box" onclick="termsCheck('terms1')" style="cursor:pointer">
 									<div class="check_area" id="terms1Check"> <img src="/usdscash/webflow/images/check_whitesmokesvg.svg" loading="lazy" alt="" class="check_icon"> </div>
-									<div>위 홈페이지 이용약관에 대해 동의합니다.</div>
+									<div><spring:message code="copyNoti.tConsent" /></div>
 								</div>
-								<div class="login_title">개인정보 수집 및 이용에 대한 안내</div>
-								<div class="login_txt">홈페이지 일반회원가입을 위한 개인정보 수집 및 이용을 위하여 개인정보보호법 제15조 및 제22조에 따라 귀하의 동의를 받고자 합니다.</div>
-								<div class="r_term"> <div>개인정보 수집 및 이용에 대한 안내 내용</div> </div>
+								<div class="login_title"><spring:message code="menu.info"/></div>
+								<div class="login_txt"><spring:message code="join.infoTxt"/></div>
+								<div class="r_term"> <div><spring:message code="support.personalInfoText"/></div> </div>
 								<div class="check_box" onclick="termsCheck('terms2')" style="cursor:pointer">
 									<div class="check_area" id="terms2Check"> <img src="/usdscash/webflow/images/check_whitesmokesvg.svg" loading="lazy" alt="" class="check_icon"> </div>
-									<div>위 홈페이지 이용약관에 대해 동의합니다.</div>
+									<div><spring:message code="copyNoti.tConsent" /></div>
 								</div>
 								<div class="general_btn_area">
-									<a href="/usdscash/main.do" class="genral_btn _2 w-button">취소</a>
-									<a href="javascript:termsCheckAll()" class="genral_btn w-button">확인</a>
+									<a href="/usdscash/main.do" class="genral_btn _2 w-button"><spring:message code="wallet.cancel"/></a>
+									<a href="javascript:termsCheckAll()" class="genral_btn w-button"><spring:message code="wallet.confirm"/></a>
 								</div>
 							</div>
 							<div class="r_block" id="block2" style="display:none;">
-								<div class="login_title">회원정보입력</div>
-								<div class="login_txt"> <span class="star">*</span> 표시항목은 필수입력사항입니다(일반전화 제외) </div>
+								<div class="login_title"><spring:message code="join.infoInput"/></div>
 								<div class="r_general">
 									<div class="r_input_warp">
-										<div class="r_input_title"> <span class="star">*</span>이름 </div>
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.name" /> </div>
 										<div class="r_input_box">
 											<input type="text" class="login_input w-input" name="name" id="name">
 											<div class="regist_warn" id="nameTxt"></div>
 										</div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title"> <span class="star">*</span>아이디 </div>
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.id" /> </div>
 										<div class="r_input_box">
 											<input type="text" class="login_input w-input" name="id" id="id">
-											<a href="javascript:idCheck()" class="r_btn w-button" id="idBtn">중복확인</a>
+											<a href="javascript:idCheck()" class="r_btn w-button" id="idBtn"><spring:message code="join.idcheck" /></a>
 											<div class="regist_warn" id="idTxt"></div>
 										</div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title"> <span class="star">*</span>비밀번호 </div>
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.pw" /> </div>
 										<div class="r_input_box">
 											<input type="text" class="login_input w-input" name="pw" id="pw">
 											<div class="circle_brn" onclick="pwpopToggle()">?</div>
@@ -99,32 +97,32 @@
 										</div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title"> <span class="star">*</span>비밀번호 확인 </div>
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.pwConfirm" /> </div>
 										<div class="r_input_box">
 											<input type="text" class="login_input w-input" name="pwCheck" id="pwCheck">
 											<div class="regist_warn" id="pwCheckTxt"></div>
 										</div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title"> <span class="star">*</span>휴대폰번호 </div>
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.phone" /> </div>
 										<div class="r_input_box">
 											<input type="text" class="login_input w-input" name="phone1" id="phone1">
 											<div>-</div>
 											<input type="text" class="login_input w-input" name="phone2" id="phone2">
 											<div>-</div>
 											<input type="text" class="login_input w-input" name="phone3" id="phone3">
-											<a href="javascript:auth()" class="r_btn w-button" id="phoneBtn">문자 인증</a>
+											<a href="javascript:auth()" class="r_btn w-button" id="phoneBtn"><spring:message code="join.request" /></a>
 											<div class="regist_warn" id="phoneTxt"></div>
 										</div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title"> <span class="star">*</span>이메일 </div>
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.email" /> </div>
 										<div class="r_input_box">
 											<input type="text" class="login_input w-input" name="email1" id="email1">
 											<div>@</div>
 											<input type="text" class="login_input w-input" name="email2" id="email2">
 											<select class="login_input select w-select" onchange="email2Select(this)">
-												<option value="-1">직접입력</option>
+												<option value="-1"></option>
 												<option value="naver.com">naver.com</option>
 												<option value="hanmail.net">hanmail.net</option>
 												<option value="hotmail.com">hotmail.com</option>
@@ -142,51 +140,61 @@
 											<div class="regist_warn" id="emailTxt"></div>
 										</div>
 									</div>
+									<div class="r_input_warp">
+										<div class="r_input_title"> <span class="star">*</span><spring:message code="join.invite"/> </div>
+										<div class="r_input_box">
+											<input type="text" class="login_input w-input" name="inviteCode" id="inviteCode" value="${invi}">
+											<div class="regist_warn" id="emailTxt"></div>
+										</div>
+									</div>
 								</div>
 								<div class="general_btn_area">
-									<a href="javascript:step('1')" class="genral_btn _2 w-button">이전</a>
-									<a href="javascript:userData()" class="genral_btn w-button">확인</a>
+									<a href="javascript:step('1')" class="genral_btn _2 w-button"><spring:message code="affiliate.prev"/></a>
+									<a href="javascript:userData()" class="genral_btn w-button"><spring:message code="wallet.confirm"/></a>
 								</div>
 							</div>
 							<div class="r_block" id="block3" style="display:none;">
-								<div class="login_title">입력정보확인</div>
+								<div class="login_title"><spring:message code="join.checkInfo"/></div>
 								<div class="r_general">
 									<div class="r_input_warp">
-										<div class="r_input_title">이름</div>
+										<div class="r_input_title"><spring:message code="join.name" /></div>
 										<div class="r_input_box"> <div class="r_txt" id="jname"></div> </div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title">아이디</div>
+										<div class="r_input_title"><spring:message code="join.id" /></div>
 										<div class="r_input_box"> <div class="r_txt" id="jid"></div> </div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title">휴대폰번호</div>
+										<div class="r_input_title"><spring:message code="join.phone" /></div>
 										<div class="r_input_box"> <div class="r_txt" id="jphone"></div> </div>
 									</div>
 									<div class="r_input_warp">
-										<div class="r_input_title">이메일</div>
+										<div class="r_input_title"><spring:message code="join.email" /></div>
 										<div class="r_input_box"> <div class="r_txt" id="jemail"></div> </div>
 									</div>
 								</div>
 								<div class="general_btn_area">
-									<a href="javascript:step('2')" class="genral_btn _2 w-button">이전</a>
-									<a href="javascript:join()" class="genral_btn w-button">확인</a>
+									<a href="javascript:step('2')" class="genral_btn _2 w-button"><spring:message code="affiliate.prev"/></a>
+									<a href="javascript:join()" class="genral_btn w-button"><spring:message code="wallet.confirm"/></a>
 								</div>
 							</div>
 							<div class="r_block" id="block4" style="display:none;">
-								<div class="login_title">가입완료</div>
+								<div class="login_title"><spring:message code="join.subscriptionComplete"/></div>
 								<div class="r_general">
 									<div class="r_box _2">
-										<div class="complete"><strong><spring:message code="root.project"/></strong> 회원가입이 완료되었습니다.</div>
-										<div>로그인하신 후 서비스를 이용하실 수 있습니다.</div>
+										<div class="complete">
+											<strong><spring:message code="root.project"/></strong>
+											<spring:message code="join.subscriptionCompleteTxt"/>
+										</div>
+										<div><spring:message code="pop.show.login" /></div>
 										<img src="/usdscash/webflow/images/usds_logo_2.svg" loading="lazy" alt="" class="r_checkimg">
 									</div>
 									<div class="r_box">
-										<div>기타 문의사항은 이메일상담신청 또는 고객센터(0000-0000)로 연락 주시기 바랍니다.</div>
+										<div><spring:message code="pop.show.login"/></div>
 									</div>
 								</div>
 								<div class="general_btn_area">
-									<a href="/usdscash/login.do" class="genral_btn w-button">로그인</a>
+									<a href="/usdscash/login.do" class="genral_btn w-button"><spring:message code="menu.login" /></a>
 								</div>
 							</div>
 						</div>
@@ -204,7 +212,7 @@
 					</div>
 				</div>
 				<div class="pop_general">
-					<div class="pop_txt"> •"영문+숫자"조합 10자리 이상 또는 "영문+숫자+특수문자"조합 8자리 이상으로 입력하여 주시기 바랍니다.<br>• 동일한 단어 또는 숫자 반복은 사용 불가합니다.<br>• 사용자 아이디와 동일하게 사용 불가합니다. </div>
+					<div class="pop_txt"><spring:message code="join.pwTerms"/></div>
 				</div>
 			</div>
 		</div>
@@ -213,16 +221,16 @@
 				<div class="exsit_btn" onclick="authPopToggle()">
 					<img src="/usdscash/webflow/images/wx_black.png" loading="lazy" sizes="100vw" srcset="/usdscash/webflow/images/wx_black-p-500.png 500w, /usdscash/webflow/images/wx_black-p-800.png 800w, /usdscash/webflow/images/wx_black-p-1080.png 1080w, /usdscash/webflow/images/wx_black-p-1600.png 1600w, /usdscash/webflow/images/wx_black.png 1600w" alt="" class="exsit_icon">
 				</div>
-				<div class="login_title">휴대폰 인증</div>
+				<div class="login_title"><spring:message code="join.authenticate"/></div>
 				<div class="form-block w-form">
 					<form id="authForm" name="authForm">
-						<div class="l_title">인증번호</div>
+						<div class="l_title"><spring:message code="wallet.code"/></div>
 						<div class="l_inputbox">
 							<input type="text" class="input2 w-input" name="authCode" id="authCode">
 						</div>
 					</form>
 				</div>
-				<a href="javascript:authChk()" class="genral_btn w-button">확인</a>
+				<a href="javascript:authChk()" class="genral_btn w-button"><spring:message code="wallet.confirm"/></a>
 			</div>
 		</div>
 	</div>
@@ -237,7 +245,7 @@
 			url : "/usdscash/idCheck.do",
 			success:function(data){
 				if(data.result == "success"){
-					$("#idBtn").html("확인 완료");
+					$("#idBtn").html("<spring:message code='join.comfcode'/>");
 				}
 				else{
 					alert(data.msg);
@@ -280,7 +288,7 @@
 				}
 				else{
 					alert(data.msg);
-					$("#phoneBtn").html("인증 완료");
+					$("#phoneBtn").html("<spring:message code='join.comfcode'/>");
 				}
 			}
 		})
@@ -297,7 +305,7 @@
 					authCheck = true;
 					$("#phone").attr("readonly", "readonly");
 					$("#authBtn").attr("href", "#");
-					$("#authBtn").html("인증 완료");
+					$("#authBtn").html("<spring:message code='join.comfcode'/>");
 					$("#authPop").hide();
 				}
 			}
@@ -340,7 +348,7 @@
 		let terms1 = $("#terms1").val();
 		let terms2 = $("#terms2").val();
 		if(terms1==0 || terms2==0){
-			alert("약관에 모두 동의해주세요.");
+			alert("<spring:message code='copyNoti.tConsent_advice'/>");
 			return;
 		}
 		else{
@@ -350,7 +358,7 @@
 	
 	function userData(){
 		if(!authCheck){
-			alert("휴대폰번호 인증을 진행해주세요.");
+			alert("<spring:message code='join.phoneconfirm'/>");
 			return;
 		}
 		
@@ -379,7 +387,7 @@
 
 	function join(){
 		if(!authCheck){
-			alert("휴대폰번호 인증을 진행해주세요.");
+			alert("<spring:message code='join.phoneconfirm'/>");
 			return;
 		}
 		

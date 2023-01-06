@@ -72,7 +72,7 @@ function onAPIMessage(evt) {
 		$(".mainCoin" + cnum).find(".cvolume").html(jdata.data.v);
 		$(".mainCoin" + cnum).find(".chigh").html(jdata.data.h);
 		$(".mainCoin" + cnum).find(".clow").html(jdata.data.l);
-		$(".mainCoin" + cnum).find(".cchange").html(jdata.data.P+"");
+		$(".mainCoin" + cnum).find(".cchange").html(jdata.data.P+"%");
 		$(".mainCoin" + cnum).find(".cchange").removeClass("down");
 		$(".mainCoin" + cnum).find(".cchange").removeClass("up");
 		if(jdata.data.P < 0){

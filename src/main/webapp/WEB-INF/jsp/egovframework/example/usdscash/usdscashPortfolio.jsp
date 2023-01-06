@@ -16,7 +16,7 @@
 		<jsp:include page="../usdscashFrame/top2.jsp"></jsp:include>
 		<div class="article">
 			<div class="section">
-				<div class="ad_box"></div>
+				
 				<div class="p_section">
 					<div class="p_title_block">
 						<div class="p_title_warp">
@@ -107,7 +107,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="ad_box"></div>
+				
 			</div>
 		</div>
 		<jsp:include page="../usdscashFrame/footer2.jsp"></jsp:include>

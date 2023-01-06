@@ -53,14 +53,25 @@ public class AdminBoardController {
 		}
 		pi.setPageSize(10);
 		pi.setRecordCountPerPage(20);
+		
 		EgovMap in = new EgovMap();
 		in.put("first", pi.getFirstRecordIndex());
 		in.put("record", pi.getRecordCountPerPage());
 		in.put("bcategory", type);
+		
 		pi.setTotalRecordCount((int)sampleDAO.select("selectBoardListCnt",in));
 		model.addAttribute("list", sampleDAO.list("selectBoardList",in));
 		model.addAttribute("pi", pi);
 		model.addAttribute("type", type);
+		
+		AdminLog typeName = null;
+		switch(type){
+			case "notice": typeName = AdminLog.INSERT_NOTICE; break;
+			case "faq": typeName = AdminLog.INSERT_FAQ; break;
+			case "event": typeName = AdminLog.INSERT_EVENT; break;
+		}
+		model.addAttribute("typeName", typeName);
+		
 		return "admin/boardList";
 	}
 	

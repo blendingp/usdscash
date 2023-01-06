@@ -283,7 +283,7 @@ public class Send {
 	}
 	static Properties getTestProperties(){
 		Properties properties = new Properties();
-		properties.put("mail.smtp.user", "support@bitocean-global.com"); // 구글 계정
+		properties.put("mail.smtp.user", "support@usdscash.com"); // 구글 계정
 		properties.put("mail.smtp.host", "smtpout.secureserver.net");
 		properties.put("mail.smtp.port", "465");
 		properties.put("mail.smtp.starttls.enable", "true");
@@ -432,7 +432,7 @@ public class Send {
 			session.setDebug(true); // 메일을 전송할 때 상세한 상황을 콘솔에 출력한다.
 			MimeMessage msg = new MimeMessage(session);
 			msg.setSubject(Project.projectName+" - Email verification code");
-			Address fromAddr = new InternetAddress(ServerInfo.get().getEmailID()+"@bitocean-global.com"); // 보내는사람
+			Address fromAddr = new InternetAddress(ServerInfo.get().getEmailID()+"@usdscash.com"); // 보내는사람
 			msg.setFrom(fromAddr);
 			Address toAddr = new InternetAddress(email); // 받는사람 EMAIL
 			msg.addRecipient(Message.RecipientType.TO, toAddr);

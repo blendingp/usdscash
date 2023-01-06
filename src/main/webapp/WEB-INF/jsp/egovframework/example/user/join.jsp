@@ -38,7 +38,8 @@
 								</a>
 							</div>
 							<label class="title5"><spring:message code="join.name" /></label>
-							<input type="text" class="text-field-10 w-input" maxlength="30" name="name" placeholder="<spring:message code="join.nameTxt"/>" id="name"> <label class="title5"><spring:message code="join.pw" /></label> 
+							<input type="text" class="text-field-10 w-input" maxlength="30" name="name" placeholder="<spring:message code="join.nameTxt"/>" id="name">
+							<label class="title5"><spring:message code="join.pw" /></label> 
 							<input type="password" class="text-field-10 w-input" maxlength="20" name="pw" placeholder="<spring:message code="join.pWrong"/>" id="pw">
 							<label class="title5">
 							<spring:message code="join.pwConfirm" /></label> 

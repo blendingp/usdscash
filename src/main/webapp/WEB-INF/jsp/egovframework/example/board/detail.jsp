@@ -24,13 +24,29 @@
 					<div class="form-block w-form">
 						<div class="c_box">
 							<div class="cd_title" style="word-break: break-all;">
-								<div class="d_title">${item.btitle}</div>
-								<div class="d_date">${item.bdate }</div>
+								<c:if test="${type eq 'inquiry'}">
+									<div class="d_title">${item.title}</div>
+									<div class="d_date">${item.cdate }</div>
+								</c:if>
+								<c:if test="${type ne 'inquiry'}">
+									<div class="d_title">${item.btitle}</div>
+									<div class="d_date">${item.bdate }</div>
+								</c:if>
 							</div>
 							<div class="d_content">
 								<div style="word-break: break-all;">${text}</div>
 							</div>
 						</div>
+						<c:if test="${type eq 'inquiry' && item.adate ne null}">
+							<div class="c_box">
+								<div class="cd_title" style="word-break: break-all;">
+									<div class="d_date">${item.adate }</div>
+								</div>
+								<div class="d_content">
+									<div style="word-break: break-all;">${item.answer}</div>
+								</div>
+							</div>
+						</c:if>
 					</div>
 					<div class="general_btn_area">
 						<a href="/usdscash/board/${type}List.do" class="genral_btn w-button"><spring:message code="button.list" /></a>

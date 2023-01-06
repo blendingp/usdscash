@@ -142,6 +142,7 @@ public class BoardController {
 	@RequestMapping(value = "/board/{type}List.do")
 	public String notice(@PathVariable("type") String type, HttpServletRequest request, ModelMap model) throws Exception {
 		HttpSession session = request.getSession();
+		String userIdx = ""+session.getAttribute("userIdx");
 		int lang = 0;
 		if(session.getAttribute("lang") == null || session.getAttribute("lang").equals("EN")) lang = 1;
 		else if(session.getAttribute("lang").equals("JP")) lang = 2;
@@ -160,10 +161,20 @@ public class BoardController {
 		EgovMap in = new EgovMap();
 		in.put("first" , pi.getFirstRecordIndex());
 		in.put("record" , pi.getRecordCountPerPage());
+		in.put("userIdx", userIdx);		
 		in.put("bcategory", type);		
 		in.put("blang", lang);
-		pi.setTotalRecordCount((int)sampleDAO.select("selectBoardListCnt" , in));
-		List<?> list = (List<?>) sampleDAO.list("selectBoardList", in);
+		
+		List<?> list = null;
+		if(type.compareTo("inquiry")!=0){
+			pi.setTotalRecordCount((int)sampleDAO.select("selectBoardListCnt" , in));
+			list = (List<?>) sampleDAO.list("selectBoardList", in);
+		}
+		else{
+			pi.setTotalRecordCount((int)sampleDAO.select("selectContatListCnt" , in));
+			list = (List<?>) sampleDAO.list("selectContatListP", in);
+		}
+		
 		model.addAttribute("list", list);
 		model.addAttribute("pi", pi);
 		
@@ -182,10 +193,21 @@ public class BoardController {
 		}
 		
 		EgovMap in = new EgovMap();
-		in.put("bidx", bidx);
-		EgovMap ed = (EgovMap) sampleDAO.select("selectBoardDetail", in);
+
+		EgovMap ed = null;
+		String text = "";
+		if(type.compareTo("inquiry")!=0){
+			in.put("bidx", bidx);
+			ed = (EgovMap) sampleDAO.select("selectBoardDetail", in);
+			text = StringEscapeUtils.unescapeHtml3(ed.get("bcontent").toString());
+		}
+		else{
+			in.put("idx", bidx);
+			ed = (EgovMap) sampleDAO.select("selectContactDetail", in);
+			text = StringEscapeUtils.unescapeHtml3(ed.get("content").toString());
+		}
 		model.addAttribute("item", ed);		
-		model.addAttribute("text", StringEscapeUtils.unescapeHtml3(ed.get("bcontent").toString()));		
+		model.addAttribute("text", text);		
 		model.addAttribute("type", type);		
 		return "board/detail";
 	}
@@ -200,8 +222,17 @@ public class BoardController {
 		obj.put("result", "fail");
 		
 		EgovMap in = new EgovMap();
+
+		EgovMap ed = null;
+		if(type.compareTo("inquiry")!=0){
+			in.put("bidx", bidx);
+			ed = (EgovMap) sampleDAO.select("selectBoardDetail", in);
+		}
+		else{
+			in.put("idx", bidx);
+			ed = (EgovMap) sampleDAO.select("selectContactDetail", in);
+		}
 		in.put("bidx", bidx);
-		EgovMap ed = (EgovMap) sampleDAO.select("selectBoardDetail", in);
 		
 		if(ed==null){
 			obj.put("msg", Message.get().msg(messageSource, "pop.no.detail", request));

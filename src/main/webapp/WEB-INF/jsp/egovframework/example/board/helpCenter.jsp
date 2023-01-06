@@ -17,7 +17,7 @@
 				<div class="banner">
 					<div class="b_img custermer">
 						<div class="b_box">
-							<h1 class="heading"> <spring:message code="menu.sandm" /> </h1>
+							<h1 class="heading"> <spring:message code="menu.inquiry" /> </h1>
 						</div>
 					</div>
 				</div>
@@ -25,7 +25,6 @@
 					<div class="c_section1">
 						<div class="form-block w-form">
 							<form id="contactForm" name="contactForm" method="post" enctype="multipart/form-data" class="form-6">
-								<h2 class="c_title">상담신청 정보 입력</h2>
 								<div class="question_box2">
 									<div class="q_warp">
 										<div class="q_title"> <spring:message code="support.subject" /> </div>
@@ -102,7 +101,7 @@
 			success : function(data) {
 				if (data.result != 'fail') {
 					alert("<spring:message code='menu.inquiryComplete'/>");
-					location.reload();
+					location.href='/usdscash/board/inquiryList.do';
 				} else {
 					alert(data.msg);
 				}
